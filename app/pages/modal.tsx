@@ -1,10 +1,10 @@
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { Modal } from '@reactkit/ui/ui/Modal'
-import { Opener } from '@reactkit/ui/ui/Opener'
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
+import { ExternalLink } from '@georgian/ui/navigation/Link/ExternalLink'
+import { Modal } from '@georgian/ui/ui/Modal'
+import { Opener } from '@georgian/ui/ui/Opener'
+import { HStack, VStack } from '@georgian/ui/ui/Stack'
+import { Text } from '@georgian/ui/ui/Text'
 import { DemoPage } from 'components/DemoPage'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { Button } from '@georgian/ui/ui/buttons/Button'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

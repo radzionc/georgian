@@ -5,8 +5,8 @@ import { SvgArc } from './SvgArc'
 import { SvgDisk } from './SvgDisk'
 import { PieChartLabel } from './PieChartLabel'
 import { HSLA } from '../colors/HSLA'
-import { sum } from '@reactkit/utils/array/sum'
-import { degreesInCircle } from '@reactkit/utils/degreesToRadians'
+import { sum } from '@georgian/utils/array/sum'
+import { degreesInCircle } from '@georgian/utils/degreesToRadians'
 
 export interface PieChartItem {
   value: number

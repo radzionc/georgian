@@ -1,22 +1,22 @@
 import { UseFormReturn, useFieldArray } from 'react-hook-form'
-import { FormSection } from '@reactkit/ui/ui/Form/FormSection'
+import { FormSection } from '@georgian/ui/ui/Form/FormSection'
 
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
-import { Line } from '@reactkit/ui/ui/Line'
+import { HStack, VStack } from '@georgian/ui/ui/Stack'
+import { Line } from '@georgian/ui/ui/Line'
 import styled from 'styled-components'
-import { Text } from '@reactkit/ui/ui/Text'
-import { TextArea } from '@reactkit/ui/ui/inputs/TextArea'
-import { TextInput } from '@reactkit/ui/ui/inputs/TextInput'
-import { Circle } from '@reactkit/ui/ui/Circle'
+import { Text } from '@georgian/ui/ui/Text'
+import { TextArea } from '@georgian/ui/ui/inputs/TextArea'
+import { TextInput } from '@georgian/ui/ui/inputs/TextInput'
+import { Circle } from '@georgian/ui/ui/Circle'
 import {
   emptyExperience,
   JobApplicationFormShape,
   responsibilityMaxLength,
 } from './jobApplicationForm'
-import { TrashIcon } from '@reactkit/ui/ui/icons/TrashIcon'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
-import { IconButton } from '@reactkit/ui/ui/buttons/IconButton'
+import { TrashIcon } from '@georgian/ui/ui/icons/TrashIcon'
+import { Button } from '@georgian/ui/ui/buttons/Button'
+import { getColor } from '@georgian/ui/ui/theme/getters'
+import { IconButton } from '@georgian/ui/ui/buttons/IconButton'
 
 export interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

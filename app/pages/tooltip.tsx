@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
-import { Tooltip } from '@reactkit/ui/ui/Tooltip'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Tooltip } from '@georgian/ui/ui/Tooltip'
+import { Text } from '@georgian/ui/ui/Text'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

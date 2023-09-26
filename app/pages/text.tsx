@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
-import { VStack } from '@reactkit/ui/ui/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
+import { VStack } from '@georgian/ui/ui/Stack'
+import { Text } from '@georgian/ui/ui/Text'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

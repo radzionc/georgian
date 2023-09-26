@@ -1,5 +1,5 @@
-import { debounce } from '@reactkit/utils/debounce'
-import { pick } from '@reactkit/utils/pick'
+import { debounce } from '@georgian/utils/debounce'
+import { pick } from '@georgian/utils/pick'
 import { useLayoutEffect, useState } from 'react'
 
 export interface ElementSize {

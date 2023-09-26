@@ -1,9 +1,9 @@
-import { getViewSetup } from '@reactkit/ui/view/getViewSetup'
+import { getViewSetup } from '@georgian/ui/view/getViewSetup'
 import styled from 'styled-components'
-import { ViewSelector } from '@reactkit/ui/ui/inputs/Select/ViewSelector'
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { ViewSelector } from '@georgian/ui/ui/inputs/Select/ViewSelector'
+import { VStack } from '@georgian/ui/ui/Stack'
 import { DemoPage } from 'components/DemoPage'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { Panel } from '@georgian/ui/ui/Panel/Panel'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export const views = ['primary', 'attention'] as const

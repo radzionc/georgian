@@ -1,8 +1,8 @@
-import { useStartOfDay } from '@reactkit/ui/hooks/useStartOfDay'
-import { MS_IN_HOUR } from '@reactkit/utils/time'
-import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { TimeInput } from '@reactkit/ui/ui/timeline/TimeInput'
+import { useStartOfDay } from '@georgian/ui/hooks/useStartOfDay'
+import { MS_IN_HOUR } from '@georgian/utils/time'
+import { TitledSection } from '@georgian/ui/ui/Layout/TitledSection'
+import { Panel } from '@georgian/ui/ui/Panel/Panel'
+import { TimeInput } from '@georgian/ui/ui/timeline/TimeInput'
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
 

@@ -8,7 +8,7 @@ import { Tooltip } from '../Tooltip'
 import { defaultTransitionCSS } from '../animations/transitions'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { UnstyledButton } from './UnstyledButton'
-import { match } from '@reactkit/utils/match'
+import { match } from '@georgian/utils/match'
 import { centerContent } from '../../css/centerContent'
 import { horizontalPadding } from '../../css/horizontalPadding'
 

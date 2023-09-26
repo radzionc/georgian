@@ -1,7 +1,7 @@
 import { isProduction } from 'shared'
-import { shouldBeDefined } from '@reactkit/utils/shouldBeDefined'
-import { AmplitudeAnalytics } from '@reactkit/ui/analytics/AmplitudeAnalytics'
-import { LocalAnalytics } from '@reactkit/ui/analytics/LocalAnalytics'
+import { shouldBeDefined } from '@georgian/utils/shouldBeDefined'
+import { AmplitudeAnalytics } from '@georgian/ui/analytics/AmplitudeAnalytics'
+import { LocalAnalytics } from '@georgian/ui/analytics/LocalAnalytics'
 
 export const analytics = isProduction
   ? new AmplitudeAnalytics(

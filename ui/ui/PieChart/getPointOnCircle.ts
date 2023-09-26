@@ -1,4 +1,4 @@
-import { degreesToRadians } from '@reactkit/utils/degreesToRadians'
+import { degreesToRadians } from '@georgian/utils/degreesToRadians'
 import { Point } from '../../entities/Point'
 
 export const getPointOnCircle = (

@@ -1,8 +1,8 @@
 import {
   CountryCode,
   countryNameRecord,
-} from '@reactkit/utils/countryNameRecord'
-import { getCountryFlagEmoji } from '@reactkit/utils/getCountryFlagEmoji'
+} from '@georgian/utils/countryNameRecord'
+import { getCountryFlagEmoji } from '@georgian/utils/getCountryFlagEmoji'
 
 interface CountryFlagEmojiProps {
   code?: CountryCode

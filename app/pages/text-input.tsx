@@ -1,15 +1,15 @@
-import { Form } from '@reactkit/ui/ui/Form/Form'
-import { TextInput } from '@reactkit/ui/ui/inputs/TextInput'
+import { Form } from '@georgian/ui/ui/Form/Form'
+import { TextInput } from '@georgian/ui/ui/inputs/TextInput'
 import { Controller, useForm } from 'react-hook-form'
-import { TextArea } from '@reactkit/ui/ui/inputs/TextArea'
+import { TextArea } from '@georgian/ui/ui/inputs/TextArea'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { DemoPage } from 'components/DemoPage'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
-import { AmountTextInput } from '@reactkit/ui/ui/inputs/AmountTextInput'
-import { DollarIcon } from '@reactkit/ui/ui/icons/DollarIcon'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { Panel } from '@georgian/ui/ui/Panel/Panel'
+import { TitledSection } from '@georgian/ui/ui/Layout/TitledSection'
+import { AmountTextInput } from '@georgian/ui/ui/inputs/AmountTextInput'
+import { DollarIcon } from '@georgian/ui/ui/icons/DollarIcon'
+import { Button } from '@georgian/ui/ui/buttons/Button'
 
 interface FormShape {
   name: string

@@ -1,12 +1,12 @@
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { HStack, VStack } from '@georgian/ui/ui/Stack'
 import { DemoPage } from 'components/DemoPage'
-import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
+import { TitledSection } from '@georgian/ui/ui/Layout/TitledSection'
 import {
   IconButton,
   iconButtonKinds,
   iconButtonSizes,
-} from '@reactkit/ui/ui/buttons/IconButton'
-import { SettingsIcon } from '@reactkit/ui/ui/icons/SettingsIcon'
+} from '@georgian/ui/ui/buttons/IconButton'
+import { SettingsIcon } from '@georgian/ui/ui/icons/SettingsIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

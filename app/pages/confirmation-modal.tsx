@@ -1,11 +1,11 @@
 import { DemoPage } from 'components/DemoPage'
-import { ConfirmationModal } from '@reactkit/ui/ui/Modal/ConfirmationModal'
-import { Opener } from '@reactkit/ui/ui/Opener'
-import { VStack } from '@reactkit/ui/ui/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
-import { ShyTextButton } from '@reactkit/ui/ui/buttons/ShyTextButton'
-import { IconButton } from '@reactkit/ui/ui/buttons/IconButton'
-import { TrashBinIcon } from '@reactkit/ui/ui/icons/TrashBinIcon'
+import { ConfirmationModal } from '@georgian/ui/ui/Modal/ConfirmationModal'
+import { Opener } from '@georgian/ui/ui/Opener'
+import { VStack } from '@georgian/ui/ui/Stack'
+import { Text } from '@georgian/ui/ui/Text'
+import { ShyTextButton } from '@georgian/ui/ui/buttons/ShyTextButton'
+import { IconButton } from '@georgian/ui/ui/buttons/IconButton'
+import { TrashBinIcon } from '@georgian/ui/ui/icons/TrashBinIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

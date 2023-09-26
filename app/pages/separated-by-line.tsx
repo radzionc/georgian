@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
-import { Text } from '@reactkit/ui/ui/Text'
-import { SeparatedByLine } from '@reactkit/ui/ui/SeparatedByLine'
+import { Text } from '@georgian/ui/ui/Text'
+import { SeparatedByLine } from '@georgian/ui/ui/SeparatedByLine'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

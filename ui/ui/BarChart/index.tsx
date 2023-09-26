@@ -8,7 +8,7 @@ import { HSLA } from '../colors/HSLA'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { Text } from '../Text'
 import { getColor } from '../theme/getters'
-import { toPercents } from '@reactkit/utils/toPercents'
+import { toPercents } from '@georgian/utils/toPercents'
 import { centerContent } from '../../css/centerContent'
 
 export interface BarChartItem {

@@ -1,4 +1,4 @@
-import { TreeNode } from '@reactkit/utils/tree'
+import { TreeNode } from '@georgian/utils/tree'
 import { HabitId } from './habits'
 
 export interface HabitTreeNodeValue {

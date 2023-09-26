@@ -1,4 +1,4 @@
-import { degreesInCircle } from '@reactkit/utils/degreesToRadians'
+import { degreesInCircle } from '@georgian/utils/degreesToRadians'
 import { getPointOnCircle } from './getPointOnCircle'
 import styled from 'styled-components'
 

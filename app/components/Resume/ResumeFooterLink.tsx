@@ -1,8 +1,8 @@
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { defaultTransitionCSS } from '@reactkit/ui/ui/animations/transitions'
-import { HStack } from '@reactkit/ui/ui/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
+import { ExternalLink } from '@georgian/ui/navigation/Link/ExternalLink'
+import { defaultTransitionCSS } from '@georgian/ui/ui/animations/transitions'
+import { HStack } from '@georgian/ui/ui/Stack'
+import { Text } from '@georgian/ui/ui/Text'
+import { getColor } from '@georgian/ui/ui/theme/getters'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 

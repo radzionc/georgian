@@ -1,12 +1,12 @@
-import { Form } from '@reactkit/ui/ui/Form/Form'
-import { TextInput } from '@reactkit/ui/ui/inputs/TextInput'
-import { TextArea } from '@reactkit/ui/ui/inputs/TextArea'
-import { FormSection } from '@reactkit/ui/ui/Form/FormSection'
+import { Form } from '@georgian/ui/ui/Form/Form'
+import { TextInput } from '@georgian/ui/ui/inputs/TextInput'
+import { TextArea } from '@georgian/ui/ui/inputs/TextArea'
+import { FormSection } from '@georgian/ui/ui/Form/FormSection'
 import { bioMaxLength, useJobApplicationForm } from './jobApplicationForm'
 import { ExperienceSection } from './ExperienceSection'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { Panel } from '@georgian/ui/ui/Panel/Panel'
+import { TitledSection } from '@georgian/ui/ui/Layout/TitledSection'
+import { Button } from '@georgian/ui/ui/buttons/Button'
 
 export const JobApplication = () => {
   const form = useJobApplicationForm()

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useIsomorphicLayoutEffect } from 'react-use'
-import { pick } from '@reactkit/utils/pick'
-import { areEqual } from '@reactkit/utils/areEqual'
+import { pick } from '@georgian/utils/pick'
+import { areEqual } from '@georgian/utils/areEqual'
 
 export type BoundingBox = Omit<DOMRect, 'toJSON'>
 

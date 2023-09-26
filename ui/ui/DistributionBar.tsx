@@ -8,8 +8,8 @@ import { Panel } from './Panel/Panel'
 import { VStack } from './Stack'
 import { Text } from './Text'
 import { getColor } from './theme/getters'
-import { sum } from '@reactkit/utils/array/sum'
-import { toPercents } from '@reactkit/utils/toPercents'
+import { sum } from '@georgian/utils/array/sum'
+import { toPercents } from '@georgian/utils/toPercents'
 
 export interface DistributionBarItem {
   value: number

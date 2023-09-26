@@ -6,7 +6,7 @@ import { UIComponentProps } from '../props'
 import {
   CountryCode,
   countryNameRecord,
-} from '@reactkit/utils/countryNameRecord'
+} from '@georgian/utils/countryNameRecord'
 import { centerContent } from '../css/centerContent'
 
 interface CountryFlagProps extends UIComponentProps {

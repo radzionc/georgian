@@ -1,9 +1,9 @@
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@georgian/ui/ui/Stack'
 import { DemoPage } from 'components/DemoPage'
-import { ExpandablePanel } from '@reactkit/ui/ui/Panel/ExpandablePanel'
-import { Text } from '@reactkit/ui/ui/Text'
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { ExpandablePanel } from '@georgian/ui/ui/Panel/ExpandablePanel'
+import { Text } from '@georgian/ui/ui/Text'
+import { ExternalLink } from '@georgian/ui/navigation/Link/ExternalLink'
+import { Button } from '@georgian/ui/ui/buttons/Button'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

@@ -1,9 +1,9 @@
-import { range } from '@reactkit/utils/array/range'
-import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRow'
-import { Line } from '@reactkit/ui/ui/Line'
+import { range } from '@georgian/utils/array/range'
+import { SameWidthChildrenRow } from '@georgian/ui/ui/Layout/SameWidthChildrenRow'
+import { Line } from '@georgian/ui/ui/Line'
 import { useTheme } from 'styled-components'
 import { ColorItem } from './ColorItem'
-import { labelColorsCount } from '@reactkit/ui/ui/colors/generateLabelColorGetter'
+import { labelColorsCount } from '@georgian/ui/ui/colors/generateLabelColorGetter'
 
 export const ColorList = () => {
   const {

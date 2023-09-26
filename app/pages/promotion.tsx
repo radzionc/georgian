@@ -1,9 +1,9 @@
 import { DemoPage } from 'components/DemoPage'
-import { InteractivePromotion } from '@reactkit/ui/ui/InteractivePromotion'
+import { InteractivePromotion } from '@georgian/ui/ui/InteractivePromotion'
 import styled from 'styled-components'
 
-import { ShowAfterDelay } from '@reactkit/ui/ui/ShowAfterDelay'
-import { takeWholeSpace } from '@reactkit/ui/css/takeWholeSpace'
+import { ShowAfterDelay } from '@georgian/ui/ui/ShowAfterDelay'
+import { takeWholeSpace } from '@georgian/ui/css/takeWholeSpace'
 import { PersistentStateKey, usePersistentState } from 'state/persistentState'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

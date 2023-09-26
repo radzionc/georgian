@@ -1,5 +1,5 @@
 {
-  "name": "@reactkit/app",
+  "name": "@georgian/app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,8 +11,8 @@
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",
     "@emoji-mart/react": "^1.1.1",
+    "@georgian/ui": "workspace:*",
     "@hookform/resolvers": "^2.9.7",
-    "@reactkit/ui": "workspace:*",
     "date-fns": "^2.30.0",
     "emoji-mart": "^5.5.2",
     "next": "^13.4.12",

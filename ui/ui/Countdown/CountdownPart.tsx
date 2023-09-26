@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Center } from '../Center'
 import { HStack } from '../Stack'
 import { Text } from '../Text'
-import { padWithZero } from '@reactkit/utils/padWithZero'
+import { padWithZero } from '@georgian/utils/padWithZero'
 
 interface Props {
   value: number

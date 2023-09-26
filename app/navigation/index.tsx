@@ -1,5 +1,5 @@
-import { ComponentWithChildrenProps } from '@reactkit/ui/props'
-import { SidebarNavigation } from '@reactkit/ui/ui/Navigation/SidebarNavigation'
+import { ComponentWithChildrenProps } from '@georgian/ui/props'
+import { SidebarNavigation } from '@georgian/ui/ui/Navigation/SidebarNavigation'
 import { Logo } from './Logo'
 import { NavigationItems } from './NavigationItems'
 

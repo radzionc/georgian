@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
-import { HStack } from '@reactkit/ui/ui/Stack'
-import { Tag } from '@reactkit/ui/ui/Tag'
+import { HStack } from '@georgian/ui/ui/Stack'
+import { Tag } from '@georgian/ui/ui/Tag'
 import { useTheme } from 'styled-components'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

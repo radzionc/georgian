@@ -1,4 +1,4 @@
-import { DistributionBar } from '@reactkit/ui/ui/DistributionBar'
+import { DistributionBar } from '@georgian/ui/ui/DistributionBar'
 import { DemoPage } from 'components/DemoPage'
 import { useTheme } from 'styled-components'
 import { makeDemoPage } from 'layout/makeDemoPage'

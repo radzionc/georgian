@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { Center } from '@reactkit/ui/ui/Center'
-import { ElementSizeAware } from '@reactkit/ui/ui/ElementSizeAware'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Center } from '@georgian/ui/ui/Center'
+import { ElementSizeAware } from '@georgian/ui/ui/ElementSizeAware'
+import { Text } from '@georgian/ui/ui/Text'
 import { DemoPage } from 'components/DemoPage'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { Panel } from '@georgian/ui/ui/Panel/Panel'
 import { makeDemoPage } from 'layout/makeDemoPage'
-import { takeWholeSpace } from '@reactkit/ui/css/takeWholeSpace'
+import { takeWholeSpace } from '@georgian/ui/css/takeWholeSpace'
 
 const Container = styled(Panel)`
   ${takeWholeSpace}

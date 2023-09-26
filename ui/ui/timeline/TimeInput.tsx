@@ -11,9 +11,9 @@ import { Text } from '../Text'
 import { HourSpace } from './HourSpace'
 import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
 import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
-import { formatDuration } from '@reactkit/utils/time/formatDuration'
-import { enforceRange } from '@reactkit/utils/enforceRange'
-import { MS_IN_HOUR, MS_IN_MIN } from '@reactkit/utils/time'
+import { formatDuration } from '@georgian/utils/time/formatDuration'
+import { enforceRange } from '@georgian/utils/enforceRange'
+import { MS_IN_HOUR, MS_IN_MIN } from '@georgian/utils/time'
 import { verticalMargin } from '../../css/verticalMargin'
 
 export interface TimeInputProps {

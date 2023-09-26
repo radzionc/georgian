@@ -7,7 +7,7 @@ import {
   InvisibleHTMLSliderProps,
   InvisibleHTMLSlider,
 } from './InvisibleHtmlSlider'
-import { toPercents } from '@reactkit/utils/toPercents'
+import { toPercents } from '@georgian/utils/toPercents'
 import { centerContent } from '../../../css/centerContent'
 import { sameDimensions } from '../../../css/sameDimensions'
 import { toSizeUnit } from '../../../css/toSizeUnit'

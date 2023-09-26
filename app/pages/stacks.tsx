@@ -1,10 +1,10 @@
 import styled, { useTheme } from 'styled-components'
-import { HSLA } from '@reactkit/ui/ui/colors/HSLA'
+import { HSLA } from '@georgian/ui/ui/colors/HSLA'
 
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
-import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
+import { HStack, VStack } from '@georgian/ui/ui/Stack'
+import { sameDimensions } from '@georgian/ui/css/sameDimensions'
 import { DemoPage } from 'components/DemoPage'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { Panel } from '@georgian/ui/ui/Panel/Panel'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 const Conent = styled(Panel)<{ $color: HSLA }>`

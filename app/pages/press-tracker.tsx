@@ -1,10 +1,10 @@
 import { DemoPage } from 'components/DemoPage'
 import styled from 'styled-components'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
-import { PressTracker } from '@reactkit/ui/ui/PressTracker'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
-import { toPercents } from '@reactkit/utils/toPercents'
+import { Panel } from '@georgian/ui/ui/Panel/Panel'
+import { sameDimensions } from '@georgian/ui/css/sameDimensions'
+import { PressTracker } from '@georgian/ui/ui/PressTracker'
+import { getColor } from '@georgian/ui/ui/theme/getters'
+import { toPercents } from '@georgian/utils/toPercents'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 const Container = styled(Panel)`

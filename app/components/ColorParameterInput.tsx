@@ -1,17 +1,17 @@
-import { range } from '@reactkit/utils/array/range'
-import { toPercents } from '@reactkit/utils/toPercents'
-import { PressTracker } from '@reactkit/ui/ui/PressTracker'
-import { defaultTransition } from '@reactkit/ui/ui/animations/transitions'
+import { range } from '@georgian/utils/array/range'
+import { toPercents } from '@georgian/utils/toPercents'
+import { PressTracker } from '@georgian/ui/ui/PressTracker'
+import { defaultTransition } from '@georgian/ui/ui/animations/transitions'
 import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,
-} from '@reactkit/ui/ui/inputs/Slider/InvisibleHtmlSlider'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
-import { centerContent } from '@reactkit/ui/css/centerContent'
-import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
+} from '@georgian/ui/ui/inputs/Slider/InvisibleHtmlSlider'
+import { getColor } from '@georgian/ui/ui/theme/getters'
+import { centerContent } from '@georgian/ui/css/centerContent'
+import { sameDimensions } from '@georgian/ui/css/sameDimensions'
 import styled from 'styled-components'
-import { interactive } from '@reactkit/ui/css/interactive'
-import { toSizeUnit } from '@reactkit/ui/css/toSizeUnit'
+import { interactive } from '@georgian/ui/css/interactive'
+import { toSizeUnit } from '@georgian/ui/css/toSizeUnit'
 
 export interface ColorParameterInputProps
   extends Omit<InvisibleHTMLSliderProps, 'min'> {

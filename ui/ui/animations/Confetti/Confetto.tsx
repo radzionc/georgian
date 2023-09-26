@@ -3,8 +3,8 @@ import { SpringValue, animated, to } from '@react-spring/web'
 import styled from 'styled-components'
 import { Point } from '../../../entities/Point'
 import { HSLA } from '../../colors/HSLA'
-import { getRandomElement } from '@reactkit/utils/array/getRandomElement'
-import { randomInRange } from '@reactkit/utils/randomInRange'
+import { getRandomElement } from '@georgian/utils/array/getRandomElement'
+import { randomInRange } from '@georgian/utils/randomInRange'
 import { sameDimensions } from '../../../css/sameDimensions'
 
 const Container = animated(styled.svg`

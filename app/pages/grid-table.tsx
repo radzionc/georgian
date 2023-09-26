@@ -1,9 +1,9 @@
 import { Fragment } from 'react'
 import styled from 'styled-components'
-import { HStack } from '@reactkit/ui/ui/Stack'
-import { TableLayout } from '@reactkit/ui/ui/TableLayout'
-import { Text } from '@reactkit/ui/ui/Text'
-import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
+import { HStack } from '@georgian/ui/ui/Stack'
+import { TableLayout } from '@georgian/ui/ui/TableLayout'
+import { Text } from '@georgian/ui/ui/Text'
+import { sameDimensions } from '@georgian/ui/css/sameDimensions'
 import { DemoPage } from 'components/DemoPage'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

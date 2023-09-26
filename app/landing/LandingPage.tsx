@@ -1,16 +1,16 @@
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@georgian/ui/ui/Stack'
 import styled from 'styled-components'
 import { LandingPageHeader } from './LandingPageHeader'
-import { Center } from '@reactkit/ui/ui/Center'
-import { Text } from '@reactkit/ui/ui/Text'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
+import { Center } from '@georgian/ui/ui/Center'
+import { Text } from '@georgian/ui/ui/Text'
+import { Button } from '@georgian/ui/ui/buttons/Button'
+import { ExternalLink } from '@georgian/ui/navigation/Link/ExternalLink'
 import {
   increaserUrl,
   productGitHubUrl,
   productYouTubeChannelUrl,
 } from 'product/resources'
-import { ShyTextButton } from '@reactkit/ui/ui/buttons/ShyTextButton'
+import { ShyTextButton } from '@georgian/ui/ui/buttons/ShyTextButton'
 
 const Container = styled(VStack)`
   height: 100%;
@@ -28,7 +28,7 @@ export const LandingPage = () => {
       <Content>
         <VStack style={{ maxWidth: 480 }} alignItems="center" gap={24}>
           <Text color="contrast" as="h1" centered size={32}>
-            Build React Apps Faster with ReactKit's Components System & Monorepo
+            Build React Apps Faster with Georgian's Components System & Monorepo
           </Text>
           <ExternalLink to={productGitHubUrl}>
             <Button kind="reversed" size="l">

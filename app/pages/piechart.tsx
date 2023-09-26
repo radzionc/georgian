@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { useTheme } from 'styled-components'
-import { PieChart } from '@reactkit/ui/ui/PieChart'
+import { PieChart } from '@georgian/ui/ui/PieChart'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

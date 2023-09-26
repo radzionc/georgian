@@ -1,11 +1,11 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
-import { VStack } from '@reactkit/ui/ui/Stack'
-import { ChecklistItem } from '@reactkit/ui/ui/checklist/ChecklistItem'
-import { Opener } from '@reactkit/ui/ui/Opener'
-import { AddChecklistItemPrompt } from '@reactkit/ui/ui/checklist/AddChecklistItemPrompt'
-import { ChecklistItemForm } from '@reactkit/ui/ui/checklist/ChecklistItemForm'
-import { updateAtIndex } from '@reactkit/utils/array/updateAtIndex'
+import { VStack } from '@georgian/ui/ui/Stack'
+import { ChecklistItem } from '@georgian/ui/ui/checklist/ChecklistItem'
+import { Opener } from '@georgian/ui/ui/Opener'
+import { AddChecklistItemPrompt } from '@georgian/ui/ui/checklist/AddChecklistItemPrompt'
+import { ChecklistItemForm } from '@georgian/ui/ui/checklist/ChecklistItemForm'
+import { updateAtIndex } from '@georgian/utils/array/updateAtIndex'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 interface Task {

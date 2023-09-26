@@ -7,7 +7,7 @@ import { defaultTransitionCSS } from '../animations/transitions'
 import { Text } from '../Text'
 import { handleWithStopPropagation } from '../../shared/events'
 import { InputProps } from '../../props'
-import { TreeNode } from '@reactkit/utils/tree'
+import { TreeNode } from '@georgian/utils/tree'
 import { verticalPadding } from '../../css/verticalPadding'
 
 interface TreeFilterProps<T> extends InputProps<number[]> {

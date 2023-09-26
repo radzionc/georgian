@@ -1,10 +1,10 @@
 import { DemoPage } from 'components/DemoPage'
-import { Checkbox } from '@reactkit/ui/ui/inputs/Checkbox/Checkbox'
+import { Checkbox } from '@georgian/ui/ui/inputs/Checkbox/Checkbox'
 import { useState } from 'react'
-import { VStack } from '@reactkit/ui/ui/Stack'
-import { TimeoutMessage } from '@reactkit/ui/ui/TimeoutMessage'
-import { Text } from '@reactkit/ui/ui/Text'
-import { InfoIcon } from '@reactkit/ui/ui/icons/InfoIcon'
+import { VStack } from '@georgian/ui/ui/Stack'
+import { TimeoutMessage } from '@georgian/ui/ui/TimeoutMessage'
+import { Text } from '@georgian/ui/ui/Text'
+import { InfoIcon } from '@georgian/ui/ui/icons/InfoIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

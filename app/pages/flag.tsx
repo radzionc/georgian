@@ -1,16 +1,16 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
-import { TabNavigation } from '@reactkit/ui/ui/TabNavigation'
-import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { TabNavigation } from '@georgian/ui/ui/TabNavigation'
+import { capitalizeFirstLetter } from '@georgian/utils/capitalizeFirstLetter'
+import { HStack, VStack } from '@georgian/ui/ui/Stack'
 import {
   CountryCode,
   countryNameRecord,
-} from '@reactkit/utils/countryNameRecord'
-import { Match } from '@reactkit/ui/ui/Match'
-import { Text } from '@reactkit/ui/ui/Text'
-import { CountryFlag } from '@reactkit/ui/country/CountryFlag'
-import { CountryFlagEmoji } from '@reactkit/ui/country/CountryFlagEmoji'
+} from '@georgian/utils/countryNameRecord'
+import { Match } from '@georgian/ui/ui/Match'
+import { Text } from '@georgian/ui/ui/Text'
+import { CountryFlag } from '@georgian/ui/country/CountryFlag'
+import { CountryFlagEmoji } from '@georgian/ui/country/CountryFlagEmoji'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 const views = ['svg', 'emoji'] as const

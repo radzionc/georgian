@@ -1,12 +1,12 @@
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
+import { HStack, VStack } from '@georgian/ui/ui/Stack'
+import { Text } from '@georgian/ui/ui/Text'
 import { useRef } from 'react'
 import { ResumeContainer } from './ResumeContainer'
 import { PrintResume } from './PrintResume'
 import {
   StackSeparatedBy,
   dotSeparator,
-} from '@reactkit/ui/ui/StackSeparatedBy'
+} from '@georgian/ui/ui/StackSeparatedBy'
 import { ExperienceList } from './ExperienceList'
 import { JobExperience } from './JobExperience'
 import { PersonalProject } from './PersonalProject'
@@ -167,7 +167,7 @@ export const Resume = () => {
             description="Toolkit for faster front-end development"
             name="React Kit"
             achievement="12 stars"
-            url="https://reactkit.radzion.com"
+            url="https://georgian.radzion.com"
           />
         </VStack>
       </ExperienceList>

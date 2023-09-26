@@ -1,8 +1,8 @@
-import { GitHubIcon } from '@reactkit/ui/ui/icons/GitHubIcon'
-import { MailIcon } from '@reactkit/ui/ui/icons/MailIcon'
-import { TelegramIcon } from '@reactkit/ui/ui/icons/TelegramIcon'
-import { TwitterIcon } from '@reactkit/ui/ui/icons/TwitterIcon'
-import { HStack } from '@reactkit/ui/ui/Stack'
+import { GitHubIcon } from '@georgian/ui/ui/icons/GitHubIcon'
+import { MailIcon } from '@georgian/ui/ui/icons/MailIcon'
+import { TelegramIcon } from '@georgian/ui/ui/icons/TelegramIcon'
+import { TwitterIcon } from '@georgian/ui/ui/icons/TwitterIcon'
+import { HStack } from '@georgian/ui/ui/Stack'
 import { ResumeFooterLink } from './ResumeFooterLink'
 
 const email = 'radzionchachura@gmail.com'

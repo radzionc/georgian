@@ -4,7 +4,7 @@ import { defaultTransitionCSS } from '../animations/transitions'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { matchColor } from '../theme/getters'
 import { UnstyledButton } from './UnstyledButton'
-import { match } from '@reactkit/utils/match'
+import { match } from '@georgian/utils/match'
 import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
 

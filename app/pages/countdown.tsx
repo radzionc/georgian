@@ -1,4 +1,4 @@
-import { Countdown } from '@reactkit/ui/ui/Countdown'
+import { Countdown } from '@georgian/ui/ui/Countdown'
 import { hoursToMilliseconds } from 'date-fns'
 import { DemoPage } from 'components/DemoPage'
 import { makeDemoPage } from 'layout/makeDemoPage'

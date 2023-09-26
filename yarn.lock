@@ -422,6 +422,72 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@georgian/app@workspace:app":
+  version: 0.0.0-use.local
+  resolution: "@georgian/app@workspace:app"
+  dependencies:
+    "@emoji-mart/data": ^1.1.2
+    "@emoji-mart/react": ^1.1.1
+    "@georgian/ui": "workspace:*"
+    "@hookform/resolvers": ^2.9.7
+    "@next/eslint-plugin-next": ^13.4.11
+    "@types/node": 18.6.4
+    "@types/react": 18.0.17
+    "@types/react-dom": 18.0.6
+    "@types/styled-components": ^5.1.25
+    date-fns: ^2.30.0
+    emoji-mart: ^5.5.2
+    eslint: 8.21.0
+    eslint-config-next: ^13.4.10
+    next: ^13.4.12
+    next-sitemap: ^4.1.8
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-hook-form: ^7.43.9
+    react-is: ^18.2.0
+    react-query: ^3.39.2
+    react-to-print: ^2.14.12
+    react-use: ^17.4.0
+    styled-components: ^5.3.5
+    typescript: 4.7.4
+    yup: ^0.32.11
+  languageName: unknown
+  linkType: soft
+
+"@georgian/ui@workspace:*, @georgian/ui@workspace:ui":
+  version: 0.0.0-use.local
+  resolution: "@georgian/ui@workspace:ui"
+  dependencies:
+    "@amplitude/analytics-browser": ^2.2.1
+    "@floating-ui/dom": ^1.2.8
+    "@floating-ui/react": ^0.24.1
+    "@react-spring/web": ^9.7.2
+    "@types/node": 18.6.4
+    "@types/react": 18.0.17
+    "@types/react-dom": 18.0.6
+    "@types/styled-components": ^5.1.25
+    copy-to-clipboard: ^3.3.3
+    date-fns: ^2.30.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-dropzone: ^14.2.3
+    react-hook-form: ^7.43.9
+    react-is: ^18.2.0
+    react-query: ^3.39.2
+    react-spring: ^9.7.1
+    react-use: ^17.4.0
+    styled-components: ^5.3.5
+  languageName: unknown
+  linkType: soft
+
+"@georgian/utils@workspace:utils":
+  version: 0.0.0-use.local
+  resolution: "@georgian/utils@workspace:utils"
+  dependencies:
+    date-fns: ^2.30.0
+  languageName: unknown
+  linkType: soft
+
 "@hookform/resolvers@npm:^2.9.7":
   version: 2.9.11
   resolution: "@hookform/resolvers@npm:2.9.11"
@@ -771,72 +837,6 @@ __metadata:
   checksum: b4933e5142835fba09f127686b71208f4da9322707cde39ee87071600d819b1e3e69e2eeb0911d994df84d38344b439d8c53534bc08ffff0a583c9302fd21925
   languageName: node
   linkType: hard
-
-"@reactkit/app@workspace:app":
-  version: 0.0.0-use.local
-  resolution: "@reactkit/app@workspace:app"
-  dependencies:
-    "@emoji-mart/data": ^1.1.2
-    "@emoji-mart/react": ^1.1.1
-    "@hookform/resolvers": ^2.9.7
-    "@next/eslint-plugin-next": ^13.4.11
-    "@reactkit/ui": "workspace:*"
-    "@types/node": 18.6.4
-    "@types/react": 18.0.17
-    "@types/react-dom": 18.0.6
-    "@types/styled-components": ^5.1.25
-    date-fns: ^2.30.0
-    emoji-mart: ^5.5.2
-    eslint: 8.21.0
-    eslint-config-next: ^13.4.10
-    next: ^13.4.12
-    next-sitemap: ^4.1.8
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-hook-form: ^7.43.9
-    react-is: ^18.2.0
-    react-query: ^3.39.2
-    react-to-print: ^2.14.12
-    react-use: ^17.4.0
-    styled-components: ^5.3.5
-    typescript: 4.7.4
-    yup: ^0.32.11
-  languageName: unknown
-  linkType: soft
-
-"@reactkit/ui@workspace:*, @reactkit/ui@workspace:ui":
-  version: 0.0.0-use.local
-  resolution: "@reactkit/ui@workspace:ui"
-  dependencies:
-    "@amplitude/analytics-browser": ^2.2.1
-    "@floating-ui/dom": ^1.2.8
-    "@floating-ui/react": ^0.24.1
-    "@react-spring/web": ^9.7.2
-    "@types/node": 18.6.4
-    "@types/react": 18.0.17
-    "@types/react-dom": 18.0.6
-    "@types/styled-components": ^5.1.25
-    copy-to-clipboard: ^3.3.3
-    date-fns: ^2.30.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-dropzone: ^14.2.3
-    react-hook-form: ^7.43.9
-    react-is: ^18.2.0
-    react-query: ^3.39.2
-    react-spring: ^9.7.1
-    react-use: ^17.4.0
-    styled-components: ^5.3.5
-  languageName: unknown
-  linkType: soft
-
-"@reactkit/utils@workspace:utils":
-  version: 0.0.0-use.local
-  resolution: "@reactkit/utils@workspace:utils"
-  dependencies:
-    date-fns: ^2.30.0
-  languageName: unknown
-  linkType: soft
 
 "@rushstack/eslint-patch@npm:^1.1.3":
   version: 1.3.2
@@ -2507,6 +2507,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"georgian@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "georgian@workspace:."
+  dependencies:
+    "@typescript-eslint/eslint-plugin": latest
+    "@typescript-eslint/parser": latest
+    eslint: latest
+    husky: latest
+    lint-staged: latest
+    prettier: latest
+    typescript: latest
+  languageName: unknown
+  linkType: soft
+
 "get-intrinsic@npm:^1.0.2, get-intrinsic@npm:^1.1.1, get-intrinsic@npm:^1.1.3, get-intrinsic@npm:^1.2.0, get-intrinsic@npm:^1.2.1":
   version: 1.2.1
   resolution: "get-intrinsic@npm:1.2.1"
@@ -3993,20 +4007,6 @@ __metadata:
   checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
   languageName: node
   linkType: hard
-
-"reactkit@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "reactkit@workspace:."
-  dependencies:
-    "@typescript-eslint/eslint-plugin": latest
-    "@typescript-eslint/parser": latest
-    eslint: latest
-    husky: latest
-    lint-staged: latest
-    prettier: latest
-    typescript: latest
-  languageName: unknown
-  linkType: soft
 
 "regenerator-runtime@npm:^0.13.11":
   version: 0.13.11

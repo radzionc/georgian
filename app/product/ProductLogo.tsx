@@ -1,9 +1,9 @@
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@georgian/ui/ui/Text'
 import { ProductIcon } from './ProductIcon'
-import { HStack } from '@reactkit/ui/ui/Stack'
+import { HStack } from '@georgian/ui/ui/Stack'
 import styled from 'styled-components'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
-import { centerContent } from '@reactkit/ui/css/centerContent'
+import { getColor } from '@georgian/ui/ui/theme/getters'
+import { centerContent } from '@georgian/ui/css/centerContent'
 
 const IconWrapper = styled.div`
   color: ${getColor('contrast')};
@@ -18,10 +18,7 @@ export const ProductLogo = () => {
         <ProductIcon />
       </IconWrapper>
       <Text size={16} color="contrast" weight="semibold">
-        React
-        <Text as="span" color="contrast">
-          Kit
-        </Text>
+        Georgian
       </Text>
     </HStack>
   )

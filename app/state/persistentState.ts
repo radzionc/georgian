@@ -1,7 +1,7 @@
-import { TemporaryStorage } from '@reactkit/ui/state/TemporaryStorage'
-import { LocalStorage } from '@reactkit/ui/state/LocalStorage'
-import { createPersistentStateHook } from '@reactkit/ui/state/createPersistentStateHook'
-import { createPersistentStateManager } from '@reactkit/ui/state/createPersistentStateManager'
+import { TemporaryStorage } from '@georgian/ui/state/TemporaryStorage'
+import { LocalStorage } from '@georgian/ui/state/LocalStorage'
+import { createPersistentStateHook } from '@georgian/ui/state/createPersistentStateHook'
+import { createPersistentStateManager } from '@georgian/ui/state/createPersistentStateManager'
 
 export enum PersistentStateKey {
   ThemePreference = 'themePreference',

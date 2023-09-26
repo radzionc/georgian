@@ -677,7 +677,7 @@ export const languages: { [key: string]: LanguageDescription } = {
     nativeName: 'Reo Tahiti',
   },
   ug: {
-    name: '@reactkit/ui/uighur, Uyghur',
+    name: '@georgian/ui/uighur, Uyghur',
     nativeName: 'Uyƣurqə, ئۇيغۇرچە‎',
   },
   uk: {

@@ -1,6 +1,6 @@
-import { dotSeparator } from '@reactkit/ui/ui/StackSeparatedBy'
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
+import { dotSeparator } from '@georgian/ui/ui/StackSeparatedBy'
+import { HStack, VStack } from '@georgian/ui/ui/Stack'
+import { Text } from '@georgian/ui/ui/Text'
 
 interface Props {
   items: string[]

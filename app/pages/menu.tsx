@@ -1,10 +1,10 @@
 import { DemoPage } from 'components/DemoPage'
-import { OpenMenuButton } from '@reactkit/ui/ui/buttons/OpenMenuButton'
-import { EditIcon } from '@reactkit/ui/ui/icons/EditIcon'
-import { MoonIcon } from '@reactkit/ui/ui/icons/MoonIcon'
-import { TrashBinIcon } from '@reactkit/ui/ui/icons/TrashBinIcon'
-import { Menu } from '@reactkit/ui/ui/Menu'
-import { MenuOption, MenuOptionProps } from '@reactkit/ui/ui/Menu/MenuOption'
+import { OpenMenuButton } from '@georgian/ui/ui/buttons/OpenMenuButton'
+import { EditIcon } from '@georgian/ui/ui/icons/EditIcon'
+import { MoonIcon } from '@georgian/ui/ui/icons/MoonIcon'
+import { TrashBinIcon } from '@georgian/ui/ui/icons/TrashBinIcon'
+import { Menu } from '@georgian/ui/ui/Menu'
+import { MenuOption, MenuOptionProps } from '@georgian/ui/ui/Menu/MenuOption'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

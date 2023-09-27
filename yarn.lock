@@ -454,6 +454,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@georgian/data@workspace:data":
+  version: 0.0.0-use.local
+  resolution: "@georgian/data@workspace:data"
+  languageName: unknown
+  linkType: soft
+
+"@georgian/entities@workspace:entities":
+  version: 0.0.0-use.local
+  resolution: "@georgian/entities@workspace:entities"
+  languageName: unknown
+  linkType: soft
+
 "@georgian/ui@workspace:*, @georgian/ui@workspace:ui":
   version: 0.0.0-use.local
   resolution: "@georgian/ui@workspace:ui"

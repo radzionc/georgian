@@ -1,7 +1,13 @@
 import { Ticket, TicketCategory } from '@georgian/entities/Ticket'
 import { dbDocClient } from './dbClient'
 import { tableName } from './tableName'
-import { DeleteCommand, PutCommand, ScanCommand } from '@aws-sdk/lib-dynamodb'
+import {
+  DeleteCommand,
+  PutCommand,
+  ScanCommand,
+  UpdateCommand,
+} from '@aws-sdk/lib-dynamodb'
+import { getUpdateParams } from './utils/getUpdateParams'
 
 export const putTicket = (ticket: Ticket) => {
   const command = new PutCommand({
@@ -52,4 +58,20 @@ export const deleteAllTicketsInCategory = async (category: TicketCategory) => {
   })
 
   await Promise.all(deletePromises)
+}
+
+export type TicketKey = Pick<Ticket, 'category' | 'ticketNumber'>
+
+export const getTicketItemParams = (Key: TicketKey) => ({
+  TableName: tableName.tickets,
+  Key,
+})
+
+export const updateTicket = (key: TicketKey, params: Partial<Ticket>) => {
+  const command = new UpdateCommand({
+    ...getTicketItemParams(key),
+    ...getUpdateParams(params),
+  })
+
+  return dbDocClient.send(command)
 }

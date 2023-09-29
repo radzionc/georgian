@@ -8,6 +8,7 @@ import { VStack } from '@georgian/ui/ui/Stack'
 import { Text } from '@georgian/ui/ui/Text'
 import { Page } from 'layout/Page'
 import { TicketItem } from './TicketItem'
+import { SeparatedByLine } from '@georgian/ui/ui/SeparatedByLine'
 
 export interface TicketsCategoryPageProps {
   category: TicketCategory
@@ -24,11 +25,11 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
         <Text color="contrast" as="h1" centered size={32}>
           Georgian Citizenship Exam: {ticketCategoryName[category]} Tickets
         </Text>
-        <VStack gap={40} alignItems="start">
+        <SeparatedByLine gap={40} alignItems="start">
           {tickets.map((ticket, number) => (
             <TicketItem ticket={ticket} key={number} />
           ))}
-        </VStack>
+        </SeparatedByLine>
       </VStack>
     </Center>
   )

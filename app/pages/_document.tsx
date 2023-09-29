@@ -38,8 +38,8 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <MetaTags
-            title="Accelerate React App Development with Georgian's Components System and Monorepo"
-            description="Discover how Georgian's Components System and Monorepo can streamline your React app development process. Explore powerful tools and best practices to accelerate your projects."
+            title="Prepare for Georgian Citizenship Exam: Language, Law, History Guides & Practice Tests"
+            description="Ace your Georgian Citizenship Exam with our comprehensive study guides, practice tests, and resources tailored for success in Language, Law, and History. Start preparing today!"
             url={process.env.NEXT_PUBLIC_BASE_URL}
             twitterId="@radzionc"
           />

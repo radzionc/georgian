@@ -1,6 +1,23 @@
 export const extractTextTickets = (text: string): string[] => {
-  const regex = /^\d+\..*[\s\S]*?სწორი პასუხია:.*/gm
-  const matches = text.match(regex)
+  const result: string[] = []
+  const lines = text.split('\n')
+  lines.forEach((line) => {
+    const isTicketStart = /^\d+\.\s/.test(line)
+    if (lines.length === 0 && !isTicketStart) {
+      return
+    }
 
-  return (matches ?? []).map((match) => match.trim())
+    if (isTicketStart) {
+      console.log(line)
+    }
+
+    if (isTicketStart) {
+      result.push(line)
+    } else {
+      const lastTicket = result[result.length - 1]
+      result[result.length - 1] = `${lastTicket}\n${line}`
+    }
+  })
+
+  return result
 }

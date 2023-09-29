@@ -1,4 +1,11 @@
-export type TicketCategory = 'language' | 'law' | 'history'
+export const ticketCategories = ['language', 'law', 'history'] as const
+export type TicketCategory = (typeof ticketCategories)[number]
+
+export const ticketCategoryName: Record<TicketCategory, string> = {
+  language: 'Language',
+  law: 'Law',
+  history: 'History',
+}
 
 interface TicketAnswer {
   content: string

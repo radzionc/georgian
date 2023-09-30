@@ -7,9 +7,7 @@ import {
   TicketsCategoryPageProps,
 } from 'tickets/components/TicketsCategoryPage'
 import { getAllTicketsInCategory } from '@georgian/db/tickets'
-import { Language } from '@georgian/internalization/Language'
 import { TranslationRecord } from '@georgian/internalization/TranslationRecord'
-import { getTranslations } from '@georgian/tickets-translation/utils/sources'
 import { getTextsForTranslation } from '@georgian/tickets-translation/utils/getTextsForTranslation'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
 import englishTranslation from '@georgian/tickets-translation/sources/en.json'

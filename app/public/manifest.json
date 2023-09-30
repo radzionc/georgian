@@ -1,11 +1,11 @@
 {
-  "short_name": "Georgian",
-  "name": "Georgian",
+  "short_name": "Georgian Exam",
+  "name": "Georgian Exam Prep",
   "start_url": ".",
   "display": "fullscreen",
   "theme_color": "#1a1a1a",
   "background_color": "#1a1a1a",
-  "description": "A React components system for faster development",
+  "description": "Master Your Georgian Citizenship Exam with Confidence!",
   "icons": [
     {
       "src": "images/app-icon/manifest-icon-192.maskable.png",

@@ -7,6 +7,12 @@ import {
   TicketsCategoryPageProps,
 } from 'tickets/components/TicketsCategoryPage'
 import { getAllTicketsInCategory } from '@georgian/db/tickets'
+import { Language } from '@georgian/internalization/Language'
+import { TranslationRecord } from '@georgian/internalization/TranslationRecord'
+import { getTranslations } from '@georgian/tickets-translation/utils/sources'
+import { getTextsForTranslation } from '@georgian/tickets-translation/utils/getTextsForTranslation'
+import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
+import englishTranslation from '@georgian/tickets-translation/sources/en.json'
 
 export default TicketsCategoryPage
 
@@ -34,12 +40,27 @@ export const getStaticProps: GetStaticProps<
     }
   }
 
+  const translations = englishTranslation as TranslationRecord
+
   const tickets = await getAllTicketsInCategory(params.category)
+
+  const translatedTickets: TranslatedTicket[] = tickets.map((ticket) => {
+    const textsToTranslate = getTextsForTranslation(ticket)
+    const translation: TranslationRecord = {}
+    textsToTranslate.map((text) => {
+      translation[text] = translations[text]
+    })
+
+    return {
+      ...ticket,
+      translation,
+    }
+  })
 
   return {
     props: {
       category: params.category,
-      tickets,
+      tickets: translatedTickets,
     },
   }
 }

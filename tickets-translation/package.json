@@ -1,0 +1,8 @@
+{
+  "name": "@georgian/tickets-translation",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@google-cloud/translate": "^8.0.2"
+  }
+}

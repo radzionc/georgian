@@ -43,7 +43,7 @@ export const toTicket = (text: string, category: TicketCategory): Ticket => {
     .filter((line) => answerRegex.test(line))
     .map((line) => {
       const answer = line[0]
-      let content = line.slice(2).replace('\n', '')
+      let content = line.slice(3).replace('\n', '')
       if (content.endsWith(';')) {
         content = content.slice(0, -1)
       } else if (content.endsWith('.')) {

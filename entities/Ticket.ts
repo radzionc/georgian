@@ -7,17 +7,9 @@ export const ticketCategoryName: Record<TicketCategory, string> = {
   history: 'History',
 }
 
-export type Language = 'en' | 'ka'
-
-export const languageName: Record<Language, string> = {
-  en: 'English',
-  ka: 'Georgian',
-}
-
 interface TicketAnswer {
   content: string
   isCorrect: boolean
-  translation?: Partial<Record<Language, string>>
 }
 
 export interface Ticket {

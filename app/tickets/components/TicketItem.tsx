@@ -1,17 +1,23 @@
-import { Ticket, languageName } from '@georgian/entities/Ticket'
 import { SeparatedByLine } from '@georgian/ui/ui/SeparatedByLine'
 import { HStack, VStack } from '@georgian/ui/ui/Stack'
 import { Text } from '@georgian/ui/ui/Text'
 import styled from 'styled-components'
+import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
+import { languageName } from '@georgian/internalization/Language'
 
 interface TicketItemProps {
-  ticket: Ticket
+  ticket: TranslatedTicket
 }
 
 const Content = styled.div`
   display: grid;
   gap: 20px;
-  grid-template-columns: 320px 320px;
+  max-width: 640px;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const Translation = styled.div`
@@ -21,7 +27,7 @@ const Translation = styled.div`
 `
 
 export const TicketItem = ({ ticket }: TicketItemProps) => {
-  const { ticketNumber, question, prompt, answers } = ticket
+  const { ticketNumber, question, prompt, translation } = ticket
 
   return (
     <HStack gap={8} alignItems="start">
@@ -45,18 +51,14 @@ export const TicketItem = ({ ticket }: TicketItemProps) => {
           </VStack>
         </VStack>
         <SeparatedByLine gap={20}>
-          {answers
-            .filter((answer) => answer.translation?.en)
-            .map((answer) => {
-              return (
-                <Translation key={answer.content}>
-                  <Text color="shy">{languageName.ka}:</Text>
-                  <Text>{answer.content}</Text>
-                  <Text color="shy">{languageName.en}:</Text>
-                  <Text>{answer.translation?.en}</Text>
-                </Translation>
-              )
-            })}
+          {Object.entries(translation).map(([original, translation]) => (
+            <Translation>
+              <Text color="shy">{languageName.ka}:</Text>
+              <Text>{original}</Text>
+              <Text color="shy">{languageName.en}:</Text>
+              <Text>{translation}</Text>
+            </Translation>
+          ))}
         </SeparatedByLine>
       </Content>
     </HStack>

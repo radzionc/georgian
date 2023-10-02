@@ -17,7 +17,7 @@ const Container = styled.label<{ isSelected: boolean }>`
   ${centerContent};
   font-weight: 500;
   height: 48px;
-
+  white-space: nowrap;
   user-select: none;
 
   color: ${({ theme, isSelected }) =>

@@ -2,13 +2,16 @@ import styled from 'styled-components'
 import { TabNavigationItem } from './TabNavigationItem'
 import { HStack } from '../Stack'
 import { hideScrollbars } from '../../css/hideScrollbars'
+import { UIComponentProps } from '../../props'
 
-interface TabNavigationProps<T extends string | number | symbol> {
+interface TabNavigationProps<T extends string | number | symbol>
+  extends UIComponentProps {
   views: readonly T[]
   getViewName: (view: T) => string
   activeView: T
   onSelect: (option: T) => void
   groupName: string
+  renderOption?: (option: T) => React.ReactNode
 }
 
 const Container = styled(HStack)`
@@ -24,9 +27,11 @@ export function TabNavigation<T extends string | number | symbol>({
   activeView,
   onSelect,
   groupName,
+  renderOption = (option) => option.toString(),
+  ...rest
 }: TabNavigationProps<T>) {
   return (
-    <Container>
+    <Container {...rest}>
       {views.map((view) => {
         const name = getViewName(view)
         return (
@@ -37,7 +42,7 @@ export function TabNavigation<T extends string | number | symbol>({
             onSelect={() => onSelect(view)}
             key={name}
           >
-            {name}
+            {renderOption(view)}
           </TabNavigationItem>
         )
       })}

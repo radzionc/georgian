@@ -52,7 +52,7 @@ export const TicketItem = ({ ticket }: TicketItemProps) => {
         </VStack>
         <SeparatedByLine gap={20}>
           {Object.entries(translation).map(([original, translation]) => (
-            <Translation>
+            <Translation key={original}>
               <Text color="shy">{languageName.ka}:</Text>
               <Text>{original}</Text>
               <Text color="shy">{languageName.en}:</Text>

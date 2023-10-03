@@ -4,6 +4,7 @@ import { Button } from '@georgian/ui/ui/buttons/Button'
 import { ArrowLeftIcon } from '@georgian/ui/ui/icons/ArrowLeftIcon'
 import { ArrowRightIcon } from '@georgian/ui/ui/icons/ArrowRightIcon'
 import { reverseIf } from '@georgian/utils/array/reverseIf'
+import React from 'react'
 
 interface MinimalisticFooterPaginationProps extends InputProps<number> {
   itemsCount: number
@@ -33,12 +34,15 @@ export const MinimalisticFooterPagination = ({
     <HStack fullWidth alignItems="center" justifyContent="center" gap={8}>
       {options.map(({ text, icon, isDisabled, value }, index) => (
         <Button
+          key={text}
           kind="ghost"
           isDisabled={isDisabled}
           onClick={() => onChange(value)}
         >
           <HStack alignItems="center" gap={8}>
-            {reverseIf([icon, text], index === 1)}
+            {reverseIf([icon, text], index === 1).map((element, index) => (
+              <React.Fragment key={index}>{element}</React.Fragment>
+            ))}
           </HStack>
         </Button>
       ))}

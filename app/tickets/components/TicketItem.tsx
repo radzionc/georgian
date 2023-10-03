@@ -1,66 +1,123 @@
 import { SeparatedByLine } from '@georgian/ui/ui/SeparatedByLine'
 import { HStack, VStack } from '@georgian/ui/ui/Stack'
 import { Text } from '@georgian/ui/ui/Text'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
-import { languageName } from '@georgian/internalization/Language'
+import { Panel } from '@georgian/ui/ui/Panel/Panel'
+import { without } from '@georgian/utils/array/without'
+import {
+  isTicketCompleted,
+  useCompletedTickets,
+  withoutTicket,
+} from 'tickets/hooks/useCompletedTickets'
+import { CheckCircleIcon } from '@georgian/ui/ui/icons/CheckCircleIcon'
+import { UnstyledButton } from '@georgian/ui/ui/buttons/UnstyledButton'
+import { transition } from '@georgian/ui/css/transition'
+import { interactive } from '@georgian/ui/css/interactive'
+import { getColor } from '@georgian/ui/ui/theme/getters'
+import { ClientOnly } from '@georgian/ui/ui/ClientOnly'
 
 interface TicketItemProps {
   ticket: TranslatedTicket
 }
 
-const Content = styled.div`
-  display: grid;
-  gap: 20px;
-  max-width: 640px;
-  grid-template-columns: 1fr 1fr;
-
-  @media (max-width: 680px) {
-    grid-template-columns: 1fr;
-  }
+const Container = styled(Panel)`
+  line-height: 1.5;
 `
 
-const Translation = styled.div`
-  display: grid;
-  gap: 12px;
-  grid-template-columns: auto 1fr;
+const answerLetters = ['ა', 'ბ', 'გ', 'დ']
+
+const Header = styled(HStack)``
+
+const CompletionButton = styled(UnstyledButton)<{ isCompleted: boolean }>`
+  font-weight: 500;
+  ${transition};
+  ${interactive};
+  ${({ isCompleted }) =>
+    isCompleted
+      ? css`
+          color: ${getColor('success')};
+        `
+      : css`
+          color: ${getColor('textSupporting')};
+          :hover {
+            color: ${getColor('contrast')};
+          }
+        `};
 `
 
 export const TicketItem = ({ ticket }: TicketItemProps) => {
-  const { ticketNumber, question, prompt, translation } = ticket
+  const { ticketNumber, question, translation } = ticket
+
+  const questionTranslation = translation[question]
+
+  const [completedTickets, setCompletedTickets] = useCompletedTickets()
+  const isCompleted = isTicketCompleted(completedTickets, ticket)
 
   return (
-    <HStack gap={8} alignItems="start">
-      <Text as="h3" color="shy" size={16}>
-        #{ticketNumber}
-      </Text>
-      <Content>
-        <VStack gap={20}>
+    <VStack gap={8}>
+      <Header fullWidth alignItems="center" justifyContent="space-between">
+        <Text size={20} weight="bold" color="shy" as="h3">
+          #{ticketNumber}
+        </Text>
+        <ClientOnly>
+          <CompletionButton
+            onClick={() => {
+              setCompletedTickets(
+                isCompleted
+                  ? withoutTicket(completedTickets, ticket)
+                  : [...completedTickets, ticket],
+              )
+            }}
+            isCompleted={isCompleted}
+          >
+            <HStack alignItems="center" gap={8}>
+              <CheckCircleIcon />
+              <div>{isCompleted ? 'learned' : 'mark as learned'}</div>
+            </HStack>
+          </CompletionButton>
+        </ClientOnly>
+      </Header>
+      <Container kind="secondary">
+        <SeparatedByLine gap={16}>
           <VStack gap={8}>
-            <Text as="h4" size={16}>
-              {question}
-            </Text>
-            {prompt && <Text>{prompt}</Text>}
+            <VStack gap={8}>
+              {without(Object.keys(translation), question).map((original) => (
+                <HStack key={original} gap={12} alignItems="start">
+                  <Text size={24} color="contrast">
+                    ✨
+                  </Text>
+                  <VStack key={original}>
+                    <Text size={18} weight="bold">
+                      {original}
+                    </Text>
+                    <Text size={18} weight="bold" color="shy">
+                      {translation[original]}
+                    </Text>
+                  </VStack>
+                </HStack>
+              ))}
+            </VStack>
           </VStack>
           <VStack gap={8}>
-            {ticket.answers.map((answer, number) => (
-              <Text color={answer.isCorrect ? 'success' : 'shy'} key={number}>
-                {answer.content}
-              </Text>
-            ))}
+            <VStack gap={4}>
+              <Text weight="semibold">{question}</Text>
+              {questionTranslation && (
+                <Text weight="semibold" color="shy">
+                  {questionTranslation}
+                </Text>
+              )}
+            </VStack>
+            <VStack gap={4}>
+              {ticket.answers.map((answer, number) => (
+                <Text color={answer.isCorrect ? 'regular' : 'shy'} key={number}>
+                  {answerLetters[number]}. {answer.content}
+                </Text>
+              ))}
+            </VStack>
           </VStack>
-        </VStack>
-        <SeparatedByLine gap={20}>
-          {Object.entries(translation).map(([original, translation]) => (
-            <Translation key={original}>
-              <Text color="shy">{languageName.ka}:</Text>
-              <Text>{original}</Text>
-              <Text color="shy">{languageName.en}:</Text>
-              <Text>{translation}</Text>
-            </Translation>
-          ))}
         </SeparatedByLine>
-      </Content>
-    </HStack>
+      </Container>
+    </VStack>
   )
 }

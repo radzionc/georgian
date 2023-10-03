@@ -12,7 +12,7 @@ export const LandingPage = () => {
   return (
     <Center>
       <VStack style={{ maxWidth: 480 }} alignItems="center" gap={24}>
-        <Text color="contrast" as="h1" centered size={32}>
+        <Text height="large" color="contrast" as="h1" centered size={32}>
           Master Your Georgian Citizenship Exam with Confidence!
         </Text>
         <Link href={getTicketCategoryPath('language')}>

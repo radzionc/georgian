@@ -5,9 +5,7 @@ import { createPersistentStateManager } from '@georgian/ui/state/createPersisten
 
 export enum PersistentStateKey {
   ThemePreference = 'themePreference',
-  Promotion = 'promotion',
-  ShowOnceEducation = 'showOnceEducation',
-  HabitsEducationWasAt = 'habitsEducationWasAt',
+  CompleteTickets = 'completeTickets',
 }
 
 const persistentStorage =

@@ -44,7 +44,7 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
   return (
     <VStack alignItems="center" fullWidth>
       <VStack style={{ maxWidth: 600 }} fullWidth gap={40}>
-        <PageTitle color="contrast" as="h1" centered size={32}>
+        <PageTitle height="large" color="contrast" as="h1" centered size={32}>
           {ticketCategoryName[category]} Tickets For Georgian Citizenship Exam
         </PageTitle>
         <div ref={navigationRef}>
@@ -52,7 +52,7 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
             itemsCount={pageCount}
             renderItem={(pageNumber) => {
               const start = pageNumber * batchSize + 1
-              const end = start + batchSize - 1
+              const end = Math.min(start + batchSize - 1, tickets.length)
 
               if (end === start) {
                 return start

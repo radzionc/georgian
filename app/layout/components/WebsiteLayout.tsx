@@ -10,7 +10,8 @@ const Container = styled(VStack)`
 
 const Content = styled.div`
   flex: 1;
-  padding-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 120px;
   ${horizontalPadding(20)};
   height: 100%;
   overflow-y: auto;

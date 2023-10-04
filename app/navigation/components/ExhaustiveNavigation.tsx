@@ -42,7 +42,7 @@ export const ExhaustiveNavigation = ({
   onChange,
 }: ExhaustiveNavigationProps) => {
   return (
-    <HStack justifyContent="center" alignItems="center" wrap="wrap">
+    <HStack wrap="wrap">
       {range(itemsCount).map((itemNumber) => {
         const isSelected = itemNumber === value
         return (

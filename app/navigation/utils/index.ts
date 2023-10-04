@@ -1,4 +1,7 @@
 import { TicketCategory } from '@georgian/entities/Ticket'
 
-export const getTicketCategoryPath = (ticketCategory: TicketCategory) =>
-  `/${ticketCategory}`
+export const getTicketCategoryPath = (category: TicketCategory) =>
+  `/${category}`
+
+export const getCategoryTestPagePath = (category: TicketCategory) =>
+  `/${category}/test`

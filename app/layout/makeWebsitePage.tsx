@@ -5,7 +5,7 @@ export const getWebsitePageLayout: GetLayout = (page) => (
   <WebsiteLayout>{page}</WebsiteLayout>
 )
 
-export const makeWebsitePage = (page: Page) => {
+export function makeWebsitePage<T>(page: Page<T>) {
   page.getLayout = getWebsitePageLayout
 
   return page

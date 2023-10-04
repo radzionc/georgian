@@ -7,6 +7,14 @@ export const ticketCategoryName: Record<TicketCategory, string> = {
   history: 'History',
 }
 
+export const ticketAnswerLetters = ['ა', 'ბ', 'გ', 'დ']
+
+export const ticketCategoryEmoji: Record<TicketCategory, string> = {
+  language: '🗣',
+  law: '📜',
+  history: '🏰',
+}
+
 interface TicketAnswer {
   content: string
   isCorrect: boolean

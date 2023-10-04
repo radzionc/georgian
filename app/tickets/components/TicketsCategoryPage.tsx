@@ -1,16 +1,23 @@
-import { TicketCategory, ticketCategoryName } from '@georgian/entities/Ticket'
-import { VStack } from '@georgian/ui/ui/Stack'
+import {
+  TicketCategory,
+  ticketCategoryEmoji,
+  ticketCategoryName,
+} from '@georgian/entities/Ticket'
 import { Text } from '@georgian/ui/ui/Text'
 import { Page } from 'layout/Page'
 import { TicketItem } from './TicketItem'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
 import { useQueryParamState } from 'navigation/hooks/useQueryParamState'
 import { toBatches } from '@georgian/utils/array/toBatches'
-import styled from 'styled-components'
 import { ExhaustiveNavigation } from 'navigation/components/ExhaustiveNavigation'
 import { MinimalisticFooterPagination } from 'navigation/components/MinimalisticFooterPagination'
 import { useRef } from 'react'
 import { useEffectOnDependencyChange } from '@georgian/ui/hooks/useEffectOnDependencyChange'
+import { Button } from '@georgian/ui/ui/buttons/Button'
+import Link from 'next/link'
+import { getCategoryTestPagePath } from 'navigation/utils'
+import { WebsitePageContent } from 'layout/components/WebsitePageContent'
+import { WebsitePageHeader } from 'layout/components/WebsitePageHeader'
 
 export interface TicketsCategoryPageProps {
   category: TicketCategory
@@ -18,10 +25,6 @@ export interface TicketsCategoryPageProps {
 }
 
 const batchSize = 20
-
-const PageTitle = styled(Text)`
-  padding-top: 40px;
-`
 
 export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
   category,
@@ -42,37 +45,46 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
   }, [currentBatchIndex])
 
   return (
-    <VStack alignItems="center" fullWidth>
-      <VStack style={{ maxWidth: 600 }} fullWidth gap={40}>
-        <PageTitle height="large" color="contrast" as="h1" centered size={32}>
-          {ticketCategoryName[category]} Tickets For Georgian Citizenship Exam
-        </PageTitle>
-        <div ref={navigationRef}>
-          <ExhaustiveNavigation
-            itemsCount={pageCount}
-            renderItem={(pageNumber) => {
-              const start = pageNumber * batchSize + 1
-              const end = Math.min(start + batchSize - 1, tickets.length)
-
-              if (end === start) {
-                return start
-              }
-
-              return `${start}-${end}`
-            }}
-            value={currentBatchIndex}
-            onChange={(page) => setTicket(page * batchSize + 1)}
-          />
-        </div>
-        {currentBatch.map((ticket) => (
-          <TicketItem ticket={ticket} key={ticket.ticketNumber} />
-        ))}
-        <MinimalisticFooterPagination
+    <WebsitePageContent>
+      <WebsitePageHeader
+        title={
+          <>
+            <Text as="span" style={{ marginRight: 8 }}>
+              {ticketCategoryEmoji[category]}
+            </Text>
+            Georgian {ticketCategoryName[category]} Tickets
+          </>
+        }
+      >
+        <Link href={getCategoryTestPagePath(category)}>
+          <Button as="div">Start test</Button>
+        </Link>
+      </WebsitePageHeader>
+      <div ref={navigationRef}>
+        <ExhaustiveNavigation
           itemsCount={pageCount}
+          renderItem={(pageNumber) => {
+            const start = pageNumber * batchSize + 1
+            const end = Math.min(start + batchSize - 1, tickets.length)
+
+            if (end === start) {
+              return start
+            }
+
+            return `${start}-${end}`
+          }}
           value={currentBatchIndex}
           onChange={(page) => setTicket(page * batchSize + 1)}
         />
-      </VStack>
-    </VStack>
+      </div>
+      {currentBatch.map((ticket) => (
+        <TicketItem ticket={ticket} key={ticket.ticketNumber} />
+      ))}
+      <MinimalisticFooterPagination
+        itemsCount={pageCount}
+        value={currentBatchIndex}
+        onChange={(page) => setTicket(page * batchSize + 1)}
+      />
+    </WebsitePageContent>
   )
 }

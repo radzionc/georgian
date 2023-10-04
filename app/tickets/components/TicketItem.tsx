@@ -1,6 +1,6 @@
 import { SeparatedByLine } from '@georgian/ui/ui/SeparatedByLine'
 import { HStack, VStack } from '@georgian/ui/ui/Stack'
-import { Text } from '@georgian/ui/ui/Text'
+import { Text, TextColor } from '@georgian/ui/ui/Text'
 import styled, { css } from 'styled-components'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
 import { Panel } from '@georgian/ui/ui/Panel/Panel'
@@ -16,16 +16,16 @@ import { transition } from '@georgian/ui/css/transition'
 import { interactive } from '@georgian/ui/css/interactive'
 import { getColor } from '@georgian/ui/ui/theme/getters'
 import { ClientOnly } from '@georgian/ui/ui/ClientOnly'
+import { ticketAnswerLetters } from '@georgian/entities/Ticket'
 
 interface TicketItemProps {
   ticket: TranslatedTicket
+  falseAnswer?: number
 }
 
 const Container = styled(Panel)`
   line-height: 1.5;
 `
-
-const answerLetters = ['ა', 'ბ', 'გ', 'დ']
 
 const Header = styled(HStack)``
 
@@ -46,8 +46,8 @@ const CompletionButton = styled(UnstyledButton)<{ isCompleted: boolean }>`
         `};
 `
 
-export const TicketItem = ({ ticket }: TicketItemProps) => {
-  const { ticketNumber, question, translation } = ticket
+export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
+  const { ticketNumber, question, prompt, translation } = ticket
 
   const questionTranslation = translation[question]
 
@@ -108,12 +108,27 @@ export const TicketItem = ({ ticket }: TicketItemProps) => {
                 </Text>
               )}
             </VStack>
+            {prompt && (
+              <VStack gap={4}>
+                <Text color="shy">{prompt}</Text>
+              </VStack>
+            )}
             <VStack gap={4}>
-              {ticket.answers.map((answer, number) => (
-                <Text color={answer.isCorrect ? 'regular' : 'shy'} key={number}>
-                  {answerLetters[number]}. {answer.content}
-                </Text>
-              ))}
+              {ticket.answers.map((answer, number) => {
+                let color: TextColor = answer.isCorrect ? 'regular' : 'shy'
+                if (falseAnswer !== undefined) {
+                  if (number === falseAnswer) {
+                    color = 'alert'
+                  } else if (answer.isCorrect) {
+                    color = 'success'
+                  }
+                }
+                return (
+                  <Text color={color} key={number}>
+                    {ticketAnswerLetters[number]}. {answer.content}
+                  </Text>
+                )
+              })}
             </VStack>
           </VStack>
         </SeparatedByLine>

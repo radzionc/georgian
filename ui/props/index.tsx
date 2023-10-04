@@ -13,6 +13,10 @@ export type ComponentWithChildrenProps = {
   children: ReactNode
 }
 
+export type ComponentWithOptionalChildrenProps = {
+  children?: ReactNode
+}
+
 export type ComponentWithBackActionProps = {
   onBack: () => void
 }
@@ -35,7 +39,7 @@ export interface InputProps<T> {
 }
 
 export interface TitledComponentProps {
-  title: string
+  title: ReactNode
 }
 
 export interface StyledComponentWithColorProps {

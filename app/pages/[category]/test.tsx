@@ -1,17 +1,15 @@
 import { TicketCategory, ticketCategories } from '@georgian/entities/Ticket'
-import { getWebsitePageLayout } from 'layout/makeWebsitePage'
+import { makeWebsitePage } from 'layout/makeWebsitePage'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import {
-  TicketsCategoryPage,
-  TicketsCategoryPageProps,
-} from 'tickets/components/TicketsCategoryPage'
 import { getAllTicketsInCategory } from '@georgian/db/tickets'
+import {
+  CategoryTestPage,
+  CategoryTestPageProps,
+} from 'tickets/components/CategoryTestPage'
 import { toTranslatedTickets } from '@georgian/tickets-translation/utils/toTranslatedTickets'
 
-export default TicketsCategoryPage
-
-TicketsCategoryPage.getLayout = getWebsitePageLayout
+export default makeWebsitePage<CategoryTestPageProps>(CategoryTestPage)
 
 interface Params extends ParsedUrlQuery {
   category: TicketCategory
@@ -26,7 +24,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 }
 
 export const getStaticProps: GetStaticProps<
-  TicketsCategoryPageProps,
+  CategoryTestPageProps,
   Params
 > = async ({ params }) => {
   if (!params) {

@@ -10,6 +10,10 @@ export const translateTexts = async (
   from: Language,
   to: Language,
 ): Promise<string[]> => {
+  if (texts.length === 0) {
+    return []
+  }
+
   const translationClient = new TranslationServiceClient()
 
   const batches = toBatches(texts, batchSize)

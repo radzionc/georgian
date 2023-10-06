@@ -35,6 +35,7 @@ export const translate = async (language: Language) => {
     )
   }
 
+  console.log(`Translating ${textsToTranslate.length} texts to ${language}`)
   const translations = await translateTexts(
     textsToTranslate,
     isPrimaryLanguage ? sourceLanguage : primaryLanguage,

@@ -16,11 +16,11 @@ export const useQueryParamState = <T extends number | string>(
 ) => {
   const [value, setValue] = useState<T>(defaultValue)
 
-  const { replace, query, pathname } = useRouter()
+  const { push, query, pathname } = useRouter()
 
   const onChange = useCallback(
     (newValue: T) => {
-      replace({
+      push({
         pathname,
         query: {
           ...query,
@@ -28,7 +28,7 @@ export const useQueryParamState = <T extends number | string>(
         },
       })
     },
-    [key, pathname, query, replace],
+    [key, pathname, query, push],
   )
 
   useHandleQueryParams<Record<string, T | undefined>>((params) => {

@@ -110,7 +110,7 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
             </VStack>
             {prompt && (
               <VStack gap={4}>
-                <Text color="shy">{prompt}</Text>
+                <Text>{prompt}</Text>
               </VStack>
             )}
             <VStack gap={4}>

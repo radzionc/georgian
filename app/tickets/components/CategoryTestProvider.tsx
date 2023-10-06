@@ -88,6 +88,7 @@ export const CategoryTestProvider = ({
   const restart = useCallback(() => {
     setTests(sampleArray(testsOptions, testSize))
     setCurrentTestNumber(0)
+    setAnswers([])
   }, [testsOptions])
 
   useEffectOnDependencyChange(() => {

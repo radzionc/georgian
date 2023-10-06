@@ -7,7 +7,8 @@ export const ThemeProvider = ({ children }: ComponentWithChildrenProps) => {
   const [prefferedTheme, setPrefferedTheme] =
     usePersistentState<ThemePreference>(
       PersistentStateKey.ThemePreference,
-      'system',
+      'dark',
+      // 'system',
     )
 
   return (

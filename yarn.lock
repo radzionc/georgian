@@ -959,6 +959,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@georgian/api-interface@workspace:api-interface":
+  version: 0.0.0-use.local
+  resolution: "@georgian/api-interface@workspace:api-interface"
+  languageName: unknown
+  linkType: soft
+
 "@georgian/app@workspace:app":
   version: 0.0.0-use.local
   resolution: "@georgian/app@workspace:app"

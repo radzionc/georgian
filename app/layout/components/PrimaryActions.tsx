@@ -1,8 +1,8 @@
 import { ticketCategories, ticketCategoryName } from '@georgian/entities/Ticket'
 import { HStack } from '@georgian/ui/ui/Stack'
 import { Button } from '@georgian/ui/ui/buttons/Button'
+import { Link } from 'navigation/components/Link'
 import { getTicketCategoryPath } from 'navigation/utils'
-import Link from 'next/link'
 
 export const PrimaryActions = () => {
   return (

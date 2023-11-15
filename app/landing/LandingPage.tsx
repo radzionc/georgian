@@ -6,7 +6,7 @@ import { ExternalLink } from '@georgian/ui/navigation/Link/ExternalLink'
 import { creatorWebsiteUrl } from 'product/resources'
 import { ShyTextButton } from '@georgian/ui/ui/buttons/ShyTextButton'
 import { getTicketCategoryPath } from 'navigation/utils'
-import Link from 'next/link'
+import { Link } from 'navigation/components/Link'
 
 export const LandingPage = () => {
   return (

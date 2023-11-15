@@ -14,10 +14,10 @@ import { MinimalisticFooterPagination } from 'navigation/components/Minimalistic
 import { useRef } from 'react'
 import { useEffectOnDependencyChange } from '@georgian/ui/hooks/useEffectOnDependencyChange'
 import { Button } from '@georgian/ui/ui/buttons/Button'
-import Link from 'next/link'
 import { getCategoryTestPagePath } from 'navigation/utils'
 import { WebsitePageContent } from 'layout/components/WebsitePageContent'
 import { WebsitePageHeader } from 'layout/components/WebsitePageHeader'
+import Link from 'next/link'
 
 export interface TicketsCategoryPageProps {
   category: TicketCategory

@@ -1,32 +1,31 @@
+import { getAllTicketsInCategory } from '@georgian/db/tickets'
 import { TicketCategory, ticketCategories } from '@georgian/entities/Ticket'
-import { getWebsitePageLayout } from 'layout/makeWebsitePage'
+import {
+  TargetLanguage,
+  targetLanguages,
+} from '@georgian/internalization/Language'
+import { toTranslatedTickets } from '@georgian/tickets-translation/utils/toTranslatedTickets'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import {
-  TicketsCategoryPage,
-  TicketsCategoryPageProps,
-} from 'tickets/components/TicketsCategoryPage'
-import { getAllTicketsInCategory } from '@georgian/db/tickets'
-import { toTranslatedTickets } from '@georgian/tickets-translation/utils/toTranslatedTickets'
-
-export default TicketsCategoryPage
-
-TicketsCategoryPage.getLayout = getWebsitePageLayout
+import { CategoryTestPageProps } from 'tickets/components/CategoryTestPage'
 
 interface Params extends ParsedUrlQuery {
   category: TicketCategory
+  language: TargetLanguage
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const paths = ticketCategories.map((category) => ({
-    params: { category },
-  }))
+  const paths = ticketCategories.flatMap((category) =>
+    targetLanguages.map((language) => ({
+      params: { category, language },
+    })),
+  )
 
   return { paths, fallback: false }
 }
 
 export const getStaticProps: GetStaticProps<
-  TicketsCategoryPageProps,
+  CategoryTestPageProps,
   Params
 > = async ({ params }) => {
   if (!params) {
@@ -40,7 +39,7 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       category: params.category,
-      tickets: toTranslatedTickets(tickets),
+      tickets: toTranslatedTickets(tickets, params.language),
     },
   }
 }

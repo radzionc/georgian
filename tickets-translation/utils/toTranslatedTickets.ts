@@ -1,10 +1,21 @@
 import { Ticket } from '@georgian/entities/Ticket'
 import { getTextsForTranslation } from './getTextsForTranslation'
 import { TranslationRecord } from '@georgian/internalization/TranslationRecord'
-import englishTranslation from '@georgian/tickets-translation/sources/en.json'
+import enTranslation from '@georgian/tickets-translation/sources/en.json'
+import ruTranslation from '@georgian/tickets-translation/sources/ru.json'
 
-export const toTranslatedTickets = (tickets: Ticket[]) => {
-  const translations = englishTranslation as TranslationRecord
+import { TargetLanguage } from '@georgian/internalization/Language'
+
+const translationRecord: Record<TargetLanguage, TranslationRecord> = {
+  en: enTranslation,
+  ru: ruTranslation,
+}
+
+export const toTranslatedTickets = (
+  tickets: Ticket[],
+  language: TargetLanguage,
+) => {
+  const translations = translationRecord[language]
 
   return tickets.map((ticket) => {
     const textsToTranslate = getTextsForTranslation(ticket)

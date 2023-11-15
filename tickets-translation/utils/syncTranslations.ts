@@ -1,32 +1,51 @@
+import fs from 'fs'
 import { Language } from '@georgian/internalization/Language'
-import { TranslationRecord } from '@georgian/internalization/TranslationRecord'
+import {
+  getTextsForTranslation,
+  getTranslations,
+  getTranslationsFilePath,
+} from './sources'
+import { syncTranslationRecordKeys } from './syncTranslationRecordKeys'
 import { translateTexts } from './translateTexts'
 import { arraysToRecord } from '@georgian/utils/array/arraysToRecord'
-import { syncTranslationRecordKeys } from './syncTranslationRecordKeys'
 
-interface SyncTranslationsParams {
-  existingRecord: TranslationRecord
-  texts: string[]
-  from: Language
-  to: Language
-}
+const sourceLanguage: Language = 'ka'
+const primaryLanguage: Language = 'en'
 
-export const syncTranslations = async ({
-  existingRecord,
-  texts,
-  from,
-  to,
-}: SyncTranslationsParams): Promise<TranslationRecord> => {
-  const incompleteRecord = syncTranslationRecordKeys(existingRecord, texts)
+export const syncTranslations = async (language: Language) => {
+  const isPrimaryLanguage = language === primaryLanguage
+  if (!isPrimaryLanguage) {
+    await syncTranslations(primaryLanguage)
+  }
 
-  const textsToTranslate = Object.keys(incompleteRecord).filter(
+  const incompleteRecord = syncTranslationRecordKeys(
+    getTranslations(language),
+    getTextsForTranslation(),
+  )
+
+  const sourceTextsToTranslate = Object.keys(incompleteRecord).filter(
     (key) => !incompleteRecord[key],
   )
 
-  const translations = await translateTexts(textsToTranslate, from, to)
-
-  return {
-    ...incompleteRecord,
-    ...arraysToRecord(textsToTranslate, translations),
+  let textsToTranslate = sourceTextsToTranslate
+  if (!isPrimaryLanguage) {
+    const primaryLanguageTranslations = getTranslations(primaryLanguage)
+    textsToTranslate = sourceTextsToTranslate.map(
+      (text) => primaryLanguageTranslations[text],
+    )
   }
+
+  console.log(`Translating ${textsToTranslate.length} texts to ${language}`)
+  const translations = await translateTexts(
+    textsToTranslate,
+    isPrimaryLanguage ? sourceLanguage : primaryLanguage,
+    language,
+  )
+
+  const result = {
+    ...incompleteRecord,
+    ...arraysToRecord(sourceTextsToTranslate, translations),
+  }
+
+  fs.writeFileSync(getTranslationsFilePath(language), JSON.stringify(result))
 }

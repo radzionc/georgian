@@ -5,6 +5,8 @@ import { attempt } from '@georgian/utils/attempt'
 import { translateTexts } from '@georgian/translation/utils/translateTexts'
 import { makeRecord } from '@georgian/utils/makeRecord'
 import { createJsonFile } from '@georgian/codegen/utils/createJsonFile'
+import { generateCopy } from './utils/generateCopy'
+import { generateCopyType } from './utils/generateCopyType'
 
 const translationsDirectory = path.resolve(__dirname, '../')
 
@@ -49,6 +51,11 @@ const syncCopy = async () => {
       })
     }),
   )
+
+  await generateCopyType(sourceCopy)
+
+  const languages = [sourceLanguage, ...translateIntoLanguages]
+  await Promise.all(languages.map(generateCopy))
 }
 
 syncCopy()

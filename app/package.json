@@ -7,7 +7,7 @@
     "build": "next build && next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "syncCopy": "npx tsx copy/commands/syncCopy"
+    "syncCopy": "npx tsx copy/codegen/syncCopy"
   },
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",

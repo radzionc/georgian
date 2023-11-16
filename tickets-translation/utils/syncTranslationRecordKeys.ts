@@ -1,4 +1,4 @@
-import { TranslationRecord } from '@georgian/internalization/TranslationRecord'
+import { TranslationRecord } from '@georgian/translation/TranslationRecord'
 
 export const syncTranslationRecordKeys = (
   record: TranslationRecord,

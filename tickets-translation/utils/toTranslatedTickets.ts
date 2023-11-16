@@ -1,10 +1,10 @@
 import { Ticket } from '@georgian/entities/Ticket'
 import { getTextsForTranslation } from './getTextsForTranslation'
-import { TranslationRecord } from '@georgian/internalization/TranslationRecord'
+import { TranslationRecord } from '../../translation/TranslationRecord'
 import enTranslation from '@georgian/tickets-translation/sources/en.json'
 import ruTranslation from '@georgian/tickets-translation/sources/ru.json'
 
-import { TargetLanguage } from '@georgian/internalization/Language'
+import { TargetLanguage } from '../../translation/Language'
 
 const translationRecord: Record<TargetLanguage, TranslationRecord> = {
   en: enTranslation,

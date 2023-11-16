@@ -1,13 +1,13 @@
 import fs from 'fs'
-import { Language } from '@georgian/internalization/Language'
+import { Language } from '@georgian/translation/Language'
 import {
   getTextsForTranslation,
   getTranslations,
   getTranslationsFilePath,
 } from './sources'
 import { syncTranslationRecordKeys } from './syncTranslationRecordKeys'
-import { translateTexts } from './translateTexts'
 import { arraysToRecord } from '@georgian/utils/array/arraysToRecord'
+import { translateTexts } from '@georgian/translation/utils/translateTexts'
 
 const sourceLanguage: Language = 'ka'
 const primaryLanguage: Language = 'en'

@@ -1,9 +1,6 @@
 import { getAllTicketsInCategory } from '@georgian/db/tickets'
 import { TicketCategory, ticketCategories } from '@georgian/entities/Ticket'
-import {
-  TargetLanguage,
-  targetLanguages,
-} from '@georgian/internalization/Language'
+import { TargetLanguage, targetLanguages } from '../../../translation/Language'
 import { toTranslatedTickets } from '@georgian/tickets-translation/utils/toTranslatedTickets'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'

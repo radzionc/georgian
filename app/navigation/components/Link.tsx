@@ -1,4 +1,4 @@
-import { TargetLanguage } from '@georgian/internalization/Language'
+import { TargetLanguage } from '../../../translation/Language'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { ComponentProps } from 'react'

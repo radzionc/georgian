@@ -1,4 +1,4 @@
-import { TranslationRecord } from '@georgian/internalization/TranslationRecord'
+import { TranslationRecord } from '../translation/TranslationRecord'
 import { Ticket } from './Ticket'
 
 export interface TranslatedTicket extends Ticket {

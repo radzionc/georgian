@@ -1,8 +1,8 @@
-import { Language } from '@georgian/internalization/Language'
+import { Language } from '@georgian/translation/Language'
 import { toBatches } from '@georgian/utils/array/toBatches'
 import { TranslationServiceClient } from '@google-cloud/translate'
+import { getEnvVar } from '../getEnvVar'
 
-const projectId = process.env.GOOGLE_TRANSLATE_PROJECT_ID
 const batchSize = 600
 
 export const translateTexts = async (
@@ -21,7 +21,9 @@ export const translateTexts = async (
   const result = []
   for (const batch of batches) {
     const request = {
-      parent: `projects/${projectId}/locations/global`,
+      parent: `projects/${getEnvVar(
+        'GOOGLE_TRANSLATE_PROJECT_ID',
+      )}/locations/global`,
       contents: batch,
       mimeType: 'text/plain',
       sourceLanguageCode: from,

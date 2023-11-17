@@ -4,6 +4,7 @@ import { HStack } from '@georgian/ui/ui/Stack'
 import styled from 'styled-components'
 import { getColor } from '@georgian/ui/ui/theme/getters'
 import { centerContent } from '@georgian/ui/css/centerContent'
+import { useCopy } from 'copy/CopyProvider'
 
 const IconWrapper = styled.div`
   color: ${getColor('contrast')};
@@ -12,13 +13,14 @@ const IconWrapper = styled.div`
 `
 
 export const ProductLogo = () => {
+  const copy = useCopy()
   return (
     <HStack alignItems="center" gap={8}>
       <IconWrapper>
         <ProductIcon />
       </IconWrapper>
       <Text size={16} color="contrast" weight="semibold">
-        Georgian
+        {copy.georgian}
       </Text>
     </HStack>
   )

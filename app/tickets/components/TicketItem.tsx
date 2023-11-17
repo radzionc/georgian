@@ -17,6 +17,7 @@ import { interactive } from '@georgian/ui/css/interactive'
 import { getColor } from '@georgian/ui/ui/theme/getters'
 import { ClientOnly } from '@georgian/ui/ui/ClientOnly'
 import { ticketAnswerLetters } from '@georgian/entities/Ticket'
+import { useCopy } from 'copy/CopyProvider'
 
 interface TicketItemProps {
   ticket: TranslatedTicket
@@ -47,6 +48,7 @@ const CompletionButton = styled(UnstyledButton)<{ isCompleted: boolean }>`
 `
 
 export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
+  const copy = useCopy()
   const { ticketNumber, question, prompt, translation } = ticket
 
   const questionTranslation = translation[question]
@@ -73,7 +75,7 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
           >
             <HStack alignItems="center" gap={8}>
               <CheckCircleIcon />
-              <div>{isCompleted ? 'learned' : 'mark as learned'}</div>
+              <div>{isCompleted ? copy.learned : copy.markAsLearned}</div>
             </HStack>
           </CompletionButton>
         </ClientOnly>

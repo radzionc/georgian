@@ -38,8 +38,6 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <MetaTags
-            title="Prepare for Georgian Citizenship Exam: Language, Law, History Guides & Practice Tests"
-            description="Ace your Georgian Citizenship Exam with our comprehensive study guides, practice tests, and resources tailored for success in Language, Law, and History. Start preparing today!"
             url={process.env.NEXT_PUBLIC_BASE_URL}
             twitterId="@radzionc"
           />

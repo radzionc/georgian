@@ -1,14 +1,11 @@
-import {
-  TicketCategory,
-  ticketCategoryEmoji,
-  ticketCategoryName,
-} from '@georgian/entities/Ticket'
+import { TicketCategory, ticketCategoryEmoji } from '@georgian/entities/Ticket'
 import { Text } from '@georgian/ui/ui/Text'
 import { WebsitePageHeader } from 'layout/components/WebsitePageHeader'
 import { CategoryTestTicketsFilter } from './CategoryTestTicketsFilter'
 import { testSize, useCategoryTest } from './CategoryTestProvider'
 import { Button } from '@georgian/ui/ui/buttons/Button'
 import { HStack } from '@georgian/ui/ui/Stack'
+import { useCopy } from 'copy/CopyProvider'
 
 export interface CategoryTestPageHeaderProps {
   category: TicketCategory
@@ -17,6 +14,8 @@ export interface CategoryTestPageHeaderProps {
 export const CategoryTestPageHeader = ({
   category,
 }: CategoryTestPageHeaderProps) => {
+  const copy = useCopy()
+
   const { currentTestNumber, restart } = useCategoryTest()
 
   return (
@@ -26,7 +25,7 @@ export const CategoryTestPageHeader = ({
           <Text as="span" style={{ marginRight: 8 }}>
             {ticketCategoryEmoji[category]}
           </Text>
-          Georgian {ticketCategoryName[category]} Test
+          {copy.testPageTitle({ category: copy[category] })}
         </>
       }
     >
@@ -38,7 +37,7 @@ export const CategoryTestPageHeader = ({
             </Text>
           )}
           <Button kind="secondary" onClick={restart}>
-            Restart
+            {copy.restart}
           </Button>
         </HStack>
       ) : (

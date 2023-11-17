@@ -1,8 +1,7 @@
-import { makeWebsitePage } from 'layout/makeWebsitePage'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-export default makeWebsitePage(() => {
+export default () => {
   const router = useRouter()
 
   useEffect(() => {
@@ -10,4 +9,4 @@ export default makeWebsitePage(() => {
   }, [router])
 
   return null
-})
+}

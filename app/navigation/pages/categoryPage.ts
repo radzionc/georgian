@@ -37,6 +37,7 @@ export const getStaticProps: GetStaticProps<
     props: {
       category: params.category,
       tickets: toTranslatedTickets(tickets, params.language),
+      language: params.language,
     },
   }
 }

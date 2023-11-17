@@ -1,8 +1,4 @@
-import {
-  TicketCategory,
-  ticketCategoryEmoji,
-  ticketCategoryName,
-} from '@georgian/entities/Ticket'
+import { TicketCategory, ticketCategoryEmoji } from '@georgian/entities/Ticket'
 import { Text } from '@georgian/ui/ui/Text'
 import { Page } from 'layout/Page'
 import { TicketItem } from './TicketItem'
@@ -18,8 +14,11 @@ import { getCategoryTestPagePath } from 'navigation/utils'
 import { WebsitePageContent } from 'layout/components/WebsitePageContent'
 import { WebsitePageHeader } from 'layout/components/WebsitePageHeader'
 import Link from 'next/link'
+import { TranslatedPageProps } from 'copy/TranslatedPageProps'
+import { useCopy } from 'copy/CopyProvider'
+import { MetaTags } from '@georgian/ui/metadata/MetaTags'
 
-export interface TicketsCategoryPageProps {
+export interface TicketsCategoryPageProps extends TranslatedPageProps {
   category: TicketCategory
   tickets: TranslatedTicket[]
 }
@@ -30,6 +29,8 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
   category,
   tickets,
 }) => {
+  const copy = useCopy()
+
   const [ticket, setTicket] = useQueryParamState<number>('ticket', 1)
 
   const batches = toBatches(tickets, batchSize)
@@ -45,46 +46,52 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
   }, [currentBatchIndex])
 
   return (
-    <WebsitePageContent>
-      <WebsitePageHeader
-        title={
-          <>
-            <Text as="span" style={{ marginRight: 8 }}>
-              {ticketCategoryEmoji[category]}
-            </Text>
-            Georgian {ticketCategoryName[category]} Tickets
-          </>
-        }
-      >
-        <Link href={getCategoryTestPagePath(category)}>
-          <Button as="div">Start test</Button>
-        </Link>
-      </WebsitePageHeader>
-      <div ref={navigationRef}>
-        <ExhaustiveNavigation
+    <>
+      <MetaTags
+        title={copy.categoryTestPageMetaTagTitle({ category })}
+        description={copy.categoryTestPageMetaTagDescription({ category })}
+      />
+      <WebsitePageContent>
+        <WebsitePageHeader
+          title={
+            <>
+              <Text as="span" style={{ marginRight: 8 }}>
+                {ticketCategoryEmoji[category]}
+              </Text>
+              {copy.categoryPageTitle({ category: copy[category] })}
+            </>
+          }
+        >
+          <Link href={getCategoryTestPagePath(category)}>
+            <Button as="div">{copy.startTest}</Button>
+          </Link>
+        </WebsitePageHeader>
+        <div ref={navigationRef}>
+          <ExhaustiveNavigation
+            itemsCount={pageCount}
+            renderItem={(pageNumber) => {
+              const start = pageNumber * batchSize + 1
+              const end = Math.min(start + batchSize - 1, tickets.length)
+
+              if (end === start) {
+                return start
+              }
+
+              return `${start}-${end}`
+            }}
+            value={currentBatchIndex}
+            onChange={(page) => setTicket(page * batchSize + 1)}
+          />
+        </div>
+        {currentBatch.map((ticket) => (
+          <TicketItem ticket={ticket} key={ticket.ticketNumber} />
+        ))}
+        <MinimalisticFooterPagination
           itemsCount={pageCount}
-          renderItem={(pageNumber) => {
-            const start = pageNumber * batchSize + 1
-            const end = Math.min(start + batchSize - 1, tickets.length)
-
-            if (end === start) {
-              return start
-            }
-
-            return `${start}-${end}`
-          }}
           value={currentBatchIndex}
           onChange={(page) => setTicket(page * batchSize + 1)}
         />
-      </div>
-      {currentBatch.map((ticket) => (
-        <TicketItem ticket={ticket} key={ticket.ticketNumber} />
-      ))}
-      <MinimalisticFooterPagination
-        itemsCount={pageCount}
-        value={currentBatchIndex}
-        onChange={(page) => setTicket(page * batchSize + 1)}
-      />
-    </WebsitePageContent>
+      </WebsitePageContent>
+    </>
   )
 }

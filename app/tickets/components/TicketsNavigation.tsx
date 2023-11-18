@@ -1,10 +1,10 @@
-import { SeparatedByLine } from '@georgian/ui/ui/SeparatedByLine'
 import { toBatches } from '@georgian/utils/array/toBatches'
-import { HStack, VStack } from '@georgian/ui/ui/Stack'
+import { HStack, VStack } from '@georgian/ui/layout/Stack'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
 import { useEffect, useRef } from 'react'
-import { Button } from '@georgian/ui/ui/buttons/Button'
+import { Button } from '@georgian/ui/buttons/Button'
 import { getLastItem } from '@georgian/utils/array/getLastItem'
+import { SeparatedByLine } from '@georgian/ui/layout/SeparatedByLine'
 
 interface TicketsNavigationProps {
   currentTicketNumber: number

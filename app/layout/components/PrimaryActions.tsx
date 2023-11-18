@@ -1,9 +1,10 @@
 import { ticketCategories } from '@georgian/entities/Ticket'
-import { HStack } from '@georgian/ui/ui/Stack'
-import { Button } from '@georgian/ui/ui/buttons/Button'
+import { HStack } from '@georgian/ui/layout/Stack'
+import { Button } from '@georgian/ui/buttons/Button'
 import { useCopy } from 'copy/CopyProvider'
 import { Link } from 'navigation/components/Link'
 import { getTicketCategoryPath } from 'navigation/utils'
+import { LanguageSelector } from '@georgian/languages-ui/components/LanguageSelector'
 
 export const PrimaryActions = () => {
   const copy = useCopy()
@@ -16,6 +17,7 @@ export const PrimaryActions = () => {
           </Button>
         </Link>
       ))}
+      <LanguageSelector />
     </HStack>
   )
 }

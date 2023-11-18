@@ -1,13 +1,13 @@
-import { Text } from '@georgian/ui/ui/Text'
+import { Text } from '@georgian/ui/text'
 import { useCategoryTest } from './CategoryTestProvider'
-import { HStack, VStack } from '@georgian/ui/ui/Stack'
-import { UnstyledButton } from '@georgian/ui/ui/buttons/UnstyledButton'
+import { HStack, VStack } from '@georgian/ui/layout/Stack'
+import { UnstyledButton } from '@georgian/ui/buttons/UnstyledButton'
 import styled from 'styled-components'
 import { interactive } from '@georgian/ui/css/interactive'
-import { defaultBorderRadiusCSS } from '@georgian/ui/ui/borderRadius'
-import { getColor } from '@georgian/ui/ui/theme/getters'
+import { getColor } from '@georgian/ui/theme/getters'
 import { transition } from '@georgian/ui/css/transition'
 import { ticketAnswerLetters } from '@georgian/entities/Ticket'
+import { borderRadius } from '@georgian/ui/css/borderRadius'
 
 interface CategoryTestItemProps {
   testNumber: number
@@ -21,7 +21,7 @@ const Container = styled(VStack)`
 const Option = styled(UnstyledButton)`
   ${interactive};
   ${transition};
-  ${defaultBorderRadiusCSS};
+  ${borderRadius.m};
   padding: 12px 16px;
   border: 2px solid ${getColor('mist')};
 

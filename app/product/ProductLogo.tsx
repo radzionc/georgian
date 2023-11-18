@@ -1,8 +1,8 @@
-import { Text } from '@georgian/ui/ui/Text'
+import { Text } from '@georgian/ui/text'
 import { ProductIcon } from './ProductIcon'
-import { HStack } from '@georgian/ui/ui/Stack'
+import { HStack } from '@georgian/ui/layout/Stack'
 import styled from 'styled-components'
-import { getColor } from '@georgian/ui/ui/theme/getters'
+import { getColor } from '@georgian/ui/theme/getters'
 import { centerContent } from '@georgian/ui/css/centerContent'
 import { useCopy } from 'copy/CopyProvider'
 

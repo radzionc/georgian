@@ -1,12 +1,12 @@
 import {
-  ComponentWithOptionalChildrenProps,
+  ComponentWithChildrenProps,
   TitledComponentProps,
 } from '@georgian/ui/props'
-import { HStack } from '@georgian/ui/ui/Stack'
-import { Text } from '@georgian/ui/ui/Text'
+import { HStack } from '@georgian/ui/layout/Stack'
+import { Text } from '@georgian/ui/text'
 
 interface WebsitePageHeaderProps
-  extends ComponentWithOptionalChildrenProps,
+  extends Partial<ComponentWithChildrenProps>,
     TitledComponentProps {}
 
 export const WebsitePageHeader = ({

@@ -1,23 +1,23 @@
-import { SeparatedByLine } from '@georgian/ui/ui/SeparatedByLine'
-import { HStack, VStack } from '@georgian/ui/ui/Stack'
-import { Text, TextColor } from '@georgian/ui/ui/Text'
+import { HStack, VStack } from '@georgian/ui/layout/Stack'
+import { Text, TextColor } from '@georgian/ui/text'
 import styled, { css } from 'styled-components'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
-import { Panel } from '@georgian/ui/ui/Panel/Panel'
+import { Panel } from '@georgian/ui/panel/Panel'
 import { without } from '@georgian/utils/array/without'
 import {
   isTicketCompleted,
   useCompletedTickets,
   withoutTicket,
 } from 'tickets/hooks/useCompletedTickets'
-import { CheckCircleIcon } from '@georgian/ui/ui/icons/CheckCircleIcon'
-import { UnstyledButton } from '@georgian/ui/ui/buttons/UnstyledButton'
+import { CheckCircleIcon } from '@georgian/ui/icons/CheckCircleIcon'
+import { UnstyledButton } from '@georgian/ui/buttons/UnstyledButton'
 import { transition } from '@georgian/ui/css/transition'
 import { interactive } from '@georgian/ui/css/interactive'
-import { getColor } from '@georgian/ui/ui/theme/getters'
-import { ClientOnly } from '@georgian/ui/ui/ClientOnly'
+import { getColor } from '@georgian/ui/theme/getters'
 import { ticketAnswerLetters } from '@georgian/entities/Ticket'
 import { useCopy } from 'copy/CopyProvider'
+import { ClientOnly } from '@georgian/ui/base/ClientOnly'
+import { SeparatedByLine } from '@georgian/ui/layout/SeparatedByLine'
 
 interface TicketItemProps {
   ticket: TranslatedTicket
@@ -56,6 +56,8 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
   const [completedTickets, setCompletedTickets] = useCompletedTickets()
   const isCompleted = isTicketCompleted(completedTickets, ticket)
 
+  const translations = without(Object.keys(translation), question)
+
   return (
     <VStack gap={8}>
       <Header fullWidth alignItems="center" justifyContent="space-between">
@@ -82,9 +84,9 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
       </Header>
       <Container kind="secondary">
         <SeparatedByLine gap={16}>
-          <VStack gap={8}>
+          {translations.length > 0 && (
             <VStack gap={8}>
-              {without(Object.keys(translation), question).map((original) => (
+              {translations.map((original) => (
                 <HStack key={original} gap={12} alignItems="start">
                   <Text size={24} color="contrast">
                     ✨
@@ -93,16 +95,15 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
                     <Text size={18} weight="bold">
                       {original}
                     </Text>
-                    {translation[original] && (
-                      <Text size={18} weight="bold" color="shy">
-                        {translation[original]}
-                      </Text>
-                    )}
+                    <Text size={18} weight="bold" color="shy">
+                      {translation[original]}
+                    </Text>
                   </VStack>
                 </HStack>
               ))}
             </VStack>
-          </VStack>
+          )}
+
           <VStack gap={8}>
             <VStack gap={4}>
               <Text weight="semibold">{question}</Text>

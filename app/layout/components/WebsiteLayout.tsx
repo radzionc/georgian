@@ -1,5 +1,5 @@
 import { ComponentWithChildrenProps } from '@georgian/ui/props'
-import { VStack } from '@georgian/ui/ui/Stack'
+import { VStack } from '@georgian/ui/layout/Stack'
 import styled from 'styled-components'
 import { WebsiteHeader } from './WebsiteHeader'
 import { horizontalPadding } from '@georgian/ui/css/horizontalPadding'

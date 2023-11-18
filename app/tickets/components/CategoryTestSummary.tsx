@@ -1,6 +1,6 @@
-import { Text } from '@georgian/ui/ui/Text'
+import { Text } from '@georgian/ui/text'
 import { useCategoryTest } from './CategoryTestProvider'
-import { VStack } from '@georgian/ui/ui/Stack'
+import { VStack } from '@georgian/ui/layout/Stack'
 import { toPercents } from '@georgian/utils/toPercents'
 import { TicketItem } from './TicketItem'
 import { useCopy } from 'copy/CopyProvider'

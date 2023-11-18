@@ -1,5 +1,5 @@
 import { NavigationToInternalPage } from 'navigation/NavigationToInternalPage'
-import { VStack } from '@georgian/ui/ui/Stack'
+import { VStack } from '@georgian/ui/layout/Stack'
 import { Path } from 'navigation/Path'
 
 export const NavigationItems = () => (

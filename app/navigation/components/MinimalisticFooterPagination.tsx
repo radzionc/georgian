@@ -1,8 +1,8 @@
 import { InputProps } from '@georgian/ui/props'
-import { HStack } from '@georgian/ui/ui/Stack'
-import { Button } from '@georgian/ui/ui/buttons/Button'
-import { ArrowLeftIcon } from '@georgian/ui/ui/icons/ArrowLeftIcon'
-import { ArrowRightIcon } from '@georgian/ui/ui/icons/ArrowRightIcon'
+import { HStack } from '@georgian/ui/layout/Stack'
+import { Button } from '@georgian/ui/buttons/Button'
+import { ArrowLeftIcon } from '@georgian/ui/icons/ArrowLeftIcon'
+import { ArrowRightIcon } from '@georgian/ui/icons/ArrowRightIcon'
 import { reverseIf } from '@georgian/utils/array/reverseIf'
 import React from 'react'
 

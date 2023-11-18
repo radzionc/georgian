@@ -6,6 +6,7 @@ import { enCopy } from './en'
 import { kaCopy } from './ka'
 
 import { match } from '@georgian/utils/match'
+import { LanguageProvider } from '@georgian/languages-ui/components/LanguageProvider'
 
 export const TranslationProvider = ({
   children,
@@ -16,5 +17,9 @@ export const TranslationProvider = ({
     en: () => enCopy,
     ka: () => kaCopy,
   })
-  return <CopyProvider value={copy}>{children}</CopyProvider>
+  return (
+    <LanguageProvider value={language}>
+      <CopyProvider value={copy}>{children}</CopyProvider>
+    </LanguageProvider>
+  )
 }

@@ -1,4 +1,4 @@
-import { RadioInput } from '@georgian/ui/ui/inputs/RadioInput'
+import { RadioInput } from '@georgian/ui/inputs/RadioInput'
 import {
   TicketsFilter,
   testSize,

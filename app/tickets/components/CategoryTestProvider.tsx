@@ -1,7 +1,7 @@
 import { TicketCategory } from '@georgian/entities/Ticket'
 import { ComponentWithChildrenProps } from '@georgian/ui/props'
 import { createContextHook } from '@georgian/ui/state/createContextHook'
-import { Text } from '@georgian/ui/ui/Text'
+import { Text } from '@georgian/ui/text'
 import { shouldBeDefined } from '@georgian/utils/shouldBeDefined'
 import { createContext, useCallback, useMemo, useState } from 'react'
 import { useCompletedTickets } from 'tickets/hooks/useCompletedTickets'

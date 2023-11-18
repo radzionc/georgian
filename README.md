@@ -87,7 +87,7 @@ yarn add --dev @types/styled-components@^5.1.25
 
 ```tsx
 import type { AppProps } from 'next/app'
-import { GlobalStyle } from '@georgian/ui/ui/GlobalStyle'
+import { GlobalStyle } from '@georgian/ui/GlobalStyle'
 import { ThemeProvider } from 'ui/ThemeProvider'
 import { Inter } from 'next/font/google'
 

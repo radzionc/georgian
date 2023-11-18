@@ -1,6 +1,6 @@
 import { ComponentWithChildrenProps } from '@georgian/ui/props'
-import { PrefferedThemeProvider } from '@georgian/ui/ui/theme/PrefferedThemeProvider'
-import { ThemePreference } from '@georgian/ui/ui/theme/ThemePreference'
+import { PrefferedThemeProvider } from '@georgian/ui/theme/PrefferedThemeProvider'
+import { ThemePreference } from '@georgian/ui/theme/ThemePreference'
 import { PersistentStateKey, usePersistentState } from 'state/persistentState'
 
 export const ThemeProvider = ({ children }: ComponentWithChildrenProps) => {

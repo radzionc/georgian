@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { HSLA } from '../ui/colors/HSLA'
+import { HSLA } from '../colors/HSLA'
 
 export type ClosableComponentProps = {
   onClose: () => void
@@ -11,10 +11,6 @@ export type ComponentWithIconProps = {
 
 export type ComponentWithChildrenProps = {
   children: ReactNode
-}
-
-export type ComponentWithOptionalChildrenProps = {
-  children?: ReactNode
 }
 
 export type ComponentWithBackActionProps = {
@@ -36,6 +32,10 @@ export type FinishableComponentProps = {
 export interface InputProps<T> {
   value: T
   onChange: (value: T) => void
+}
+
+export interface ComponentWithErrorProps {
+  error?: string
 }
 
 export interface TitledComponentProps {

@@ -17,8 +17,10 @@ export const toTranslatedTickets = (tickets: Ticket[], language: Language) => {
   return tickets.map((ticket) => {
     const textsToTranslate = getTextsForTranslation(ticket)
     const translation: TranslationRecord = {}
-    textsToTranslate.map((text) => {
-      translation[text] = translations[text]
+    textsToTranslate.forEach((text) => {
+      if (translations[text]) {
+        translation[text] = translations[text]
+      }
     })
 
     return {

@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 import { range } from '@georgian/utils/array/range'
-import { HStack } from '@georgian/ui/ui/Stack'
+import { HStack } from '@georgian/ui/layout/Stack'
 import styled, { css } from 'styled-components'
-import { InvisibleHTMLRadio } from '@georgian/ui/ui/inputs/InvisibleHTMLRadio'
+import { InvisibleHTMLRadio } from '@georgian/ui/inputs/InvisibleHTMLRadio'
 import { interactive } from '@georgian/ui/css/interactive'
-import { getColor } from '@georgian/ui/ui/theme/getters'
+import { getColor } from '@georgian/ui/theme/getters'
 import { transition } from '@georgian/ui/css/transition'
 
 interface ExhaustiveNavigationProps {

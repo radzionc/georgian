@@ -1,14 +1,14 @@
-import { VStack } from '@georgian/ui/ui/Stack'
-import { Center } from '@georgian/ui/ui/Center'
-import { Text } from '@georgian/ui/ui/Text'
-import { Button } from '@georgian/ui/ui/buttons/Button'
+import { Text } from '@georgian/ui/text'
+import { Button } from '@georgian/ui/buttons/Button'
 import { ExternalLink } from '@georgian/ui/navigation/Link/ExternalLink'
 import { creatorWebsiteUrl } from 'product/resources'
-import { ShyTextButton } from '@georgian/ui/ui/buttons/ShyTextButton'
+import { ShyTextButton } from '@georgian/ui/buttons/ShyTextButton'
 import { getTicketCategoryPath } from 'navigation/utils'
 import { Link } from 'navigation/components/Link'
 import { useCopy } from 'copy/CopyProvider'
 import { MetaTags } from '@georgian/ui/metadata/MetaTags'
+import { VStack } from '@georgian/ui/layout/Stack'
+import { Center } from '@georgian/ui/layout/Center'
 
 export const LandingPage = () => {
   const copy = useCopy()

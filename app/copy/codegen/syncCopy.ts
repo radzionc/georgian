@@ -33,8 +33,6 @@ const syncCopy = async () => {
       const sourceKeys = Object.keys(sourceCopy)
       const targetKeys = Object.keys(copy)
       const missingKeys = sourceKeys.filter((key) => !targetKeys.includes(key))
-      console.log(`Translating ${missingKeys.length} keys to ${targetLanguage}`)
-      return
       const textsToTranslate = missingKeys.map((key) => sourceCopy[key])
       const translations = await translateTexts(
         textsToTranslate,

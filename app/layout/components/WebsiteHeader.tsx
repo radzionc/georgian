@@ -1,4 +1,4 @@
-import { HStack } from '@georgian/ui/ui/Stack'
+import { HStack } from '@georgian/ui/layout/Stack'
 import { ProductLogo } from 'product/ProductLogo'
 import styled from 'styled-components'
 import { PrimaryActions } from './PrimaryActions'

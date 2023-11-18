@@ -1,5 +1,5 @@
 import { ComponentWithChildrenProps } from '@georgian/ui/props'
-import { VStack } from '@georgian/ui/ui/Stack'
+import { VStack } from '@georgian/ui/layout/Stack'
 
 export const WebsitePageContent = ({
   children,

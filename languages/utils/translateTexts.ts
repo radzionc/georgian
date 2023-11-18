@@ -2,11 +2,11 @@ import { Language } from '@georgian/languages/Language'
 import { toBatches } from '@georgian/utils/array/toBatches'
 import { TranslationServiceClient } from '@google-cloud/translate'
 import { getEnvVar } from '../getEnvVar'
-import { extractTemplateVariables } from '@georgian/utils/extractTemplateVariables'
+import { extractTemplateVariables } from '@georgian/utils/template/extractTemplateVariables'
 import { withoutDuplicates } from '@georgian/utils/array/withoutDuplicates'
-import { injectVariables } from '@georgian/utils/injectVariables'
+import { injectVariables } from '@georgian/utils/template/injectVariables'
 import { makeRecord } from '@georgian/utils/makeRecord'
-import { toTemplateVariable } from '@georgian/utils/toTemplateVariable'
+import { toTemplateVariable } from '@georgian/utils/template/toTemplateVariable'
 
 const batchSize = 600
 

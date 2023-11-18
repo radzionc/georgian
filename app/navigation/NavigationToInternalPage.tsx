@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { NavigationItem } from '../../ui/ui/Navigation/Sidebar/NavigationItem'
+import { NavigationItem } from '../../ui/Navigation/Sidebar/NavigationItem'
 import { Link } from './components/Link'
 
 interface Props {

@@ -1,10 +1,10 @@
 import { TicketCategory, ticketCategoryEmoji } from '@georgian/entities/Ticket'
-import { Text } from '@georgian/ui/ui/Text'
+import { Text } from '@georgian/ui/text'
 import { WebsitePageHeader } from 'layout/components/WebsitePageHeader'
 import { CategoryTestTicketsFilter } from './CategoryTestTicketsFilter'
 import { testSize, useCategoryTest } from './CategoryTestProvider'
-import { Button } from '@georgian/ui/ui/buttons/Button'
-import { HStack } from '@georgian/ui/ui/Stack'
+import { Button } from '@georgian/ui/buttons/Button'
+import { HStack } from '@georgian/ui/layout/Stack'
 import { useCopy } from 'copy/CopyProvider'
 
 export interface CategoryTestPageHeaderProps {

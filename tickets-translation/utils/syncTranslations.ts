@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { Language } from '@georgian/translation/Language'
+import { Language } from '@georgian/languages/Language'
 import {
   getTextsForTranslation,
   getTranslations,
@@ -7,7 +7,7 @@ import {
 } from './sources'
 import { syncTranslationRecordKeys } from './syncTranslationRecordKeys'
 import { arraysToRecord } from '@georgian/utils/array/arraysToRecord'
-import { translateTexts } from '@georgian/translation/utils/translateTexts'
+import { translateTexts } from '@georgian/languages/utils/translateTexts'
 
 const sourceLanguage: Language = 'ka'
 const primaryLanguage: Language = 'en'

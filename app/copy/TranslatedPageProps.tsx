@@ -1,5 +1,5 @@
-import { TargetLanguage } from '@georgian/translation/Language'
+import { Language } from '@georgian/languages/Language'
 
 export interface TranslatedPageProps {
-  language: TargetLanguage
+  language: Language
 }

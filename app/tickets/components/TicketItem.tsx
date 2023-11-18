@@ -93,9 +93,11 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
                     <Text size={18} weight="bold">
                       {original}
                     </Text>
-                    <Text size={18} weight="bold" color="shy">
-                      {translation[original]}
-                    </Text>
+                    {translation[original] && (
+                      <Text size={18} weight="bold" color="shy">
+                        {translation[original]}
+                      </Text>
+                    )}
                   </VStack>
                 </HStack>
               ))}

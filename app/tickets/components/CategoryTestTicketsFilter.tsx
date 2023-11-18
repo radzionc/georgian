@@ -1,19 +1,27 @@
 import { RadioInput } from '@georgian/ui/ui/inputs/RadioInput'
-import { capitalizeFirstLetter } from '@georgian/utils/capitalizeFirstLetter'
 import {
   TicketsFilter,
   testSize,
   ticketsFilterOptions,
   useCategoryTest,
 } from './CategoryTestProvider'
+import { useCopy } from 'copy/CopyProvider'
+import { match } from '@georgian/utils/match'
 
 export const CategoryTestTicketsFilter = () => {
   const { ticketsFilter, setTicketsFilter, completedTickets } =
     useCategoryTest()
 
+  const copy = useCopy()
+
   return (
     <RadioInput<TicketsFilter>
-      renderOption={(option) => `${capitalizeFirstLetter(option)} tickets`}
+      renderOption={(option) =>
+        match(option, {
+          all: () => copy.allTickets,
+          completed: () => copy.completedTickets,
+        })
+      }
       options={ticketsFilterOptions}
       value={ticketsFilter}
       onChange={setTicketsFilter}
@@ -22,7 +30,7 @@ export const CategoryTestTicketsFilter = () => {
 
         if (completedTickets.length >= testSize) return false
 
-        return `You need to mark as completed at least ${testSize} tickets to take this test.`
+        return copy.completedTicketsTestMin({ count: testSize.toString() })
       }}
     />
   )

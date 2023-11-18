@@ -1,12 +1,12 @@
-import { TargetLanguage } from '@georgian/translation/Language'
 import { getTransaltions } from './getTranslations'
 import { createTsFile } from '@georgian/codegen/utils/createTsFile'
 import path from 'path'
 import { toRecordTypeBody } from '@georgian/codegen/utils/ts/toRecordTypeBody'
 import { makeRecord } from '@georgian/utils/makeRecord'
 import { extractTemplateVariables } from '@georgian/utils/extractTemplateVariables'
+import { Language } from '@georgian/languages/Language'
 
-export const generateCopy = (language: TargetLanguage) => {
+export const generateCopy = (language: Language) => {
   const copy = getTransaltions(language)
 
   const copyCode = toRecordTypeBody(

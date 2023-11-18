@@ -1,4 +1,4 @@
-import { TargetLanguage } from '../../../translation/Language'
+import { Language } from '@georgian/languages/Language'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { ComponentProps } from 'react'
@@ -6,7 +6,7 @@ import { ComponentProps } from 'react'
 export const Link = ({ href, ...props }: ComponentProps<typeof NextLink>) => {
   const { query } = useRouter()
 
-  const language = query.language as TargetLanguage
+  const language = query.language as Language
 
   const path = `/${language}${href}`
 

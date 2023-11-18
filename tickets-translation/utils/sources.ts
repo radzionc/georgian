@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import { TranslationRecord } from '@georgian/translation/TranslationRecord'
+import { TranslationRecord } from '@georgian/languages/TranslationRecord'
 
 export const textsFilePath = path.resolve(__dirname, `../sources/texts.txt`)
 

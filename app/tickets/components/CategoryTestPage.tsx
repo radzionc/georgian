@@ -22,8 +22,8 @@ export const CategoryTestPage = ({
   return (
     <>
       <MetaTags
-        title={copy.categoryPageMetaTagTitle({ category })}
-        description={copy.categoryPageMetaTagDescription({ category })}
+        title={copy.categoryTestPageMetaTagTitle({ category })}
+        description={copy.categoryTestPageMetaTagDescription({ category })}
       />
       <WebsitePageContent>
         <CategoryTestProvider category={category} tickets={tickets}>

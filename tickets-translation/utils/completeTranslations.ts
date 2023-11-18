@@ -1,8 +1,8 @@
-import { Language } from '@georgian/translation/Language'
-import { TranslationRecord } from '@georgian/translation/TranslationRecord'
+import { Language } from '@georgian/languages/Language'
+import { TranslationRecord } from '@georgian/languages/TranslationRecord'
 import { arraysToRecord } from '@georgian/utils/array/arraysToRecord'
 import { syncTranslationRecordKeys } from './syncTranslationRecordKeys'
-import { translateTexts } from '@georgian/translation/utils/translateTexts'
+import { translateTexts } from '@georgian/languages/utils/translateTexts'
 
 interface CompleteTranslationsParams {
   existingRecord: TranslationRecord

@@ -3,6 +3,7 @@ import { useCategoryTest } from './CategoryTestProvider'
 import { VStack } from '@georgian/ui/ui/Stack'
 import { toPercents } from '@georgian/utils/toPercents'
 import { TicketItem } from './TicketItem'
+import { useCopy } from 'copy/CopyProvider'
 
 const minCompletionRate = 0.7
 
@@ -15,13 +16,15 @@ export const CategoryTestSummary = () => {
   const passedTestsCount = tests.length - failedTests.length
   const hasPassed = passedTestsCount / tests.length >= minCompletionRate
 
+  const copy = useCopy()
+
+  const minPercentage = toPercents(minCompletionRate, 'round')
+
   return (
     <VStack gap={40}>
       <VStack fullWidth gap={8} alignItems="center">
         <Text weight="semibold" size={24} color="contrast">
-          {hasPassed
-            ? 'You have passed the test!'
-            : `You have failed the test :(`}
+          {hasPassed ? copy.testPassed : copy.testFailed}
         </Text>
         <Text weight="bold" color={hasPassed ? 'success' : 'alert'} size={40}>
           {passedTestsCount} / {tests.length}
@@ -29,16 +32,12 @@ export const CategoryTestSummary = () => {
         <Text centered style={{ maxWidth: 360 }} color="supporting">
           You've scored {toPercents(passedTestsCount / tests.length, 'round')}.{' '}
           {hasPassed
-            ? `
-            Congratulations! You've surpassed the ${toPercents(
-              minCompletionRate,
-              'round',
-            )} milestone! 🎉 Keep up the great work!
-          `
-            : `Score ${toPercents(
-                minCompletionRate,
-                'round',
-              )} or above to pass!`}
+            ? copy.testCongratulation({
+                percentage: minPercentage,
+              })
+            : copy.scoreToPass({
+                percentage: minPercentage,
+              })}
         </Text>
       </VStack>
       <VStack gap={20}>

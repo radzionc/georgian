@@ -17,7 +17,23 @@ export const enCopy: Copy = {
     injectVariables(`Georgian {{category}} Tickets`, variables),
   startTest: `Start Test`,
   markAsLearned: `mark as Learned`,
-  learned: `Learned`,
+  learned: `learned`,
+  allTickets: `All Tickets`,
+  completedTickets: `Completed Tickets`,
+  testPassed: `You have passed the test!`,
+  testFailed: `You have failed the test :(`,
+  testCongratulation: (variables: { percentage: string }) =>
+    injectVariables(
+      `Congratulations! You've surpassed the {{percentage}} milestone! 🎉 Keep up the great work!`,
+      variables,
+    ),
+  scoreToPass: (variables: { percentage: string }) =>
+    injectVariables(`Score {{percentage}} or above to pass!`, variables),
+  completedTicketsTestMin: (variables: { count: string }) =>
+    injectVariables(
+      `You need to mark as completed at least {{count}} tickets to take this test.`,
+      variables,
+    ),
   homePageMetaTagDescription: `Ace your Georgian Citizenship Exam with our comprehensive study guides, practice tests, and resources tailored for success in Language, Law, and History. Start preparing today!`,
   categoryPageMetaTagTitle: (variables: { category: string }) =>
     injectVariables(

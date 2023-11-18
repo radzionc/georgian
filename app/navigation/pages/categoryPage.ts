@@ -1,6 +1,6 @@
 import { getAllTicketsInCategory } from '@georgian/db/tickets'
 import { TicketCategory, ticketCategories } from '@georgian/entities/Ticket'
-import { TargetLanguage, targetLanguages } from '../../../translation/Language'
+import { Language, languages } from '@georgian/languages/Language'
 import { toTranslatedTickets } from '@georgian/tickets-translation/utils/toTranslatedTickets'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
@@ -8,12 +8,12 @@ import { CategoryTestPageProps } from 'tickets/components/CategoryTestPage'
 
 interface Params extends ParsedUrlQuery {
   category: TicketCategory
-  language: TargetLanguage
+  language: Language
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const paths = ticketCategories.flatMap((category) =>
-    targetLanguages.map((language) => ({
+    languages.map((language) => ({
       params: { category, language },
     })),
   )

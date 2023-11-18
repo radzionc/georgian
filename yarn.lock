@@ -1030,17 +1030,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@georgian/languages@workspace:languages":
+  version: 0.0.0-use.local
+  resolution: "@georgian/languages@workspace:languages"
+  languageName: unknown
+  linkType: soft
+
 "@georgian/tickets-translation@workspace:tickets-translation":
   version: 0.0.0-use.local
   resolution: "@georgian/tickets-translation@workspace:tickets-translation"
   dependencies:
     "@google-cloud/translate": ^8.0.2
-  languageName: unknown
-  linkType: soft
-
-"@georgian/translation@workspace:translation":
-  version: 0.0.0-use.local
-  resolution: "@georgian/translation@workspace:translation"
   languageName: unknown
   linkType: soft
 

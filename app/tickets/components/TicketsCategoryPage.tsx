@@ -17,6 +17,7 @@ import { TranslatedPageProps } from 'copy/TranslatedPageProps'
 import { useCopy } from 'copy/CopyProvider'
 import { MetaTags } from '@georgian/ui/metadata/MetaTags'
 import { Link } from 'navigation/components/Link'
+import Head from 'next/head'
 
 export interface TicketsCategoryPageProps extends TranslatedPageProps {
   category: TicketCategory
@@ -47,10 +48,16 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
 
   return (
     <>
-      <MetaTags
-        title={copy.categoryTestPageMetaTagTitle({ category })}
-        description={copy.categoryTestPageMetaTagDescription({ category })}
-      />
+      <Head>
+        <MetaTags
+          title={copy.categoryTestPageMetaTagTitle({
+            category: copy[category],
+          })}
+          description={copy.categoryTestPageMetaTagDescription({
+            category: copy[category],
+          })}
+        />
+      </Head>
       <WebsitePageContent>
         <WebsitePageHeader
           title={

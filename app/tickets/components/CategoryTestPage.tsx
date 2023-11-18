@@ -8,6 +8,7 @@ import { TranslatedPageProps } from 'copy/TranslatedPageProps'
 import { MetaTags } from '@georgian/ui/metadata/MetaTags'
 import { useCopy } from 'copy/CopyProvider'
 import { ClientOnly } from '@georgian/ui/base/ClientOnly'
+import Head from 'next/head'
 
 export interface CategoryTestPageProps extends TranslatedPageProps {
   category: TicketCategory
@@ -21,10 +22,16 @@ export const CategoryTestPage = ({
   const copy = useCopy()
   return (
     <>
-      <MetaTags
-        title={copy.categoryTestPageMetaTagTitle({ category })}
-        description={copy.categoryTestPageMetaTagDescription({ category })}
-      />
+      <Head>
+        <MetaTags
+          title={copy.categoryTestPageMetaTagTitle({
+            category: copy[category],
+          })}
+          description={copy.categoryTestPageMetaTagDescription({
+            category: copy[category],
+          })}
+        />
+      </Head>
       <WebsitePageContent>
         <CategoryTestProvider category={category} tickets={tickets}>
           <ClientOnly>

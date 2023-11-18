@@ -38,15 +38,17 @@ export const LanguageSelector = () => {
         </div>
       )}
       renderContent={({ view, onClose }) => {
-        const options: MenuOptionProps[] = languages.map((language) => ({
+        const options: MenuOptionProps[] = languages.map((option) => ({
           icon: (
             <FlagWrapper>
-              <CountryFlag code={languagePrimaryCountry[language]} />
+              <CountryFlag code={languagePrimaryCountry[option]} />
             </FlagWrapper>
           ),
-          text: languageNativeName[language],
+          text: languageNativeName[option],
           onSelect: () => {
-            setLanguage(language)
+            if (language !== option) {
+              setLanguage(option)
+            }
             onClose()
           },
         }))

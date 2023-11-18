@@ -9,15 +9,18 @@ import { useCopy } from 'copy/CopyProvider'
 import { MetaTags } from '@georgian/ui/metadata/MetaTags'
 import { VStack } from '@georgian/ui/layout/Stack'
 import { Center } from '@georgian/ui/layout/Center'
+import Head from 'next/head'
 
 export const LandingPage = () => {
   const copy = useCopy()
   return (
     <>
-      <MetaTags
-        title={copy.homePageMetaTagTitle}
-        description={copy.homePageMetaTagDescription}
-      />
+      <Head>
+        <MetaTags
+          title={copy.homePageMetaTagTitle}
+          description={copy.homePageMetaTagDescription}
+        />
+      </Head>
       <Center>
         <VStack style={{ maxWidth: 480 }} alignItems="center" gap={24}>
           <Text height="large" color="contrast" as="h1" centered size={32}>

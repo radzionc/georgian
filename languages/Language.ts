@@ -3,6 +3,8 @@ import { CountryCode } from '@georgian/utils/countries'
 export const languages = ['en', 'ru', 'ka'] as const
 export type Language = (typeof languages)[number]
 
+export const primaryLanguage: Language = 'en' as const
+
 export const languagePrimaryCountry: Record<Language, CountryCode> = {
   en: 'GB',
   ru: 'RU',

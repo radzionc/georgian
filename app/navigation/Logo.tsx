@@ -1,6 +1,6 @@
 import { Path } from './Path'
 import { ProductLogo } from 'product/ProductLogo'
-import { Link } from './components/Link'
+import { Link } from '@georgian/languages-ui/components/Link'
 
 export const Logo = () => {
   return (

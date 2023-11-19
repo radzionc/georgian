@@ -3,7 +3,7 @@ import { Copy } from './Copy'
 
 import { injectVariables } from '@georgian/utils/template/injectVariables'
 
-export const kaCopy: Copy = {
+const kaCopy: Copy = {
   homePageMetaTagTitle: `მოემზადეთ საქართველოს მოქალაქეობის გამოცდისთვის: ენა, სამართალი, ისტორიის სახელმძღვანელო და პრაქტიკული ტესტები`,
   homePageTitle: `დაეუფლეთ საქართველოს მოქალაქეობის გამოცდას თავდაჯერებულად!`,
   getStarted: `Დაიწყე`,
@@ -58,3 +58,5 @@ export const kaCopy: Copy = {
       variables,
     ),
 }
+
+export default kaCopy

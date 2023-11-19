@@ -3,7 +3,7 @@ import { Copy } from './Copy'
 
 import { injectVariables } from '@georgian/utils/template/injectVariables'
 
-export const enCopy: Copy = {
+const enCopy: Copy = {
   homePageMetaTagTitle: `Prepare for Georgian Citizenship Exam: Language, Law, History Guides & Practice Tests`,
   homePageTitle: `Master Your Georgian Citizenship Exam with Confidence!`,
   getStarted: `Get Started`,
@@ -58,3 +58,5 @@ export const enCopy: Copy = {
       variables,
     ),
 }
+
+export default enCopy

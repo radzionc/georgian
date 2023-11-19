@@ -3,7 +3,7 @@ import { Copy } from './Copy'
 
 import { injectVariables } from '@georgian/utils/template/injectVariables'
 
-export const ruCopy: Copy = {
+const ruCopy: Copy = {
   homePageMetaTagTitle: `Подготовка к экзамену на гражданство Грузии: руководства по языку, праву, истории и практические тесты`,
   homePageTitle: `Сдайте экзамен на гражданство Грузии уверенно!`,
   getStarted: `Начать`,
@@ -61,3 +61,5 @@ export const ruCopy: Copy = {
       variables,
     ),
 }
+
+export default ruCopy

@@ -15,6 +15,7 @@ import { Button } from '@georgian/ui/buttons/Button'
 
 const FlagWrapper = styled(IconWrapper)`
   border-radius: 2px;
+  font-size: 18px;
 `
 
 export const LanguageSelector = () => {
@@ -30,8 +31,8 @@ export const LanguageSelector = () => {
               <FlagWrapper>
                 <CountryFlag code={languagePrimaryCountry[language]} />
               </FlagWrapper>
-              <Text color="shy" height="small">
-                {language}
+              <Text size={12} weight="semibold" height="small">
+                {language.toUpperCase()}
               </Text>
             </HStack>
           </Button>

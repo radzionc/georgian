@@ -3,7 +3,7 @@ import { ProductLogo } from 'product/ProductLogo'
 import styled from 'styled-components'
 import { PrimaryActions } from './PrimaryActions'
 import { verticalPadding } from '@georgian/ui/css/verticalPadding'
-import { Link } from 'navigation/components/Link'
+import { Link } from '@georgian/languages-ui/components/Link'
 
 const Container = styled.div`
   ${verticalPadding(20)};

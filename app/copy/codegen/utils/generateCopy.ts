@@ -27,7 +27,8 @@ export const generateCopy = (language: Language) => {
     `import { Copy } from './Copy'`,
     `import { injectVariables } from '@georgian/utils/template/injectVariables'`,
 
-    `export const ${language}Copy: Copy = ${copyCode}`,
+    `const ${language}Copy: Copy = ${copyCode}`,
+    `export default ${language}Copy`,
   ].join('\n\n')
 
   return createTsFile({

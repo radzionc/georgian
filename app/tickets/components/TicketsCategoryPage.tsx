@@ -13,13 +13,12 @@ import { Button } from '@georgian/ui/buttons/Button'
 import { getCategoryTestPagePath } from 'navigation/utils'
 import { WebsitePageContent } from 'layout/components/WebsitePageContent'
 import { WebsitePageHeader } from 'layout/components/WebsitePageHeader'
-import { TranslatedPageProps } from 'copy/TranslatedPageProps'
 import { useCopy } from 'copy/CopyProvider'
 import { MetaTags } from '@georgian/ui/metadata/MetaTags'
-import { Link } from 'navigation/components/Link'
+import { Link } from '@georgian/languages-ui/components/Link'
 import Head from 'next/head'
 
-export interface TicketsCategoryPageProps extends TranslatedPageProps {
+export interface TicketsCategoryPageProps {
   category: TicketCategory
   tickets: TranslatedTicket[]
 }

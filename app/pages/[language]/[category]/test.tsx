@@ -1,9 +1,26 @@
-import { CategoryTestPage } from 'tickets/components/CategoryTestPage'
+import { LocalizedPageProps } from 'copy/LocalizedPageProps'
 
 import { getStaticPaths, getStaticProps } from 'navigation/pages/categoryPage'
-import { withTranslation } from 'copy/withTranlation'
-import { withWebsiteLayout } from 'layout/withWebsiteLayout'
+import { LanguageProvider } from '@georgian/languages-ui/components/LanguageProvider'
+import { CopyProvider } from 'copy/CopyProvider'
+import { WebsiteLayout } from 'layout/components/WebsiteLayout'
+import {
+  CategoryTestPage,
+  CategoryTestPageProps,
+} from 'tickets/components/CategoryTestPage'
+import { getCopy } from 'copy/getCopy'
 
-export default withTranslation(withWebsiteLayout(CategoryTestPage))
+export default ({
+  language,
+  ...rest
+}: LocalizedPageProps & CategoryTestPageProps) => (
+  <LanguageProvider value={language}>
+    <CopyProvider value={getCopy(language)}>
+      <WebsiteLayout>
+        <CategoryTestPage {...rest} />
+      </WebsiteLayout>
+    </CopyProvider>
+  </LanguageProvider>
+)
 
 export { getStaticPaths, getStaticProps }

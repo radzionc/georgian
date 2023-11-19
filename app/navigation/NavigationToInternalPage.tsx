@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
 import { NavigationItem } from '../../ui/Navigation/Sidebar/NavigationItem'
-import { Link } from './components/Link'
+import { Link } from '@georgian/languages-ui/components/Link'
 
 interface Props {
   path: string

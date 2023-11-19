@@ -2,6 +2,7 @@ import { getAllTicketsInCategory } from '@georgian/db/tickets'
 import { TicketCategory, ticketCategories } from '@georgian/entities/Ticket'
 import { Language, languages } from '@georgian/languages/Language'
 import { toTranslatedTickets } from '@georgian/tickets-translation/utils/toTranslatedTickets'
+import { LocalizedPageProps } from 'copy/LocalizedPageProps'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { CategoryTestPageProps } from 'tickets/components/CategoryTestPage'
@@ -22,7 +23,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 }
 
 export const getStaticProps: GetStaticProps<
-  CategoryTestPageProps,
+  CategoryTestPageProps & LocalizedPageProps,
   Params
 > = async ({ params }) => {
   if (!params) {

@@ -2,7 +2,7 @@ import { ticketCategories } from '@georgian/entities/Ticket'
 import { HStack } from '@georgian/ui/layout/Stack'
 import { Button } from '@georgian/ui/buttons/Button'
 import { useCopy } from 'copy/CopyProvider'
-import { Link } from 'navigation/components/Link'
+import { Link } from '@georgian/languages-ui/components/Link'
 import { getTicketCategoryPath } from 'navigation/utils'
 import { LanguageSelector } from '@georgian/languages-ui/components/LanguageSelector'
 

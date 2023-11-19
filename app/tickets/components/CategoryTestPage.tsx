@@ -4,13 +4,12 @@ import { CategoryTestProvider } from './CategoryTestProvider'
 import { CategoryTestContent } from './CategoryTestContent'
 import { CategoryTestPageHeader } from './CategoryTestPageHeader'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
-import { TranslatedPageProps } from 'copy/TranslatedPageProps'
 import { MetaTags } from '@georgian/ui/metadata/MetaTags'
 import { useCopy } from 'copy/CopyProvider'
 import { ClientOnly } from '@georgian/ui/base/ClientOnly'
 import Head from 'next/head'
 
-export interface CategoryTestPageProps extends TranslatedPageProps {
+export interface CategoryTestPageProps {
   category: TicketCategory
   tickets: TranslatedTicket[]
 }

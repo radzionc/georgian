@@ -6,6 +6,7 @@ import { generateCopyType } from './utils/generateCopyType'
 import { languages, primaryLanguage } from '@georgian/languages/Language'
 import { without } from '@georgian/utils/array/without'
 import { copySourceDirectory, getCopySource } from './utils/getCopySource'
+import { generateGetCopy } from './utils/generateGetCopy'
 
 const syncCopy = async () => {
   const sourceCopy = getCopySource(primaryLanguage)
@@ -38,9 +39,11 @@ const syncCopy = async () => {
     }),
   )
 
-  await generateCopyType(sourceCopy)
-
-  await Promise.all(languages.map(generateCopy))
+  await Promise.all([
+    generateCopyType(sourceCopy),
+    ...languages.map(generateCopy),
+    generateGetCopy(),
+  ])
 }
 
 syncCopy()

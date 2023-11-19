@@ -17,6 +17,11 @@
     "incremental": true,
     "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../languages-ui/components/Link.tsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,44 +1,29 @@
-import fs from 'fs'
-import path from 'path'
-import { attempt } from '@georgian/utils/attempt'
 import { translateTexts } from '@georgian/languages/utils/translateTexts'
 import { makeRecord } from '@georgian/utils/makeRecord'
 import { createJsonFile } from '@georgian/codegen/utils/createJsonFile'
 import { generateCopy } from './utils/generateCopy'
 import { generateCopyType } from './utils/generateCopyType'
-import { Language, languages } from '@georgian/languages/Language'
+import { languages, primaryLanguage } from '@georgian/languages/Language'
 import { without } from '@georgian/utils/array/without'
-
-const translationsDirectory = path.resolve(__dirname, '../')
-
-const getTranslationFilePath = (language: Language) =>
-  path.resolve(translationsDirectory, `${language}.json`)
-
-const getTransaltions = (language: Language) => {
-  return attempt(
-    () =>
-      JSON.parse(fs.readFileSync(getTranslationFilePath(language), 'utf-8')),
-    {},
-  )
-}
-
-const sourceLanguage: Language = 'en'
-const translateIntoLanguages: Language[] = without(languages, sourceLanguage)
+import { copySourceDirectory, getCopySource } from './utils/getCopySource'
 
 const syncCopy = async () => {
-  const sourceCopy = getTransaltions(sourceLanguage)
+  const sourceCopy = getCopySource(primaryLanguage)
+
   await Promise.all(
-    translateIntoLanguages.map(async (targetLanguage) => {
-      const copy = getTransaltions(targetLanguage)
+    without(languages, primaryLanguage).map(async (targetLanguage) => {
+      const copy = getCopySource(targetLanguage)
       const sourceKeys = Object.keys(sourceCopy)
       const targetKeys = Object.keys(copy)
-      const missingKeys = sourceKeys.filter((key) => !targetKeys.includes(key))
+      const missingKeys = without(sourceKeys, ...targetKeys)
+
       const textsToTranslate = missingKeys.map((key) => sourceCopy[key])
-      const translations = await translateTexts(
-        textsToTranslate,
-        sourceLanguage,
-        targetLanguage,
-      )
+      const translations = await translateTexts({
+        texts: textsToTranslate,
+        from: primaryLanguage,
+        to: targetLanguage,
+      })
+
       const result = makeRecord(sourceKeys, (key) =>
         missingKeys.includes(key)
           ? translations[missingKeys.indexOf(key)]
@@ -46,7 +31,7 @@ const syncCopy = async () => {
       )
 
       createJsonFile({
-        directory: translationsDirectory,
+        directory: copySourceDirectory,
         fileName: targetLanguage,
         content: JSON.stringify(result),
       })
@@ -55,7 +40,6 @@ const syncCopy = async () => {
 
   await generateCopyType(sourceCopy)
 
-  const languages = [sourceLanguage, ...translateIntoLanguages]
   await Promise.all(languages.map(generateCopy))
 }
 

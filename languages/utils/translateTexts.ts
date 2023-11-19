@@ -10,11 +10,17 @@ import { toTemplateVariable } from '@georgian/utils/template/toTemplateVariable'
 
 const batchSize = 600
 
-export const translateTexts = async (
-  texts: string[],
-  from: Language,
-  to: Language,
-): Promise<string[]> => {
+interface TranslateTextsParams {
+  texts: string[]
+  from: Language
+  to: Language
+}
+
+export const translateTexts = async ({
+  texts,
+  from,
+  to,
+}: TranslateTextsParams): Promise<string[]> => {
   if (texts.length === 0) {
     return []
   }

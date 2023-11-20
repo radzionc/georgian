@@ -6,20 +6,20 @@ import { ShyTextButton } from '@georgian/ui/buttons/ShyTextButton'
 import { getTicketCategoryPath } from 'navigation/utils'
 import { Link } from '@georgian/languages-ui/components/Link'
 import { useCopy } from 'copy/CopyProvider'
-import { MetaTags } from '@georgian/ui/metadata/MetaTags'
 import { VStack } from '@georgian/ui/layout/Stack'
 import { Center } from '@georgian/ui/layout/Center'
 import Head from 'next/head'
+import { getMetaTags } from '@georgian/ui/metadata/getMetaTags'
 
 export const LandingPage = () => {
   const copy = useCopy()
   return (
     <>
       <Head>
-        <MetaTags
-          title={copy.homePageMetaTagTitle}
-          description={copy.homePageMetaTagDescription}
-        />
+        {getMetaTags({
+          title: copy.homePageMetaTagTitle,
+          description: copy.homePageMetaTagDescription,
+        })}
       </Head>
       <Center>
         <VStack style={{ maxWidth: 480 }} alignItems="center" gap={24}>

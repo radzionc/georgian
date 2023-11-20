@@ -14,9 +14,9 @@ import { getCategoryTestPagePath } from 'navigation/utils'
 import { WebsitePageContent } from 'layout/components/WebsitePageContent'
 import { WebsitePageHeader } from 'layout/components/WebsitePageHeader'
 import { useCopy } from 'copy/CopyProvider'
-import { MetaTags } from '@georgian/ui/metadata/MetaTags'
 import { Link } from '@georgian/languages-ui/components/Link'
 import Head from 'next/head'
+import { getMetaTags } from '@georgian/ui/metadata/getMetaTags'
 
 export interface TicketsCategoryPageProps {
   category: TicketCategory
@@ -48,14 +48,14 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
   return (
     <>
       <Head>
-        <MetaTags
-          title={copy.categoryTestPageMetaTagTitle({
+        {getMetaTags({
+          title: copy.categoryTestPageMetaTagTitle({
             category: copy[category],
-          })}
-          description={copy.categoryTestPageMetaTagDescription({
+          }),
+          description: copy.categoryTestPageMetaTagDescription({
             category: copy[category],
-          })}
-        />
+          }),
+        })}
       </Head>
       <WebsitePageContent>
         <WebsitePageHeader

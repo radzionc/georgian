@@ -4,10 +4,10 @@ import { CategoryTestProvider } from './CategoryTestProvider'
 import { CategoryTestContent } from './CategoryTestContent'
 import { CategoryTestPageHeader } from './CategoryTestPageHeader'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
-import { MetaTags } from '@georgian/ui/metadata/MetaTags'
 import { useCopy } from 'copy/CopyProvider'
 import { ClientOnly } from '@georgian/ui/base/ClientOnly'
 import Head from 'next/head'
+import { getMetaTags } from '@georgian/ui/metadata/getMetaTags'
 
 export interface CategoryTestPageProps {
   category: TicketCategory
@@ -22,14 +22,14 @@ export const CategoryTestPage = ({
   return (
     <>
       <Head>
-        <MetaTags
-          title={copy.categoryTestPageMetaTagTitle({
+        {getMetaTags({
+          title: copy.categoryTestPageMetaTagTitle({
             category: copy[category],
-          })}
-          description={copy.categoryTestPageMetaTagDescription({
+          }),
+          description: copy.categoryTestPageMetaTagDescription({
             category: copy[category],
-          })}
-        />
+          }),
+        })}
       </Head>
       <WebsitePageContent>
         <CategoryTestProvider category={category} tickets={tickets}>

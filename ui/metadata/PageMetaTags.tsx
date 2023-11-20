@@ -4,8 +4,6 @@ interface PageMetaTags {
   title?: string
   description?: string
   image?: string
-  url?: string
-  twitterId?: string
   language?: string
 }
 
@@ -13,8 +11,6 @@ export const PageMetaTags = ({
   title,
   description,
   image,
-  url,
-  twitterId,
   language,
 }: PageMetaTags) => (
   <Head>
@@ -33,6 +29,8 @@ export const PageMetaTags = ({
         <meta name="description" content={description} />
         <meta property="og:description" content={description} />
         <meta name="twitter:description" content={description} />
+        <meta property="og:image:alt" content={description} />
+        <meta name="twitter:image:alt" content={description} />
       </>
     )}
 
@@ -43,26 +41,6 @@ export const PageMetaTags = ({
       </>
     )}
 
-    {image && description && (
-      <>
-        <meta property="og:image:alt" content={description} />
-        <meta name="twitter:image:alt" content={description} />
-      </>
-    )}
-
-    {url && (
-      <>
-        <meta name="twitter:url" content={url} />
-        <meta property="og:url" content={url} />
-      </>
-    )}
-
-    {twitterId && <meta name="twitter:site" content={twitterId} />}
-    {language && (
-      <>
-        <meta httpEquiv="Content-Language" content={language} />
-        <html lang={language} />
-      </>
-    )}
+    {language && <meta httpEquiv="Content-Language" content={language} />}
   </Head>
 )

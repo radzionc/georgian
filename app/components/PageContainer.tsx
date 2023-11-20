@@ -12,11 +12,7 @@ interface PageContainerProps
 
 export const PageContainer = ({ children, language }: PageContainerProps) => (
   <LanguageProvider value={language}>
-    <PageMetaTags
-      url={process.env.NEXT_PUBLIC_BASE_URL}
-      twitterId="@radzionc"
-      language={language}
-    />
+    <PageMetaTags language={language} />
     <CopyProvider value={getCopy(language)}>
       <WebsiteLayout>{children}</WebsiteLayout>
     </CopyProvider>

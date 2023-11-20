@@ -36,7 +36,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <DocumentMetaTags />
+          <DocumentMetaTags twitterId="@radzionc" />
         </Head>
         <body>
           <Main />

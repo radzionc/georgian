@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { Language } from '@georgian/languages/Language'
+import { Language, primaryLanguage } from '@georgian/languages/Language'
 import {
   getTextsForTranslation,
   getTranslations,
@@ -10,7 +10,6 @@ import { arraysToRecord } from '@georgian/utils/array/arraysToRecord'
 import { translateTexts } from '@georgian/languages/utils/translateTexts'
 
 const sourceLanguage: Language = 'ka'
-const primaryLanguage: Language = 'en'
 
 export const syncTranslations = async (language: Language) => {
   const isPrimaryLanguage = language === primaryLanguage
@@ -36,11 +35,11 @@ export const syncTranslations = async (language: Language) => {
   }
 
   console.log(`Translating ${textsToTranslate.length} texts to ${language}`)
-  const translations = await translateTexts(
-    textsToTranslate,
-    isPrimaryLanguage ? sourceLanguage : primaryLanguage,
-    language,
-  )
+  const translations = await translateTexts({
+    texts: textsToTranslate,
+    from: isPrimaryLanguage ? sourceLanguage : primaryLanguage,
+    to: language,
+  })
 
   const result = {
     ...incompleteRecord,

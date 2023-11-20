@@ -6,8 +6,7 @@ import Document, {
   Head,
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import { AppIconMetaTags } from '@georgian/ui/metadata/AppIconMetaTags'
-import { getMetaTags } from '@georgian/ui/metadata/getMetaTags'
+import { DocumentMetaTags } from '@georgian/ui/metadata/DocumentMetaTags'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -35,13 +34,9 @@ class MyDocument extends Document {
   }
   render() {
     return (
-      <Html lang="en">
+      <Html>
         <Head>
-          {getMetaTags({
-            url: process.env.NEXT_PUBLIC_BASE_URL,
-            twitterId: '@radzionc',
-          })}
-          <AppIconMetaTags />
+          <DocumentMetaTags />
         </Head>
         <body>
           <Main />

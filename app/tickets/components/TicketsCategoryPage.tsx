@@ -53,6 +53,7 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
         description={copy.categoryTestPageMetaTagDescription({
           category: copy[category],
         })}
+        image={`/images/${category}.png`}
       />
       <WebsitePageHeader
         title={

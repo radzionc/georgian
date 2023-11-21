@@ -2,9 +2,15 @@ import { AppIconMetaTags } from './AppIconMetaTags'
 
 interface DocumentMetaTagsProps {
   twitterId?: string
+  image?: string
+  language?: string
 }
 
-export const DocumentMetaTags = ({ twitterId }: DocumentMetaTagsProps) => (
+export const DocumentMetaTags = ({
+  twitterId,
+  image,
+  language,
+}: DocumentMetaTagsProps) => (
   <>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -16,6 +22,15 @@ export const DocumentMetaTags = ({ twitterId }: DocumentMetaTagsProps) => (
     />
 
     {twitterId && <meta name="twitter:site" content={twitterId} />}
+
+    {image && (
+      <>
+        <meta property="og:image" content={image} />
+        <meta name="twitter:image:src" content={image} />
+      </>
+    )}
+
+    {language && <meta httpEquiv="Content-Language" content={language} />}
 
     <AppIconMetaTags />
   </>

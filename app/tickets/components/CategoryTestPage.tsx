@@ -27,6 +27,7 @@ export const CategoryTestPage = ({
         description={copy.categoryTestPageMetaTagDescription({
           category: copy[category],
         })}
+        image={`/images/${category}.png`}
       />
       <CategoryTestProvider category={category} tickets={tickets}>
         <ClientOnly>

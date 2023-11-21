@@ -17,6 +17,7 @@ export const LandingPage = () => {
       <PageMetaTags
         title={copy.homePageMetaTagTitle}
         description={copy.homePageMetaTagDescription}
+        image="images/banner.png"
       />
       <VStack style={{ maxWidth: 480 }} alignItems="center" gap={24}>
         <Text height="large" color="contrast" as="h1" centered size={32}>

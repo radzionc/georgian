@@ -3,19 +3,12 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 import { languages } from '@georgian/languages/Language'
 import { LocalizedPageProps } from 'copy/LocalizedPageProps'
-import { LanguageProvider } from '@georgian/languages-ui/components/LanguageProvider'
-import { CopyProvider } from 'copy/CopyProvider'
-import { WebsiteLayout } from 'layout/components/WebsiteLayout'
-import { getCopy } from 'copy/getCopy'
+import { PageContainer } from 'components/PageContainer'
 
 export default ({ language }: LocalizedPageProps) => (
-  <LanguageProvider value={language}>
-    <CopyProvider value={getCopy(language)}>
-      <WebsiteLayout>
-        <LandingPage />
-      </WebsiteLayout>
-    </CopyProvider>
-  </LanguageProvider>
+  <PageContainer language={language}>
+    <LandingPage />
+  </PageContainer>
 )
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {

@@ -7,6 +7,7 @@ import Document, {
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 import { DocumentMetaTags } from '@georgian/ui/metadata/DocumentMetaTags'
+import { IconMetaTags } from 'icon/IconMetaTags'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -37,6 +38,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <DocumentMetaTags twitterId="@radzionc" />
+          <IconMetaTags />
         </Head>
         <body>
           <Main />

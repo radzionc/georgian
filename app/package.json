@@ -7,7 +7,8 @@
     "build": "next build && next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "syncCopy": "npx tsx copy/codegen/syncCopy"
+    "syncCopy": "npx tsx copy/codegen/syncCopy",
+    "generateIconMetaTags": "npx tsx icon/codegen/generateIconMetaTags"
   },
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",
@@ -37,6 +38,7 @@
     "eslint": "8.21.0",
     "eslint-config-next": "^13.4.10",
     "eslint-plugin-react": "^7.33.2",
+    "pwa-asset-generator": "^6.3.1",
     "typescript": "4.7.4"
   }
 }

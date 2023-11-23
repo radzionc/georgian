@@ -16,31 +16,27 @@ const imagesOutputDirectory = path.resolve(publicDirectory, iconImagesLocation)
 const manifestPath = path.resolve(publicDirectory, 'manifest.json')
 
 const generateIconMetaTags = async () => {
-  const promises = [
-    generateImages(lightModeIconPath, imagesOutputDirectory, {
-      manifest: manifestPath,
-      opaque: false,
-      iconOnly: true,
-      favicon: true,
-      type: 'png',
-      pathOverride: iconImagesLocation,
-    }),
-    generateImages(lightModeIconPath, imagesOutputDirectory, {
+  const generatorOutput = [
+    await generateImages(lightModeIconPath, imagesOutputDirectory, {
       manifest: manifestPath,
       background: lightTheme.colors.background.toCssValue(),
       iconOnly: true,
       pathOverride: iconImagesLocation,
     }),
-    generateImages(lightModeIconPath, imagesOutputDirectory, {
+  ]
+
+  generatorOutput.push(
+    await generateImages(lightModeIconPath, imagesOutputDirectory, {
       manifest: manifestPath,
       background: lightTheme.colors.background.toCssValue(),
       splashOnly: true,
       pathOverride: iconImagesLocation,
     }),
-  ]
+  )
+
   if (fs.existsSync(darkModeIconPath)) {
-    promises.push(
-      generateImages(darkModeIconPath, imagesOutputDirectory, {
+    generatorOutput.push(
+      await generateImages(darkModeIconPath, imagesOutputDirectory, {
         manifest: manifestPath,
         background: darkTheme.colors.background.toCssValue(),
         splashOnly: true,
@@ -49,11 +45,20 @@ const generateIconMetaTags = async () => {
       }),
     )
   }
+  generatorOutput.push(
+    await generateImages(lightModeIconPath, imagesOutputDirectory, {
+      manifest: manifestPath,
+      opaque: false,
+      iconOnly: true,
+      favicon: true,
+      type: 'png',
+      pathOverride: iconImagesLocation,
+    }),
+  )
 
-  const results = await Promise.all(promises)
-
-  const metaTags = results
-    .flatMap((r) => withoutDuplicates(Object.values(r.htmlMeta)))
+  const metaTags = withoutDuplicates(
+    generatorOutput.flatMap((r) => Object.values(r.htmlMeta)),
+  )
     .join('')
     .replace(/>/g, '/>')
 

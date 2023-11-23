@@ -2,16 +2,7 @@
 export const IconMetaTags = () => (
   <>
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="196x196"
-      href="images/icon/favicon-196.png"
-    />
     <link rel="apple-touch-icon" href="images/icon/apple-icon-180.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="apple-touch-icon" href="images/icon/apple-icon-180.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
     <link
       rel="apple-touch-startup-image"
       href="images/icon/apple-splash-2048-2732.jpg"
@@ -161,6 +152,12 @@ export const IconMetaTags = () => (
       rel="apple-touch-startup-image"
       href="images/icon/apple-splash-1136-640.jpg"
       media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="196x196"
+      href="images/icon/favicon-196.png"
     />
   </>
 )

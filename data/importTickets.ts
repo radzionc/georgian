@@ -3,6 +3,7 @@ import { TicketCategory } from '@georgian/entities/Ticket'
 import { toTicket } from './utils/toTicket'
 import { deleteAllTicketsInCategory, putTicket } from '@georgian/db/tickets'
 import fs from 'fs'
+import { shouldBeDefined } from '@georgian/utils/shouldBeDefined'
 
 const getSourceFile = (name: string) =>
   path.resolve(__dirname, `./sources/${name}.txt`)
@@ -19,6 +20,9 @@ export const importTickets = async (category: TicketCategory) => {
   await Promise.all(tickets.map(putTicket))
 }
 
-const category = process.argv[2] as TicketCategory
+const category = shouldBeDefined(
+  process.argv[2],
+  'tickets category',
+) as TicketCategory
 
 importTickets(category)

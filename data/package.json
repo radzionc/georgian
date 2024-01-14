@@ -4,5 +4,8 @@
   "private": true,
   "dependencies": {
     "openai": "^4.10.0"
+  },
+  "scripts": {
+    "import": "npx tsx importTickets"
   }
 }

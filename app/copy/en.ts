@@ -24,6 +24,7 @@ const enCopy: Copy = {
   completedTickets: `Completed Tickets`,
   testPassed: `You have passed the test!`,
   testFailed: `You have failed the test :(`,
+  markTest: `Review this question after the test`,
   testCongratulation: (variables: { percentage: string }) =>
     injectVariables(
       `Congratulations! You've surpassed the {{percentage}} milestone! 🎉 Keep up the great work!`,

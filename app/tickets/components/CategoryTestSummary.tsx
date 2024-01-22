@@ -4,13 +4,17 @@ import { VStack } from '@georgian/ui/layout/Stack'
 import { toPercents } from '@georgian/utils/toPercents'
 import { TicketItem } from './TicketItem'
 import { useCopy } from 'copy/CopyProvider'
+import { range } from '@georgian/utils/array/range'
 
 const minCompletionRate = 0.7
 
 export const CategoryTestSummary = () => {
-  const { answers, tests } = useCategoryTest()
-  const failedTests = tests.filter((ticket, index) => {
-    const correctAnswer = ticket.answers.findIndex(({ isCorrect }) => isCorrect)
+  const { answers, tests, markedTests } = useCategoryTest()
+
+  const failedTests = range(answers.length).filter((index) => {
+    const correctAnswer = tests[index].answers.findIndex(
+      ({ isCorrect }) => isCorrect,
+    )
     return answers[index] !== correctAnswer
   })
   const passedTestsCount = tests.length - failedTests.length
@@ -42,11 +46,13 @@ export const CategoryTestSummary = () => {
       </VStack>
       <VStack gap={20}>
         {failedTests.map((test) => (
-          <TicketItem
-            falseAnswer={answers[tests.indexOf(test)]}
-            ticket={test}
-          />
+          <TicketItem falseAnswer={answers[test]} ticket={tests[test]} />
         ))}
+        {markedTests
+          .filter((test) => !failedTests.includes(test))
+          .map((test) => (
+            <TicketItem ticket={tests[test]} />
+          ))}
       </VStack>
     </VStack>
   )

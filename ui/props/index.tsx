@@ -54,3 +54,12 @@ export interface UIComponentProps {
   style?: React.CSSProperties
   className?: string
 }
+
+export interface LabeledComponentProps {
+  label: ReactNode
+}
+
+export type PromptProps = {
+  onSuccess: () => void
+  onCancel: () => void
+}

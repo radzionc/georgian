@@ -31,7 +31,7 @@ const syncCopy = async () => {
           : copy[key],
       )
 
-      createJsonFile({
+      return createJsonFile({
         directory: copySourceDirectory,
         fileName: targetLanguage,
         content: JSON.stringify(result),

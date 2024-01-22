@@ -17,6 +17,7 @@
   "completedTickets": "Completed Tickets",
   "testPassed": "You have passed the test!",
   "testFailed": "You have failed the test :(",
+  "markTest": "Review this question after the test",
   "testCongratulation": "Congratulations! You've surpassed the {{percentage}} milestone! 🎉 Keep up the great work!",
   "scoreToPass": "Score {{percentage}} or above to pass!",
   "completedTicketsTestMin": "You need to mark as completed at least {{count}} tickets to take this test.",

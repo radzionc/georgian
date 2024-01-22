@@ -18,6 +18,7 @@ export type Copy = {
   completedTickets: string
   testPassed: string
   testFailed: string
+  markTest: string
   testCongratulation: (variables: { percentage: string }) => string
   scoreToPass: (variables: { percentage: string }) => string
   completedTicketsTestMin: (variables: { count: string }) => string

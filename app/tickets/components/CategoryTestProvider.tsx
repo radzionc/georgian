@@ -8,6 +8,8 @@ import { useCompletedTickets } from 'tickets/hooks/useCompletedTickets'
 import { sampleArray } from '@georgian/utils/array/sampleArray'
 import { useEffectOnDependencyChange } from '@georgian/ui/hooks/useEffectOnDependencyChange'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
+import { shouldBePresent } from '@georgian/utils/assert/shouldBePresent'
+import { withoutDuplicates } from '@georgian/utils/array/withoutDuplicates'
 
 export const ticketsFilterOptions = ['all', 'completed'] as const
 export type TicketsFilter = (typeof ticketsFilterOptions)[number]
@@ -16,6 +18,10 @@ interface CategoryTestProviderState {
   ticketsFilter: TicketsFilter
   setTicketsFilter: (filter: TicketsFilter) => void
   completedTickets: TranslatedTicket[]
+
+  markedTests: number[]
+  markCurrentTest: () => void
+  unmarkCurrentTest: () => void
 
   tests: TranslatedTicket[]
   currentTestNumber: number | null
@@ -64,6 +70,17 @@ export const CategoryTestProvider = ({
 
   const [answers, setAnswers] = useState<number[]>([])
   const [currentTestNumber, setCurrentTestNumber] = useState<number | null>(0)
+  const [markedTests, setMarkedTests] = useState<number[]>([])
+  const markCurrentTest = useCallback(() => {
+    setMarkedTests((prev) =>
+      withoutDuplicates([...prev, shouldBePresent(currentTestNumber)]),
+    )
+  }, [currentTestNumber])
+  const unmarkCurrentTest = useCallback(() => {
+    setMarkedTests((prev) =>
+      prev.filter((test) => test !== shouldBePresent(currentTestNumber)),
+    )
+  }, [currentTestNumber])
 
   const answerCurrentTest = useCallback((answer: number) => {
     setAnswers((prev) => [...prev, answer])
@@ -105,6 +122,10 @@ export const CategoryTestProvider = ({
         ticketsFilter: filter,
         setTicketsFilter: setFilter,
         completedTickets,
+
+        markedTests,
+        markCurrentTest,
+        unmarkCurrentTest,
 
         currentTestNumber,
         answerCurrentTest,

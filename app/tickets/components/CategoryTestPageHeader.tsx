@@ -2,9 +2,8 @@ import { TicketCategory, ticketCategoryEmoji } from '@georgian/entities/Ticket'
 import { Text } from '@georgian/ui/text'
 import { WebsitePageHeader } from 'layout/components/WebsitePageHeader'
 import { CategoryTestTicketsFilter } from './CategoryTestTicketsFilter'
-import { testSize, useCategoryTest } from './CategoryTestProvider'
+import { useCategoryTest } from './CategoryTestProvider'
 import { Button } from '@georgian/ui/buttons/Button'
-import { HStack } from '@georgian/ui/layout/Stack'
 import { useCopy } from 'copy/CopyProvider'
 
 export interface CategoryTestPageHeaderProps {
@@ -30,16 +29,9 @@ export const CategoryTestPageHeader = ({
       }
     >
       {currentTestNumber !== 0 ? (
-        <HStack alignItems="center" gap={16}>
-          {currentTestNumber !== null && (
-            <Text weight="semibold">
-              {currentTestNumber} / {testSize}
-            </Text>
-          )}
-          <Button kind="secondary" onClick={restart}>
-            {copy.restart}
-          </Button>
-        </HStack>
+        <Button kind="secondary" onClick={restart}>
+          {copy.restart}
+        </Button>
       ) : (
         <CategoryTestTicketsFilter />
       )}

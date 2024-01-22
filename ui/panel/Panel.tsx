@@ -17,8 +17,10 @@ export interface PanelProps {
   withSections?: boolean
 }
 
+export const defaultPanelPadding = 20
+
 const panelPaddingCSS = css<{ padding?: React.CSSProperties['padding'] }>`
-  padding: ${({ padding }) => toSizeUnit(padding || 20)};
+  padding: ${({ padding }) => toSizeUnit(padding || defaultPanelPadding)};
 `
 
 export const Panel = styled.div<PanelProps>`

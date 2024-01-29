@@ -4,9 +4,16 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 import { languages } from '@georgian/languages/Language'
 import { LocalizedPageProps } from 'copy/LocalizedPageProps'
 import { PageContainer } from 'components/PageContainer'
+import Head from 'next/head'
 
 export default ({ language }: LocalizedPageProps) => (
   <PageContainer language={language}>
+    <Head>
+      <link
+        rel="canonical"
+        href={`${process.env.NEXT_PUBLIC_BASE_URL}/${language}`}
+      />
+    </Head>
     <LandingPage />
   </PageContainer>
 )

@@ -2,8 +2,6 @@ import { HStack, VStack } from '@georgian/ui/layout/Stack'
 import { Text, TextColor } from '@georgian/ui/text'
 import styled, { css } from 'styled-components'
 import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
-import { Panel } from '@georgian/ui/panel/Panel'
-import { without } from '@georgian/utils/array/without'
 import {
   isTicketCompleted,
   useCompletedTickets,
@@ -17,15 +15,28 @@ import { getColor } from '@georgian/ui/theme/getters'
 import { ticketAnswerLetters } from '@georgian/entities/Ticket'
 import { useCopy } from 'copy/CopyProvider'
 import { ClientOnly } from '@georgian/ui/base/ClientOnly'
+import { SameWidthChildrenRow } from '@georgian/ui/layout/SameWidthChildrenRow'
 import { SeparatedByLine } from '@georgian/ui/layout/SeparatedByLine'
+import { TicketTranslations } from './TicketTranslations'
 
 interface TicketItemProps {
   ticket: TranslatedTicket
   falseAnswer?: number
 }
 
-const Container = styled(Panel)`
+const Container = styled(SameWidthChildrenRow)`
   line-height: 1.5;
+
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid ${getColor('foreground')};
+
+  > * {
+    padding: 20px;
+    &:last-child {
+      background: ${getColor('foreground')};
+    }
+  }
 `
 
 const Header = styled(HStack)``
@@ -51,12 +62,10 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
   const copy = useCopy()
   const { ticketNumber, question, prompt, translation } = ticket
 
-  const questionTranslation = translation[question]
-
   const [completedTickets, setCompletedTickets] = useCompletedTickets()
   const isCompleted = isTicketCompleted(completedTickets, ticket)
 
-  const translations = without(Object.keys(translation), question)
+  const hasTranslations = Object.keys(translation).length > 0
 
   return (
     <VStack gap={8}>
@@ -82,61 +91,31 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
           </CompletionButton>
         </ClientOnly>
       </Header>
-      <Container kind="secondary">
+      <Container gap={16} minChildrenWidth={320}>
         <SeparatedByLine gap={16}>
-          {translations.length > 0 && (
-            <VStack gap={8}>
-              {translations.map((original) => (
-                <HStack key={original} gap={12} alignItems="start">
-                  <Text size={24} color="contrast">
-                    ✨
-                  </Text>
-                  <VStack key={original}>
-                    <Text size={18} weight="bold">
-                      {original}
-                    </Text>
-                    <Text size={18} weight="bold" color="shy">
-                      {translation[original]}
-                    </Text>
-                  </VStack>
-                </HStack>
-              ))}
-            </VStack>
-          )}
-
-          <VStack gap={8}>
-            <VStack gap={4}>
-              <Text weight="semibold">{question}</Text>
-              {questionTranslation && (
-                <Text weight="semibold" color="shy">
-                  {questionTranslation}
-                </Text>
-              )}
-            </VStack>
-            {prompt && (
-              <VStack gap={4}>
-                <Text>{prompt}</Text>
-              </VStack>
-            )}
-            <VStack gap={4}>
-              {ticket.answers.map((answer, number) => {
-                let color: TextColor = answer.isCorrect ? 'regular' : 'shy'
-                if (falseAnswer !== undefined) {
-                  if (number === falseAnswer) {
-                    color = 'alert'
-                  } else if (answer.isCorrect) {
-                    color = 'success'
-                  }
+          <VStack gap={4}>
+            <Text weight="semibold">{question}</Text>
+            {prompt && <Text>{prompt}</Text>}
+          </VStack>
+          <VStack gap={4}>
+            {ticket.answers.map((answer, number) => {
+              let color: TextColor = answer.isCorrect ? 'regular' : 'shy'
+              if (falseAnswer !== undefined) {
+                if (number === falseAnswer) {
+                  color = 'alert'
+                } else if (answer.isCorrect) {
+                  color = 'success'
                 }
-                return (
-                  <Text color={color} key={number}>
-                    {ticketAnswerLetters[number]}. {answer.content}
-                  </Text>
-                )
-              })}
-            </VStack>
+              }
+              return (
+                <Text color={color} key={number}>
+                  {ticketAnswerLetters[number]}. {answer.content}
+                </Text>
+              )
+            })}
           </VStack>
         </SeparatedByLine>
+        {hasTranslations && <TicketTranslations ticket={ticket} />}
       </Container>
     </VStack>
   )

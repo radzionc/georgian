@@ -1,6 +1,6 @@
 import { Ticket } from '@georgian/entities/Ticket'
 
-const placeholder = '...'
+export const promptPlaceholder = '...'
 
 export const getTextsForTranslation = ({
   question,
@@ -13,14 +13,16 @@ export const getTextsForTranslation = ({
     'შემოხაზეთ არასწორი პასუხი',
   )
 
-  let answersToTranslate = answers
-    .filter((answer) => answer.isCorrect !== shouldSelectIncorrectAnswer)
-    .map((answer) => answer.content)
+  let answersToTranslate = (
+    shouldSelectIncorrectAnswer
+      ? answers
+      : answers.filter((answer) => answer.isCorrect)
+  ).map((answer) => answer.content)
 
   if (prompt) {
-    if (prompt.includes(placeholder)) {
+    if (prompt.includes(promptPlaceholder)) {
       answersToTranslate = answersToTranslate.map((answer) =>
-        prompt.replace(placeholder, answer),
+        prompt.replace(promptPlaceholder, answer),
       )
     } else {
       result.push(prompt)

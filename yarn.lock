@@ -1080,6 +1080,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@georgian/config@workspace:georgian/config":
+  version: 0.0.0-use.local
+  resolution: "@georgian/config@workspace:georgian/config"
+  languageName: unknown
+  linkType: soft
+
 "@georgian/data@workspace:georgian/data":
   version: 0.0.0-use.local
   resolution: "@georgian/data@workspace:georgian/data"

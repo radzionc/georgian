@@ -33,9 +33,7 @@ const Container = styled(SameWidthChildrenRow)`
 
   > * {
     padding: 20px;
-    &:last-child {
-      background: ${getColor('foreground')};
-    }
+    background: ${getColor('foreground')};
   }
 `
 
@@ -91,15 +89,17 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
           </CompletionButton>
         </ClientOnly>
       </Header>
-      <Container gap={16} minChildrenWidth={320}>
+      <Container gap={2} minChildrenWidth={320}>
         <SeparatedByLine gap={16}>
           <VStack gap={4}>
-            <Text weight="semibold">{question}</Text>
+            <Text color="contrast" weight="semibold">
+              {question}
+            </Text>
             {prompt && <Text>{prompt}</Text>}
           </VStack>
           <VStack gap={4}>
             {ticket.answers.map((answer, number) => {
-              let color: TextColor = answer.isCorrect ? 'regular' : 'shy'
+              let color: TextColor = answer.isCorrect ? 'contrast' : 'shy'
               if (falseAnswer !== undefined) {
                 if (number === falseAnswer) {
                   color = 'alert'

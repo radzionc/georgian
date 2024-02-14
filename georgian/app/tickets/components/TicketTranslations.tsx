@@ -5,6 +5,9 @@ import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
 import { TranslationItem } from './TranslationItem'
 import { TranslationIcon } from './TranslationIcon'
 import { promptPlaceholder } from '@georgian/tickets-translation/utils/getTextsForTranslation'
+import { extractHighlights } from '@georgian/entities-utils/ticket/extractHighlights'
+import { NonEmptyOnly } from '@lib/ui/base/NonEmptyOnly'
+import { Text } from '@lib/ui/text'
 
 interface TicketItemProps {
   ticket: TranslatedTicket
@@ -13,6 +16,10 @@ interface TicketItemProps {
 
 export const TicketTranslations = ({ ticket }: TicketItemProps) => {
   const { translation, prompt, question, answers } = ticket
+
+  const highlights = [...answers, question].flatMap((entity) =>
+    extractHighlights(entity),
+  )
 
   return (
     <SeparatedByLine gap={16}>
@@ -54,6 +61,21 @@ export const TicketTranslations = ({ ticket }: TicketItemProps) => {
           )
         })}
       </VStack>
+      <NonEmptyOnly
+        array={highlights}
+        render={(highlights) => (
+          <VStack gap={8}>
+            {highlights.map((highlight) => (
+              <TranslationItem
+                key={highlight}
+                original={highlight}
+                icon={<Text color="contrast">✨</Text>}
+                translation={translation[highlight]}
+              />
+            ))}
+          </VStack>
+        )}
+      />
     </SeparatedByLine>
   )
 }

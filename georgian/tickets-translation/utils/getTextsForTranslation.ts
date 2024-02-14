@@ -1,4 +1,5 @@
 import { Ticket } from '@georgian/entities/Ticket'
+import { extractHighlights } from '@georgian/entities-utils/ticket/extractHighlights'
 
 export const promptPlaceholder = '...'
 
@@ -29,7 +30,11 @@ export const getTextsForTranslation = ({
     }
   }
 
-  result.push(...answersToTranslate)
+  const highlights = [...answers, question].flatMap((entity) =>
+    extractHighlights(entity),
+  )
+
+  result.push(...answersToTranslate, ...highlights)
 
   return result.filter((str) => !/^\d+$/.test(str))
 }

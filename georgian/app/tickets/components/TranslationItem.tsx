@@ -8,7 +8,7 @@ type TranslationItemProps = {
   original: string
   originalHighlights?: TicketHighlight[]
   translation: string
-  icon: ReactNode
+  icon?: ReactNode
 }
 
 export const TranslationItem = ({

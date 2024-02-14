@@ -1,4 +1,4 @@
-## How to update tickets?
+.## How to update tickets?
 
 1. Change the content of the ticket in the `data/sources/{ticket_category}.md` file
 2. Set environment variables and run `yarn import {ticket_category}` from the `data` package

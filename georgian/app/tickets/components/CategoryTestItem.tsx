@@ -43,7 +43,7 @@ export const CategoryTestItem = ({ testNumber }: CategoryTestItemProps) => {
       <Panel>
         <Container gap={40}>
           <VStack gap={20}>
-            <Text>{question}</Text>
+            <Text>{question.content}</Text>
             {prompt && <Text>{prompt}</Text>}
           </VStack>
           <VStack gap={20}>

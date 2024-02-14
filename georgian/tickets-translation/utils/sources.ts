@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs'
 import { TranslationRecord } from '@georgian/languages/TranslationRecord'
 
-export const textsFilePath = path.resolve(__dirname, `../sources/texts.txt`)
+export const textsFilePath = path.resolve(__dirname, `../sources/texts.md`)
 
 export const getTextsForTranslation = () =>
   fs.readFileSync(textsFilePath, 'utf-8').split('\n\n')

@@ -1104,6 +1104,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@georgian/entities-utils@workspace:georgian/entities-utils":
+  version: 0.0.0-use.local
+  resolution: "@georgian/entities-utils@workspace:georgian/entities-utils"
+  languageName: unknown
+  linkType: soft
+
 "@georgian/entities@workspace:georgian/entities":
   version: 0.0.0-use.local
   resolution: "@georgian/entities@workspace:georgian/entities"

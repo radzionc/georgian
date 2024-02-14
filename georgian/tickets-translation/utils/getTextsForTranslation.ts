@@ -7,9 +7,9 @@ export const getTextsForTranslation = ({
   prompt,
   answers,
 }: Ticket) => {
-  const result = [question]
+  const result = [question.content]
 
-  const shouldSelectIncorrectAnswer = question.includes(
+  const shouldSelectIncorrectAnswer = question.content.includes(
     'შემოხაზეთ არასწორი პასუხი',
   )
 

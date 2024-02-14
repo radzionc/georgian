@@ -6,7 +6,7 @@ import fs from 'fs'
 import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
 
 const getSourceFile = (name: string) =>
-  path.resolve(__dirname, `./sources/${name}.txt`)
+  path.resolve(__dirname, `./sources/${name}.md`)
 
 export const importTickets = async (category: TicketCategory) => {
   const filePath = getSourceFile(category)

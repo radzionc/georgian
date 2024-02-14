@@ -94,7 +94,7 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
         <SeparatedByLine gap={16}>
           <VStack gap={4}>
             <Text color="contrast" weight="semibold">
-              {question}
+              {question.content}
             </Text>
             {prompt && <Text>{prompt}</Text>}
           </VStack>

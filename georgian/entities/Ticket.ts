@@ -15,15 +15,29 @@ export const ticketCategoryEmoji: Record<TicketCategory, string> = {
   history: '🏰',
 }
 
-interface TicketAnswer {
+export type TicketHighlight = {
+  start: number
+  end: number
+}
+
+export type EntityWithHighlights = {
   content: string
+  highlights?: TicketHighlight[]
+}
+
+type TicketAnswer = EntityWithHighlights & {
   isCorrect: boolean
 }
 
-export interface Ticket {
+export type Ticket = {
   category: TicketCategory
   ticketNumber: number
-  question: string
+  question: EntityWithHighlights
   prompt?: string
   answers: TicketAnswer[]
+}
+
+export type EntityWithHighlightsSegment = {
+  content: string
+  isHighlighted: boolean
 }

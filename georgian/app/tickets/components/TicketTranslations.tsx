@@ -19,8 +19,9 @@ export const TicketTranslations = ({ ticket }: TicketItemProps) => {
       <VStack gap={8}>
         <TranslationItem
           icon={<TranslationIcon value="question" />}
-          original={question}
-          translation={translation[question]}
+          original={question.content}
+          originalHighlights={question.highlights}
+          translation={translation[question.content]}
         />
         {prompt && translation[prompt] && (
           <TranslationItem
@@ -47,6 +48,7 @@ export const TicketTranslations = ({ ticket }: TicketItemProps) => {
                 />
               }
               original={original}
+              originalHighlights={answer.highlights}
               translation={answerTranslation}
             />
           )

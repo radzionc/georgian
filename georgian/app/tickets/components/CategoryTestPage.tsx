@@ -19,7 +19,7 @@ export const CategoryTestPage = ({
 }: CategoryTestPageProps) => {
   const copy = useCopy()
   return (
-    <WebsitePageContent>
+    <WebsitePageContent maxWidth={800}>
       <PageMetaTags
         title={copy.categoryTestPageMetaTagTitle({
           category: copy[category],

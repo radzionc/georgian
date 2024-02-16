@@ -51,7 +51,7 @@ export const CategoryTestItem = ({ testNumber }: CategoryTestItemProps) => {
               <Option onClick={() => answerCurrentTest(index)} key={index}>
                 <HStack fullWidth gap={8}>
                   <Text>{ticketAnswerLetters[index]}.</Text>
-                  <Text>{answer.content}</Text>
+                  <Text style={{ textAlign: 'start' }}>{answer.content}</Text>
                 </HStack>
               </Option>
             ))}

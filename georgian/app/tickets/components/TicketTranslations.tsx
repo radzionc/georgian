@@ -17,7 +17,7 @@ interface TicketItemProps {
 export const TicketTranslations = ({ ticket }: TicketItemProps) => {
   const { translation, prompt, question, answers } = ticket
 
-  const highlights = [...answers, question].flatMap((entity) =>
+  const highlights = [question, ...answers].flatMap((entity) =>
     extractHighlights(entity),
   )
 

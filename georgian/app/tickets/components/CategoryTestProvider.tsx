@@ -9,13 +9,11 @@ import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
 import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
 import { useCompletedTickets } from '../hooks/useCompletedTickets'
-
-export const ticketsFilterOptions = ['all', 'completed'] as const
-export type TicketsFilter = (typeof ticketsFilterOptions)[number]
+import { TestPreference, useTestPreferences } from '../hooks/useTestPreferences'
 
 interface CategoryTestProviderState {
-  ticketsFilter: TicketsFilter
-  setTicketsFilter: (filter: TicketsFilter) => void
+  testPreference: TestPreference
+  setTestPreference: (value: TestPreference) => void
   completedTickets: TranslatedTicket[]
 
   markedTests: number[]
@@ -63,8 +61,18 @@ export const CategoryTestProvider = ({
   )
 
   const hasEnoughCompletedTickets = completedTickets.length > testSize
-  const [filter, setFilter] = useState<TicketsFilter>(
-    hasEnoughCompletedTickets ? 'completed' : 'all',
+  const [testPreferences, setTestPreferences] = useTestPreferences()
+  const testPreference = hasEnoughCompletedTickets
+    ? testPreferences[category]
+    : 'all'
+  const setTestPreference = useCallback(
+    (value: TestPreference) => {
+      setTestPreferences({
+        ...testPreferences,
+        [category]: value,
+      })
+    },
+    [category, setTestPreferences, testPreferences],
   )
 
   const [answers, setAnswers] = useState<number[]>([])
@@ -94,8 +102,8 @@ export const CategoryTestProvider = ({
   }, [])
 
   const testsOptions = useMemo(
-    () => (filter === 'all' ? tickets : completedTickets),
-    [filter, tickets, completedTickets],
+    () => (testPreference === 'all' ? tickets : completedTickets),
+    [completedTickets, testPreference, tickets],
   )
   const [tests, setTests] = useState<TranslatedTicket[]>(() =>
     sampleArray(testsOptions, testSize),
@@ -105,11 +113,12 @@ export const CategoryTestProvider = ({
     setTests(sampleArray(testsOptions, testSize))
     setCurrentTestNumber(0)
     setAnswers([])
+    setMarkedTests([])
   }, [testsOptions])
 
   useEffectOnDependencyChange(() => {
     restart()
-  }, [filter, testsOptions])
+  }, [testPreference, testsOptions])
 
   if (tests.length < testSize) {
     return <Text>Not enough tests options for a test</Text>
@@ -118,8 +127,8 @@ export const CategoryTestProvider = ({
   return (
     <CategoryTestContext.Provider
       value={{
-        ticketsFilter: filter,
-        setTicketsFilter: setFilter,
+        testPreference,
+        setTestPreference,
         completedTickets,
 
         markedTests,

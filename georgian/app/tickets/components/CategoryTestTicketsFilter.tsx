@@ -1,30 +1,26 @@
 import { RadioInput } from '@lib/ui/inputs/RadioInput'
-import {
-  TicketsFilter,
-  testSize,
-  ticketsFilterOptions,
-  useCategoryTest,
-} from './CategoryTestProvider'
+import { testSize, useCategoryTest } from './CategoryTestProvider'
 import { useCopy } from '@georgian/app/copy/CopyProvider'
 import { match } from '@lib/utils/match'
+import { TestPreference, testPreferences } from '../hooks/useTestPreferences'
 
 export const CategoryTestTicketsFilter = () => {
-  const { ticketsFilter, setTicketsFilter, completedTickets } =
+  const { testPreference, setTestPreference, completedTickets } =
     useCategoryTest()
 
   const copy = useCopy()
 
   return (
-    <RadioInput<TicketsFilter>
+    <RadioInput<TestPreference>
       renderOption={(option) =>
         match(option, {
           all: () => copy.allTickets,
           completed: () => copy.completedTickets,
         })
       }
-      options={ticketsFilterOptions}
-      value={ticketsFilter}
-      onChange={setTicketsFilter}
+      options={testPreferences}
+      value={testPreference}
+      onChange={setTestPreference}
       isOptionDisabled={(option) => {
         if (option === 'all') return false
 

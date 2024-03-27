@@ -56,7 +56,8 @@ const getPrompt = (text: string, category: TicketCategory) => {
 }
 
 const getQuestion = (text: string) => {
-  const regex = /(?<=\d+\.\s)(.*?[:?])/gs
+  const regex = /(?<=\d+\.\s)(.*?[:?])\n/gs
+
   const result = text.match(regex)?.[0]
   if (!result) {
     throw new Error(['Could not find question: ', text].join('/n'))

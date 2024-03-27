@@ -1,6 +1,6 @@
 import { toBatches } from '@lib/utils/array/toBatches'
 import { HStack, VStack } from '@lib/ui/layout/Stack'
-import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
+import { EnhancedTicket } from '@georgian/entities/EnhancedTicket'
 import { useEffect, useRef } from 'react'
 import { Button } from '@lib/ui/buttons/Button'
 import { getLastItem } from '@lib/utils/array/getLastItem'
@@ -9,8 +9,8 @@ import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
 interface TicketsNavigationProps {
   currentTicketNumber: number
   setCurrentTicketNumber: (value: number) => void
-  tickets: TranslatedTicket[]
-  renderTicket: (ticket: TranslatedTicket) => JSX.Element
+  tickets: EnhancedTicket[]
+  renderTicket: (ticket: EnhancedTicket) => JSX.Element
 }
 
 const batchSize = 20

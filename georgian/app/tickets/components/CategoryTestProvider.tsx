@@ -5,7 +5,7 @@ import { Text } from '@lib/ui/text'
 import { createContext, useCallback, useMemo, useState } from 'react'
 import { sampleArray } from '@lib/utils/array/sampleArray'
 import { useEffectOnDependencyChange } from '@lib/ui/hooks/useEffectOnDependencyChange'
-import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
+import { EnhancedTicket } from '@georgian/entities/EnhancedTicket'
 import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
 import { useCompletedTickets } from '../hooks/useCompletedTickets'
@@ -14,13 +14,13 @@ import { TestPreference, useTestPreferences } from '../hooks/useTestPreferences'
 interface CategoryTestProviderState {
   testPreference: TestPreference
   setTestPreference: (value: TestPreference) => void
-  completedTickets: TranslatedTicket[]
+  completedTickets: EnhancedTicket[]
 
   markedTests: number[]
   markCurrentTest: () => void
   unmarkCurrentTest: () => void
 
-  tests: TranslatedTicket[]
+  tests: EnhancedTicket[]
   currentTestNumber: number | null
   answerCurrentTest: (answer: number) => void
   answers: number[]
@@ -40,7 +40,7 @@ export const testSize = 10
 
 interface CategoryTestProviderProps extends ComponentWithChildrenProps {
   category: TicketCategory
-  tickets: TranslatedTicket[]
+  tickets: EnhancedTicket[]
 }
 
 export const CategoryTestProvider = ({
@@ -105,7 +105,7 @@ export const CategoryTestProvider = ({
     () => (testPreference === 'all' ? tickets : completedTickets),
     [completedTickets, testPreference, tickets],
   )
-  const [tests, setTests] = useState<TranslatedTicket[]>(() =>
+  const [tests, setTests] = useState<EnhancedTicket[]>(() =>
     sampleArray(testsOptions, testSize),
   )
 

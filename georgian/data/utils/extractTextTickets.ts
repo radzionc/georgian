@@ -8,10 +8,6 @@ export const extractTextTickets = (text: string): string[] => {
     }
 
     if (isTicketStart) {
-      console.log(line)
-    }
-
-    if (isTicketStart) {
       result.push(line)
     } else {
       const lastTicket = result[result.length - 1]

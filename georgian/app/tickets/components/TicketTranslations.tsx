@@ -1,5 +1,5 @@
 import { VStack } from '@lib/ui/layout/Stack'
-import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
+import { EnhancedTicket } from '@georgian/entities/EnhancedTicket'
 
 import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
 import { TranslationItem } from './TranslationItem'
@@ -10,7 +10,7 @@ import { NonEmptyOnly } from '@lib/ui/base/NonEmptyOnly'
 import { Text } from '@lib/ui/text'
 
 interface TicketItemProps {
-  ticket: TranslatedTicket
+  ticket: EnhancedTicket
   falseAnswer?: number
 }
 

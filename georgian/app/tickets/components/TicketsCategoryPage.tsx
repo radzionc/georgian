@@ -1,7 +1,7 @@
 import { TicketCategory, ticketCategoryEmoji } from '@georgian/entities/Ticket'
 import { Text } from '@lib/ui/text'
 import { TicketItem } from './TicketItem'
-import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
+import { EnhancedTicket } from '@georgian/entities/EnhancedTicket'
 import { toBatches } from '@lib/utils/array/toBatches'
 import { useRef } from 'react'
 import { useEffectOnDependencyChange } from '@lib/ui/hooks/useEffectOnDependencyChange'
@@ -19,7 +19,7 @@ import { Page } from '@lib/next-ui/Page'
 
 export interface TicketsCategoryPageProps {
   category: TicketCategory
-  tickets: TranslatedTicket[]
+  tickets: EnhancedTicket[]
 }
 
 const batchSize = 20

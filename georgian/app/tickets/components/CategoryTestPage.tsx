@@ -2,7 +2,7 @@ import { TicketCategory } from '@georgian/entities/Ticket'
 import { CategoryTestProvider } from './CategoryTestProvider'
 import { CategoryTestContent } from './CategoryTestContent'
 import { CategoryTestPageHeader } from './CategoryTestPageHeader'
-import { TranslatedTicket } from '@georgian/entities/TranslatedTicket'
+import { EnhancedTicket } from '@georgian/entities/EnhancedTicket'
 import { ClientOnly } from '@lib/ui/base/ClientOnly'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 import { useCopy } from '../../copy/CopyProvider'
@@ -10,7 +10,7 @@ import { WebsitePageContent } from '../../layout/components/WebsitePageContent'
 
 export interface CategoryTestPageProps {
   category: TicketCategory
-  tickets: TranslatedTicket[]
+  tickets: EnhancedTicket[]
 }
 
 export const CategoryTestPage = ({

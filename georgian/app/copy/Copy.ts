@@ -2,15 +2,20 @@
 export type Copy = {
   homePageMetaTagTitle: string
   homePageTitle: string
+  homePageSubTitle: string
   getStarted: string
-  createdBy: string
   language: string
+  getInTouch: string
   law: string
   history: string
   georgian: string
   restart: string
-  testPageTitle: (variables: { category: string }) => string
-  categoryPageTitle: (variables: { category: string }) => string
+  languageTicketsTitle: string
+  lawTicketsTitle: string
+  historyTicketsTitle: string
+  languageTestPageTitle: string
+  lawTestPageTitle: string
+  historyTestPageTitle: string
   startTest: string
   markAsLearned: string
   learned: string

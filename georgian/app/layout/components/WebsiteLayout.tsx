@@ -123,7 +123,7 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
               © {new Date().getFullYear()} {legalEntity}
             </Text>
             <ExternalLink to={`mailto:${supportEmail}`}>
-              <InteractiveText>Get in touch</InteractiveText>
+              <InteractiveText>{copy.getInTouch}</InteractiveText>
             </ExternalLink>
           </HStack>
         </Footer>

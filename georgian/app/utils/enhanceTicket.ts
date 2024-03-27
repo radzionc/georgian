@@ -19,7 +19,7 @@ export const enhanceTicket = ({
     translation: getTicketTranslation(ticket, language),
   }
 
-  const imageUrl = `/images/tickets/${ticket.category}/${ticket.ticketNumber + 1}.webp`
+  const imageUrl = `/images/tickets/${ticket.category}/${ticket.ticketNumber}.webp`
   const imagePath = path.join(process.cwd(), `public/${imageUrl}`)
   if (fs.existsSync(imagePath)) {
     result.imageUrl = imageUrl

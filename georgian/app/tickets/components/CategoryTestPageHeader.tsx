@@ -5,6 +5,7 @@ import { useCategoryTest } from './CategoryTestProvider'
 import { Button } from '@lib/ui/buttons/Button'
 import { useCopy } from '@georgian/app/copy/CopyProvider'
 import { WebsitePageHeader } from '../../layout/components/WebsitePageHeader'
+import { match } from '@lib/utils/match'
 
 export interface CategoryTestPageHeaderProps {
   category: TicketCategory
@@ -24,7 +25,11 @@ export const CategoryTestPageHeader = ({
           <Text as="span" style={{ marginRight: 8 }}>
             {ticketCategoryEmoji[category]}
           </Text>
-          {copy.testPageTitle({ category: copy[category] })}
+          {match(category, {
+            language: () => copy.languageTestPageTitle,
+            law: () => copy.lawTestPageTitle,
+            history: () => copy.historyTestPageTitle,
+          })}
         </>
       }
     >

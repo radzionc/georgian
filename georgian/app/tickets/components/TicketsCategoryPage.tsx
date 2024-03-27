@@ -16,6 +16,7 @@ import { MinimalisticFooterPagination } from '../../navigation/components/Minima
 import { useQueryParamState } from '../../navigation/hooks/useQueryParamState'
 import { getCategoryTestPagePath } from '../../navigation/utils'
 import { Page } from '@lib/next-ui/Page'
+import { match } from '@lib/utils/match'
 
 export interface TicketsCategoryPageProps {
   category: TicketCategory
@@ -61,7 +62,11 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
             <Text as="span" style={{ marginRight: 8 }}>
               {ticketCategoryEmoji[category]}
             </Text>
-            {copy.categoryPageTitle({ category: copy[category] })}
+            {match(category, {
+              language: () => copy.languageTicketsTitle,
+              law: () => copy.lawTicketsTitle,
+              history: () => copy.historyTicketsTitle,
+            })}
           </>
         }
       >

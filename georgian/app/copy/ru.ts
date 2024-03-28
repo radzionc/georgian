@@ -22,7 +22,7 @@ const ruCopy: Copy = {
   historyTestPageTitle: `Тест по истории Грузии`,
   startTest: `Начать тест`,
   markAsLearned: `отметить как изученное`,
-  learned: `Научился`,
+  learned: `Выучил`,
   allTickets: `Все билеты`,
   completedTickets: `Завершенные билеты`,
   testPassed: `Вы прошли испытание!`,

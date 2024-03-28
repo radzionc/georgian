@@ -7,7 +7,7 @@ import { extractSegments } from '@georgian/entities-utils/ticket/extractSegments
 type TranslationItemProps = {
   original: string
   originalHighlights?: TicketHighlight[]
-  translation: string
+  translation?: string
   icon?: ReactNode
 }
 
@@ -42,9 +42,11 @@ export const TranslationItem = ({
             </Text>
           ))}
         </Text>
-        <Text size={16} weight="semibold" color="supporting">
-          {translation}
-        </Text>
+        {translation && (
+          <Text size={16} weight="semibold" color="supporting">
+            {translation}
+          </Text>
+        )}
       </VStack>
     </HStack>
   )

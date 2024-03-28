@@ -9,12 +9,12 @@ import { extractHighlights } from '@georgian/entities-utils/ticket/extractHighli
 import { NonEmptyOnly } from '@lib/ui/base/NonEmptyOnly'
 import { Text } from '@lib/ui/text'
 
-interface TicketItemProps {
+interface TicketBreakdownProps {
   ticket: EnhancedTicket
   falseAnswer?: number
 }
 
-export const TicketTranslations = ({ ticket }: TicketItemProps) => {
+export const TicketBreakdown = ({ ticket }: TicketBreakdownProps) => {
   const { translation, prompt, question, answers } = ticket
 
   const highlights = [question, ...answers].flatMap((entity) =>
@@ -30,7 +30,7 @@ export const TicketTranslations = ({ ticket }: TicketItemProps) => {
           originalHighlights={question.highlights}
           translation={translation[question.content]}
         />
-        {prompt && translation[prompt] && (
+        {prompt && (
           <TranslationItem
             icon={<TranslationIcon value="prompt" />}
             original={prompt}
@@ -44,7 +44,8 @@ export const TicketTranslations = ({ ticket }: TicketItemProps) => {
             ? prompt.replace(promptPlaceholder, answer.content)
             : answer.content
           const answerTranslation = translation[original]
-          if (!answerTranslation) return null
+
+          if (!answerTranslation && !answer.isCorrect) return null
 
           return (
             <TranslationItem

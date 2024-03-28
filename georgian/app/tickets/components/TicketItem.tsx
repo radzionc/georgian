@@ -11,7 +11,7 @@ import { getColor } from '@lib/ui/theme/getters'
 import { ticketAnswerLetters } from '@georgian/entities/Ticket'
 import { ClientOnly } from '@lib/ui/base/ClientOnly'
 import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
-import { TicketTranslations } from './TicketTranslations'
+import { TicketBreakdown } from './TicketBreakdown'
 import { UniformColumnGrid } from '@lib/ui/layout/UniformColumnGrid'
 import { useCopy } from '../../copy/CopyProvider'
 import {
@@ -78,14 +78,10 @@ const CompletionButton = styled(UnstyledButton)<{ isCompleted: boolean }>`
 
 export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
   const copy = useCopy()
-  const { ticketNumber, question, prompt, translation } = ticket
+  const { ticketNumber, question, prompt } = ticket
 
   const [completedTickets, setCompletedTickets] = useCompletedTickets()
   const isCompleted = isTicketCompleted(completedTickets, ticket)
-
-  const hasTranslations = Object.keys(translation).length > 0
-
-  const hasInfo = hasTranslations || ticket.imageUrl
 
   return (
     <VStack gap={8}>
@@ -137,23 +133,21 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
             })}
           </VStack>
         </SeparatedByLine>
-        {hasInfo && (
-          <InfoSection>
-            <TicketTranslations ticket={ticket} />
-            {ticket.imageUrl && (
-              <SafeImage
-                src={ticket.imageUrl}
-                render={(props) => (
-                  <TicketImage
-                    {...props}
-                    src={ticket.imageUrl}
-                    alt={question.content}
-                  />
-                )}
-              />
-            )}
-          </InfoSection>
-        )}
+        <InfoSection>
+          <TicketBreakdown ticket={ticket} />
+          {ticket.imageUrl && (
+            <SafeImage
+              src={ticket.imageUrl}
+              render={(props) => (
+                <TicketImage
+                  {...props}
+                  src={ticket.imageUrl}
+                  alt={question.content}
+                />
+              )}
+            />
+          )}
+        </InfoSection>
       </Container>
     </VStack>
   )

@@ -5,8 +5,13 @@ export type Copy = {
   homePageSubTitle: string
   getStarted: string
   language: string
-  getInTouch: string
   law: string
+  getInTouch: string
+  interview: string
+  interviewQuestionsPageTitle: string
+  interviewQuestionsPageSubTitle: string
+  interviewQuestionPageMetaTagTitle: string
+  interviewQuestionPageMetaTagDescription: string
   history: string
   georgian: string
   restart: string

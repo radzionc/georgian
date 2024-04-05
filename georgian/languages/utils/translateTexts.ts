@@ -1,4 +1,4 @@
-import { Language } from '@georgian/languages/Language'
+import { Language, languageHasUpperCase } from '@georgian/languages/Language'
 import { toBatches } from '@lib/utils/array/toBatches'
 import { TranslationServiceClient } from '@google-cloud/translate'
 import { getEnvVar } from '../getEnvVar'
@@ -7,6 +7,7 @@ import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
 import { injectVariables } from '@lib/utils/template/injectVariables'
 import { makeRecord } from '@lib/utils/record/makeRecord'
 import { toTemplateVariable } from '@lib/utils/template/toTemplateVariable'
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 
 const batchSize = 600
 
@@ -60,18 +61,28 @@ export const translateTexts = async ({
     }
 
     result.push(
-      ...translations.map((translation) => {
+      ...translations.map((translation, index) => {
         const { translatedText } = translation
         if (!translatedText) {
           throw new Error('No translatedText')
         }
 
-        return injectVariables(
+        let translated = injectVariables(
           translatedText,
           makeRecord(extractTemplateVariables(translatedText), (variable) =>
             toTemplateVariable(variables[Number(variable.split('_')[1])]),
           ),
         )
+
+        if (!languageHasUpperCase[from]) {
+          translated = capitalizeFirstLetter(translated)
+        }
+
+        if (batch[index].endsWith('?') && !translated.endsWith('?')) {
+          translated += '?'
+        }
+
+        return translated
       }),
     )
   }

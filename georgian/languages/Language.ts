@@ -5,6 +5,12 @@ export type Language = (typeof languages)[number]
 
 export const primaryLanguage: Language = 'en' as const
 
+export const languageHasUpperCase: Record<Language, boolean> = {
+  en: true,
+  ru: true,
+  ka: false,
+}
+
 export const languagePrimaryCountry: Record<Language, CountryCode> = {
   en: 'GB',
   ru: 'RU',

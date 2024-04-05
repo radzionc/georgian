@@ -4,6 +4,13 @@ import { Copy } from './Copy'
 import { injectVariables } from '@lib/utils/template/injectVariables'
 
 const kaCopy: Copy = {
+  introduction: `შესავალი`,
+  education: `Განათლება`,
+  origin: `წარმოშობა`,
+  work: `მუშაობა`,
+  residence: `რეზიდენცია`,
+  citizenship: `მოქალაქეობა`,
+  family: `ოჯახი`,
   homePageMetaTagTitle: `მოემზადეთ საქართველოს მოქალაქეობის გამოცდისთვის: ენა, სამართალი, ისტორიის სახელმძღვანელო და პრაქტიკული ტესტები`,
   homePageTitle: `დაეუფლეთ საქართველოს მოქალაქეობის გამოცდას თავდაჯერებულად!`,
   homePageSubTitle: `Ace ბილეთები ენაში, სამართალში, ისტორიაში`,

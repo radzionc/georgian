@@ -8,6 +8,8 @@ import {
   CuratedQuestionsPage,
   CuratedQuestionsPageProps,
 } from '../../../interview/CuratedQuestions/CuratedQuestionsPage'
+import { interviewQuestions } from '@georgian/data/sources/interviewQuestions'
+import { enhanceInterviewQuestion } from '../../../utils/enhanceInterviewQuestion'
 
 export default ({
   language,
@@ -40,10 +42,14 @@ export const getStaticProps: GetStaticProps<
     }
   }
 
+  const { language } = params
+
   return {
     props: {
-      questions: [],
-      language: params.language,
+      questions: interviewQuestions.map((value) =>
+        enhanceInterviewQuestion({ value, language }),
+      ),
+      language,
     },
   }
 }

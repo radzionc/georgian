@@ -1,12 +1,13 @@
-import { InterviewQuestion } from '@georgian/entities/InterviewQuestion'
+import { EnhancedInterviewQuestion } from '@georgian/entities/EnhancedInterviewQuestion'
 import { WebsitePageContent } from '../../layout/components/WebsitePageContent'
 import { VStack } from '@lib/ui/layout/Stack'
 import { Text } from '@lib/ui/text'
 import { useCopy } from '../../copy/CopyProvider'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
+import { InterviewQuestionItem } from './InterviewQuestionItem'
 
 export type CuratedQuestionsPageProps = {
-  questions: InterviewQuestion[]
+  questions: EnhancedInterviewQuestion[]
 }
 
 export const CuratedQuestionsPage = ({
@@ -26,6 +27,11 @@ export const CuratedQuestionsPage = ({
           {copy.interviewQuestionsPageTitle}
         </Text>
         <Text height="large">{copy.interviewQuestionsPageSubTitle}</Text>
+      </VStack>
+      <VStack gap={40}>
+        {questions.map((question) => (
+          <InterviewQuestionItem key={question.question} value={question} />
+        ))}
       </VStack>
     </WebsitePageContent>
   )

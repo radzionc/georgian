@@ -4,6 +4,13 @@ import { Copy } from './Copy'
 import { injectVariables } from '@lib/utils/template/injectVariables'
 
 const ruCopy: Copy = {
+  introduction: `Введение`,
+  education: `Образование`,
+  origin: `Источник`,
+  work: `Работа`,
+  residence: `Резиденция`,
+  citizenship: `Гражданство`,
+  family: `Семья`,
   homePageMetaTagTitle: `Подготовка к экзамену на гражданство Грузии: руководства по языку, праву, истории и практические тесты`,
   homePageTitle: `Сдайте экзамен на гражданство Грузии уверенно!`,
   homePageSubTitle: `Овладейте билетами по языку, праву и истории`,

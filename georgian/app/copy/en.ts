@@ -4,6 +4,13 @@ import { Copy } from './Copy'
 import { injectVariables } from '@lib/utils/template/injectVariables'
 
 const enCopy: Copy = {
+  introduction: `Introduction`,
+  education: `Education`,
+  origin: `Origin`,
+  work: `Work`,
+  residence: `Residence`,
+  citizenship: `Citizenship`,
+  family: `Family`,
   homePageMetaTagTitle: `Prepare for Georgian Citizenship Exam: Language, Law, History Guides & Practice Tests`,
   homePageTitle: `Master Your Georgian Citizenship Exam with Confidence!`,
   homePageSubTitle: `Ace Tickets in Language, Law and History`,

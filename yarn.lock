@@ -1116,6 +1116,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@georgian/interview-translation@workspace:georgian/interview-translation":
+  version: 0.0.0-use.local
+  resolution: "@georgian/interview-translation@workspace:georgian/interview-translation"
+  dependencies:
+    "@google-cloud/translate": "npm:^8.0.2"
+  languageName: unknown
+  linkType: soft
+
 "@georgian/languages-ui@workspace:georgian/languages-ui":
   version: 0.0.0-use.local
   resolution: "@georgian/languages-ui@workspace:georgian/languages-ui"

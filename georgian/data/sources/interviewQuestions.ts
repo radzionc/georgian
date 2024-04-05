@@ -27,10 +27,6 @@ export const interviewQuestions: InterviewQuestion[] = [
   },
   {
     question: 'სად დაიბადეთ?',
-    tags: ['introduction'],
-  },
-  {
-    question: 'სად დაიბადეთ?',
     tags: ['origin'],
   },
   {

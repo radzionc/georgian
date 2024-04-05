@@ -3,4 +3,5 @@ import { InterviewQuestion } from './InterviewQuestion'
 
 export type EnhancedInterviewQuestion = InterviewQuestion & {
   translation: TranslationRecord
+  questionAudioUrl?: string
 }

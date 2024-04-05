@@ -6,6 +6,9 @@ import { Text } from '@lib/ui/text'
 import { useTheme } from 'styled-components'
 import { Tag } from '@lib/ui/tags/Tag'
 import { useCopy } from '../../copy/CopyProvider'
+import { IconButton } from '@lib/ui/buttons/IconButton'
+import { attempt } from '@lib/utils/attempt'
+import { VolumeIcon } from '@lib/ui/icons/VolumeIcon'
 
 export const InterviewQuestionItem = ({
   value,
@@ -20,9 +23,24 @@ export const InterviewQuestionItem = ({
 
   return (
     <VStack gap={8}>
-      <Text color="contrast" weight="semibold">
-        {value.question}
-      </Text>
+      <HStack alignItems="center" gap={8}>
+        {value.questionAudioUrl && (
+          <IconButton
+            title="Play question"
+            kind="secondary"
+            onClick={() => {
+              attempt(() => {
+                const audio = new Audio(value.questionAudioUrl)
+                audio.play()
+              }, undefined)
+            }}
+            icon={<VolumeIcon />}
+          />
+        )}
+        <Text color="contrast" weight="semibold">
+          {value.question}
+        </Text>
+      </HStack>
 
       {questionTranslation && (
         <Text color="supporting">{questionTranslation}</Text>

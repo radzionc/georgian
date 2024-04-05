@@ -102,6 +102,11 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
               </OverlayNavigationItem>
             </Link>
           ))}
+          <Link key="interview" href={curatedQuestionsPagePath}>
+            <OverlayNavigationItem as="div">
+              {copy.interview}
+            </OverlayNavigationItem>
+          </Link>
           <LanguageSelector
             renderOpener={({ props }) => (
               <div {...props}>

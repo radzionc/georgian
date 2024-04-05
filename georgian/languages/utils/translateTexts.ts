@@ -22,6 +22,7 @@ export const translateTexts = async ({
   from,
   to,
 }: TranslateTextsParams): Promise<string[]> => {
+  console.log(`Translating ${texts.length} texts from ${from} to ${to}`)
   if (texts.length === 0) {
     return []
   }

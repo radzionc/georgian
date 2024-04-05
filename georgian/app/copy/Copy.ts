@@ -6,6 +6,7 @@ export type Copy = {
   work: string
   residence: string
   citizenship: string
+  wipPage: string
   family: string
   homePageMetaTagTitle: string
   homePageTitle: string

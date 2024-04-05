@@ -21,10 +21,6 @@ export const syncTranslations = async (language: Language) => {
     (key) => !incompleteRecord[key],
   )
 
-  console.log(
-    `Translating ${sourceTextsToTranslate.length} texts to ${language}`,
-  )
-
   const translations = await translateTexts({
     texts: sourceTextsToTranslate,
     from: sourceLanguage,

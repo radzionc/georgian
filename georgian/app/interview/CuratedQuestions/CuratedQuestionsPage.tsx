@@ -5,6 +5,7 @@ import { Text } from '@lib/ui/text'
 import { useCopy } from '../../copy/CopyProvider'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 import { InterviewQuestionItem } from './InterviewQuestionItem'
+import { ShyInfoBlock } from '@lib/ui/info/ShyInfoBlock'
 
 export type CuratedQuestionsPageProps = {
   questions: EnhancedInterviewQuestion[]
@@ -28,6 +29,7 @@ export const CuratedQuestionsPage = ({
         </Text>
         <Text height="large">{copy.interviewQuestionsPageSubTitle}</Text>
       </VStack>
+      <ShyInfoBlock>{copy.wipPage}</ShyInfoBlock>
       <VStack gap={40}>
         {questions.map((question) => (
           <InterviewQuestionItem key={question.question} value={question} />

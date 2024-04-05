@@ -5,3 +5,5 @@ export const getTicketCategoryPath = (category: TicketCategory) =>
 
 export const getCategoryTestPagePath = (category: TicketCategory) =>
   `/${category}/test`
+
+export const curatedQuestionsPagePath = '/interview/questions'

@@ -6,7 +6,10 @@ import { Link } from '@georgian/languages-ui/components/Link'
 import { interactive } from '@lib/ui/css/interactive'
 import { ProductLogo } from '../../product/ProductLogo'
 import { ticketCategories } from '@georgian/entities/Ticket'
-import { getTicketCategoryPath } from '../../navigation/utils'
+import {
+  curatedQuestionsPagePath,
+  getTicketCategoryPath,
+} from '../../navigation/utils'
 import { Button } from '@lib/ui/buttons/Button'
 import { LanguageSelector } from '@georgian/languages-ui/components/LanguageSelector'
 import { OverlayNavigationItem } from '@lib/ui/website/navigation/OverlayNavigationItem'
@@ -57,11 +60,16 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
           <HStack gap={4} alignItems="center">
             {ticketCategories.map((category) => (
               <Link key={category} href={getTicketCategoryPath(category)}>
-                <Button size="s" key={category} kind="ghost">
+                <Button size="s" kind="ghost">
                   {copy[category]}
                 </Button>
               </Link>
             ))}
+            <Link key="interview" href={curatedQuestionsPagePath}>
+              <Button size="s" kind="ghost">
+                {copy.interview}
+              </Button>
+            </Link>
             <LanguageSelector
               renderOpener={({ props }) => (
                 <div {...props}>

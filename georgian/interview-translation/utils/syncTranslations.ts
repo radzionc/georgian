@@ -1,22 +1,17 @@
-import fs from 'fs'
-import { Language, primaryLanguage } from '@georgian/languages/Language'
+import { Language } from '@georgian/languages/Language'
 import {
   getTextsForTranslation,
   getTranslations,
-  getTranslationsFilePath,
+  translationsPath,
 } from './sources'
 import { syncTranslationRecordKeys } from './syncTranslationRecordKeys'
 import { arraysToRecord } from '@lib/utils/array/arraysToRecord'
 import { translateTexts } from '@georgian/languages/utils/translateTexts'
+import { createJsonFile } from '@lib/codegen/utils/createJsonFile'
 
 const sourceLanguage: Language = 'ka'
 
 export const syncTranslations = async (language: Language) => {
-  const isPrimaryLanguage = language === primaryLanguage
-  if (!isPrimaryLanguage) {
-    await syncTranslations(primaryLanguage)
-  }
-
   const incompleteRecord = syncTranslationRecordKeys(
     getTranslations(language),
     getTextsForTranslation(),
@@ -26,24 +21,20 @@ export const syncTranslations = async (language: Language) => {
     (key) => !incompleteRecord[key],
   )
 
-  let textsToTranslate = sourceTextsToTranslate
-  if (!isPrimaryLanguage) {
-    const primaryLanguageTranslations = getTranslations(primaryLanguage)
-    textsToTranslate = sourceTextsToTranslate.map(
-      (text) => primaryLanguageTranslations[text],
-    )
-  }
-
   const translations = await translateTexts({
-    texts: textsToTranslate,
-    from: isPrimaryLanguage ? sourceLanguage : primaryLanguage,
+    texts: sourceTextsToTranslate,
+    from: sourceLanguage,
     to: language,
   })
 
-  const result = {
+  const content = {
     ...incompleteRecord,
     ...arraysToRecord(sourceTextsToTranslate, translations),
   }
 
-  fs.writeFileSync(getTranslationsFilePath(language), JSON.stringify(result))
+  createJsonFile({
+    directory: translationsPath,
+    fileName: language,
+    content: JSON.stringify(content),
+  })
 }

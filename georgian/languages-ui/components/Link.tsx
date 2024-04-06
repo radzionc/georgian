@@ -2,10 +2,14 @@ import NextLink from 'next/link'
 import { ComponentProps } from 'react'
 import { useLanguage } from './LanguageProvider'
 
-export const Link = ({ href, ...props }: ComponentProps<typeof NextLink>) => {
+type LinkProps = ComponentProps<typeof NextLink> & {
+  isTranslated?: boolean
+}
+
+export const Link = ({ href, isTranslated = true, ...props }: LinkProps) => {
   const [language] = useLanguage()
 
-  const path = `/${language}${href}`
+  const path = isTranslated ? `/${language}${href}` : href
 
   return <NextLink {...props} href={path} />
 }

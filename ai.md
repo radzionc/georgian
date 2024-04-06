@@ -9,3 +9,6 @@ GeorgianCitizen is available in three languages: Georgian, English, and Russian.
 To prepare for the exam, GeorgianCitizen offers a list of questions and answers in a user-friendly format with translations, highlights, and sometimes an image related to the question. As users progress, they can mark questions as learned. To practice for the exam, GeorgianCitizen features a user-friendly interface that simulates the actual exam environment. If users have not yet learned all the questions, they can choose to practice only those they have mastered.
 
 Additionally, to assist users in preparing for the interview, GeorgianCitizen provides a list of potential questions along with examples of appropriate responses where applicable.
+
+To use the app on different devices, users need to register in the app so that data such as completed tickets and interview data will be stored on the server. The user can authorize access either via Google, Facebook, or email (magic link).
+

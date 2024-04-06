@@ -9,6 +9,8 @@ import { ticketCategories } from '@georgian/entities/Ticket'
 import {
   curatedQuestionsPagePath,
   getTicketCategoryPath,
+  privacyPolicyPagePath,
+  termsOfServicePagePath,
 } from '../../navigation/utils'
 import { Button } from '@lib/ui/buttons/Button'
 import { LanguageSelector } from '@georgian/languages-ui/components/LanguageSelector'
@@ -138,6 +140,12 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
             <ExternalLink to={`mailto:${supportEmail}`}>
               <InteractiveText>{copy.getInTouch}</InteractiveText>
             </ExternalLink>
+            <Link isTranslated={false} href={privacyPolicyPagePath}>
+              <InteractiveText>Privacy</InteractiveText>
+            </Link>
+            <Link isTranslated={false} href={termsOfServicePagePath}>
+              <InteractiveText>Terms</InteractiveText>
+            </Link>
           </HStack>
         </Footer>
       }

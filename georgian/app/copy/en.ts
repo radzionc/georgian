@@ -10,6 +10,7 @@ const enCopy: Copy = {
   work: `Work`,
   residence: `Residence`,
   citizenship: `Citizenship`,
+  investment: `Investment`,
   wipPage: `This page is a work in progress.`,
   family: `Family`,
   homePageMetaTagTitle: `Prepare for Georgian Citizenship Exam: Language, Law, History Guides & Practice Tests`,

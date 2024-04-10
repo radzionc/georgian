@@ -8,6 +8,7 @@ export const interviewQuestionCategories = [
   'residence',
   'investment',
   'citizenship',
+  'other',
 ] as const
 export type InterviewQuestionCategory =
   (typeof interviewQuestionCategories)[number]

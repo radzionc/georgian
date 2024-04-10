@@ -7,6 +7,7 @@ export type Copy = {
   residence: string
   citizenship: string
   investment: string
+  other: string
   wipPage: string
   family: string
   homePageMetaTagTitle: string

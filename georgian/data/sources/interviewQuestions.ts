@@ -50,6 +50,9 @@ const answers = {
   citizenshipRejection: 'თავიდან ვცდი მოქალაქეობის მიღებას',
   military:
     'არა, რადგან საცხოვრებლად გადმოვედი საქართველოში უნივერსიტეტის დამთავრებისთანავე.',
+  residenceDuration: 'თითქმის ოთხი წელია ვცხოვრობ საქართველოში',
+  migration:
+    'საქართველოზე ბევრი კარგი მესმოდა ჩემი ქართველი მეგობრისგან, და არა მხოლოდ მისგან, რის გამოც გადავწყვიტე სტუმრობა როგორც ტურისტმა. ვიზიტის შემდეგ კი დავისახე მიზნად, რომ უნივერსიტეტის დამთავრებისთანავე გადმოვსულიყავი საქართველოში საცხოვრებლად, რადგან ვიგრძენი რომ საქართველო არის მეგობრული, თავისუფალი და უსაფრთხო ქვეყანა შესაძლებლობნებით.',
 } as const
 
 type AnswerEssence = keyof typeof answers
@@ -77,6 +80,8 @@ const answerCategoryRecord: Record<AnswerEssence, InterviewQuestionCategory> = {
   citizenshipMotivation: 'citizenship',
   citizenshipRejection: 'citizenship',
   military: 'other',
+  residenceDuration: 'residence',
+  migration: 'residence',
 }
 
 const questionAnswerRecord: Record<string, AnswerEssence> = {
@@ -114,6 +119,11 @@ const questionAnswerRecord: Record<string, AnswerEssence> = {
   'თუ მოქალაქეობის შესახებ უარყოფით პასუხს მიიღებთ, მაშინ რა მოხდება?':
     'citizenshipRejection',
   'გიმსახურიათ თუ არა ჯარში?': 'military',
+  'რამდენი ძანია საქართველოში სხოვლობთ?': 'residenceDuration',
+  'დიდი ხანია საქართველოში სხავლობთ?': 'residenceDuration',
+  'რამდენი წელია საქართველოში სხავლობთ?': 'residenceDuration',
+  'რატომ გადაწყვიტეთ საქართველიში საცხოვრებლად გადმოსვლა?': 'migration',
+  'რატომ გადმოხვედით საქართველოში?': 'migration',
 }
 
 export const interviewQuestions: InterviewQuestion[] = Object.entries(

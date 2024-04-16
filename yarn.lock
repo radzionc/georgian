@@ -1242,6 +1242,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@increaser/api-interface@workspace:georgian/api-interface":
+  version: 0.0.0-use.local
+  resolution: "@increaser/api-interface@workspace:georgian/api-interface"
+  languageName: unknown
+  linkType: soft
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -1297,6 +1303,12 @@ __metadata:
   checksum: 48d3e3db00dbecb211613649a1849876ba5544a3f41cf5e6b99ea1130272d6cf18591b5b67389bce20f1c871b4ede5900c3b6446a7aab6d0a3b2fe806a834db7
   languageName: node
   linkType: hard
+
+"@lib/auth@workspace:lib/auth":
+  version: 0.0.0-use.local
+  resolution: "@lib/auth@workspace:lib/auth"
+  languageName: unknown
+  linkType: soft
 
 "@lib/codegen@workspace:lib/codegen":
   version: 0.0.0-use.local

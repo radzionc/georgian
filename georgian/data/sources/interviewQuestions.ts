@@ -122,7 +122,7 @@ const questionAnswerRecord: Record<string, AnswerEssence> = {
   'რამდენი ძანია საქართველოში სხოვლობთ?': 'residenceDuration',
   'დიდი ხანია საქართველოში სხავლობთ?': 'residenceDuration',
   'რამდენი წელია საქართველოში სხავლობთ?': 'residenceDuration',
-  'რატომ გადაწყვიტეთ საქართველიში საცხოვრებლად გადმოსვლა?': 'migration',
+  'რატომ გადაწყვიტეთ საქართველოში საცხოვრებლად გადმოსვლა?': 'migration',
   'რატომ გადმოხვედით საქართველოში?': 'migration',
 }
 

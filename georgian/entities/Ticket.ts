@@ -29,9 +29,12 @@ type TicketAnswer = EntityWithHighlights & {
   isCorrect: boolean
 }
 
-export type Ticket = {
+export type TicketKey = {
   category: TicketCategory
   ticketNumber: number
+}
+
+export type Ticket = TicketKey & {
   question: EntityWithHighlights
   prompt?: string
   answers: TicketAnswer[]

@@ -47,7 +47,7 @@ const FlagWrapper = styled(IconWrapper)`
 
 export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
   const copy = useCopy()
-  const [language] = useLanguage()
+  const { language } = useLanguage()
 
   return (
     <WebsiteNavigation

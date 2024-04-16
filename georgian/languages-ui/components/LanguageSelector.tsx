@@ -10,6 +10,7 @@ import {
 } from '@georgian/languages/Language'
 import CountryFlag from '@lib/ui/countries/flags/CountryFlag'
 import { ReactNode } from 'react'
+import { Tooltip } from '@lib/ui/tooltips/Tooltip'
 
 const FlagWrapper = styled(IconWrapper)`
   border-radius: 2px;
@@ -25,7 +26,16 @@ type LanguageSelectorProps = {
 }
 
 export const LanguageSelector = ({ renderOpener }: LanguageSelectorProps) => {
-  const [language, setLanguage] = useLanguage()
+  const { language, setLanguage, isTranslated } = useLanguage()
+
+  if (!isTranslated) {
+    return (
+      <Tooltip
+        content={`This page is only available in ${languageNativeName[language]}`}
+        renderOpener={(props) => renderOpener({ props })}
+      />
+    )
+  }
 
   return (
     <Menu

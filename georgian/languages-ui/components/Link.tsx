@@ -7,7 +7,7 @@ type LinkProps = ComponentProps<typeof NextLink> & {
 }
 
 export const Link = ({ href, isTranslated = true, ...props }: LinkProps) => {
-  const [language] = useLanguage()
+  const { language } = useLanguage()
 
   const path = isTranslated ? `/${language}${href}` : href
 

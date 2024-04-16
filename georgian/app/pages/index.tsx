@@ -4,7 +4,7 @@ import { PageContainer } from '../components/PageContainer'
 import { LandingPage } from '../landing/LandingPage'
 
 export default () => (
-  <PageContainer language={primaryLanguage}>
+  <PageContainer isTranslated language={primaryLanguage}>
     <Head>
       <link
         rel="canonical"

@@ -107,7 +107,7 @@ const content = {
 
 export default () => {
   return (
-    <PageContainer language={primaryLanguage}>
+    <PageContainer isTranslated={false} language={primaryLanguage}>
       <PageMetaTags title={`${productName} - ${name}`} />
       <LegalPageContent title={name}>
         {Object.entries(content).map(([title, text]) => (

@@ -13,7 +13,7 @@ export default ({
   language,
   ...rest
 }: LocalizedPageProps & CategoryTestPageProps) => (
-  <PageContainer language={language}>
+  <PageContainer isTranslated={true} language={language}>
     <CategoryTestPage {...rest} />
   </PageContainer>
 )

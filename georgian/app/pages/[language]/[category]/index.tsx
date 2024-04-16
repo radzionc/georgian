@@ -13,7 +13,7 @@ export default ({
   language,
   ...rest
 }: LocalizedPageProps & TicketsCategoryPageProps) => (
-  <PageContainer language={language}>
+  <PageContainer isTranslated={true} language={language}>
     <TicketsCategoryPage {...rest} />
   </PageContainer>
 )

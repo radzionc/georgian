@@ -1,5 +1,6 @@
 import { CountryCode } from '@lib/countries'
-import { TicketCategory } from './Ticket'
+import { TicketCategory, ticketCategories } from './Ticket'
+import { makeRecord } from '@lib/utils/record/makeRecord'
 
 export type UserCompletedTickets = Record<TicketCategory, number[]>
 
@@ -13,4 +14,8 @@ export type User = {
   updatedAt: number
 
   completedTickets: UserCompletedTickets
+}
+
+export const userDefaultFields: Pick<User, 'completedTickets'> = {
+  completedTickets: makeRecord(ticketCategories, () => []),
 }

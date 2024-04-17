@@ -4,7 +4,6 @@ import { VStack } from '@lib/ui/layout/Stack'
 import { Text } from '@lib/ui/text'
 import { useCopy } from '../../copy/CopyProvider'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
-import { ShyInfoBlock } from '@lib/ui/info/ShyInfoBlock'
 import { useMemo } from 'react'
 import { groupItems } from '@lib/utils/array/groupItems'
 import { order } from '@lib/utils/array/order'
@@ -39,7 +38,6 @@ export const CuratedQuestionsPage = ({
         </Text>
         <Text height="large">{copy.interviewQuestionsPageSubTitle}</Text>
       </VStack>
-      <ShyInfoBlock>{copy.wipPage}</ShyInfoBlock>
       <SeparatedByLine gap={40}>
         {order(
           getRecordKeys(groups),

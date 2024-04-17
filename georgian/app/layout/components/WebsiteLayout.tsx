@@ -29,6 +29,8 @@ import {
   languagePrimaryCountry,
 } from '@georgian/languages/Language'
 import Link from 'next/link'
+import { SignInButton } from './SignInButton'
+import { MatchAuthStatus } from '../../auth/components/MatchAuthStatus'
 import { Path } from '../../navigation/Path'
 
 const LogoWrapper = styled(TranslatedPageLink)`
@@ -93,11 +95,16 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
                 </div>
               )}
             />
-            <Link href={Path.SignIn}>
-              <Button as="div" kind="primary">
-                {copy.signIn}
-              </Button>
-            </Link>
+            <MatchAuthStatus
+              authenticated={() => (
+                <Link href={Path.Account}>
+                  <Button as="div" size="s" kind="ghost">
+                    {copy.account}
+                  </Button>
+                </Link>
+              )}
+              unauthenticated={() => <SignInButton />}
+            />
           </HStack>
         </>
       )}
@@ -133,6 +140,13 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
               </div>
             )}
           />
+
+          <OverlayNavigationItem as="div">
+            <MatchAuthStatus
+              authenticated={() => copy.account}
+              unauthenticated={() => <SignInButton />}
+            />
+          </OverlayNavigationItem>
         </>
       )}
       footer={

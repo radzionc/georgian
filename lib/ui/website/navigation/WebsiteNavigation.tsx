@@ -41,6 +41,7 @@ const Header = styled.div`
 const TobbarContent = styled(HStack)`
   flex: 1;
   justify-content: space-between;
+  position: relative;
 `
 
 const Overlay = styled(VStack)`

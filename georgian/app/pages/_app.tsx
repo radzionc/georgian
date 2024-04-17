@@ -11,6 +11,7 @@ import { getQueryClient } from '../query/queryClient'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { ErrorBoundary } from '../errors/components/ErrorBoundary'
 import { FullSizeErrorFallback } from '../errors/components/FullSizeErrorFallback'
+import { UserStateProvider } from '../user/components/UserStateProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -39,7 +40,7 @@ function MyApp({ Component, pageProps }: MyAppProps) {
       <GlobalStyle fontFamily={inter.style.fontFamily} />
       <QueryClientProvider client={queryClient}>
         <ErrorBoundary fallback={<FullSizeErrorFallback />}>
-          {component}
+          <UserStateProvider>{component}</UserStateProvider>
         </ErrorBoundary>
       </QueryClientProvider>
     </ThemeProvider>

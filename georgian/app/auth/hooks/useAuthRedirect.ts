@@ -11,15 +11,14 @@ const persistentPath = managePersistentState<string>(
 )
 
 export const useAuthRedirect = () => {
-  const { replace, pathname } = useRouter()
+  const { replace, asPath } = useRouter()
 
   const toAuthenticationPage = useCallback(() => {
-    persistentPath.set(pathname)
+    persistentPath.set(asPath)
     replace(Path.SignIn)
-  }, [pathname, replace])
+  }, [asPath, replace])
 
   const toAuthenticatedPage = useCallback(() => {
-    persistentPath.get()
     const destination = persistentPath.get() ?? Path.Home
     replace(destination)
     persistentPath.set(undefined)

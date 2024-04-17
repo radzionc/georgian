@@ -7,6 +7,7 @@ import { takeWholeSpace } from '@lib/ui/css/takeWholeSpace'
 import { VStack } from '@lib/ui/layout/Stack'
 import { Panel } from '@lib/ui/panel/Panel'
 import styled from 'styled-components'
+import { getColor } from '@lib/ui/theme/getters'
 
 const Container = styled(VStack)`
   align-items: center;
@@ -35,7 +36,7 @@ export const AuthPageContainer = ({ children }: ComponentWithChildrenProps) => {
     <PageContainer isTranslated={false} language={primaryLanguage}>
       <UnauthenticatedOnly>
         <Container>
-          <Content>{children}</Content>
+          <Content kind="secondary">{children}</Content>
         </Container>
       </UnauthenticatedOnly>
     </PageContainer>

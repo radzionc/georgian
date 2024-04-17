@@ -12,7 +12,7 @@ export const queryOAuthProvider = async <T>(
       () => response.text(),
       response.statusText,
     )
-    throw new ApiError('invalidInput', `${action} failed: ${message}`)
+    throw new ApiError('invalidInput', `failed to ${action}: ${message}`)
   }
 
   return (await response.json()) as T

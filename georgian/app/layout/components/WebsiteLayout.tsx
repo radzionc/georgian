@@ -1,5 +1,5 @@
 import { ComponentWithChildrenProps } from '@lib/ui/props'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/layout/Stack'
 import styled from 'styled-components'
 import { WebsiteNavigation } from '@lib/ui/website/navigation/WebsiteNavigation'
 import { TranslatedPageLink } from '@georgian/languages-ui/components/TranslatedPageLink'
@@ -95,16 +95,18 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
                 </div>
               )}
             />
-            <MatchAuthStatus
-              authenticated={() => (
-                <Link href={Path.Account}>
-                  <Button as="div" size="s" kind="ghost">
-                    {copy.account}
-                  </Button>
-                </Link>
-              )}
-              unauthenticated={() => <SignInButton />}
-            />
+            <VStack style={{ minWidth: 98 }} alignItems="end">
+              <MatchAuthStatus
+                authenticated={() => (
+                  <Link href={Path.Account}>
+                    <Button as="div" size="s" kind="ghost">
+                      {copy.account}
+                    </Button>
+                  </Link>
+                )}
+                unauthenticated={() => <SignInButton />}
+              />
+            </VStack>
           </HStack>
         </>
       )}

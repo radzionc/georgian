@@ -10,7 +10,6 @@ import { addQueryParams } from '@lib/utils/query/addQueryParams'
 import { Field } from '@lib/ui/inputs/Field'
 import { useApiMutation } from '@georgian/api-ui/hooks/useApiMutation'
 import { Path } from '../../../navigation/Path'
-import { useQueryClient } from '@tanstack/react-query'
 
 interface EmailFormState {
   email: string
@@ -26,9 +25,6 @@ export const EmailAuthForm = () => {
   } = useForm<EmailFormState>({
     mode: 'onSubmit',
   })
-
-  const client = useQueryClient()
-  console.log('here: ', client)
 
   const { mutate: sendAuthLinkByEmail, isPending } = useApiMutation(
     'sendAuthLinkByEmail',

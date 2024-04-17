@@ -2,7 +2,7 @@ import { ComponentWithChildrenProps } from '@lib/ui/props'
 import { HStack } from '@lib/ui/layout/Stack'
 import styled from 'styled-components'
 import { WebsiteNavigation } from '@lib/ui/website/navigation/WebsiteNavigation'
-import { Link } from '@georgian/languages-ui/components/Link'
+import { TranslatedPageLink } from '@georgian/languages-ui/components/TranslatedPageLink'
 import { interactive } from '@lib/ui/css/interactive'
 import { ProductLogo } from '../../product/ProductLogo'
 import { ticketCategories } from '@georgian/entities/Ticket'
@@ -28,8 +28,10 @@ import {
   languageNativeName,
   languagePrimaryCountry,
 } from '@georgian/languages/Language'
+import Link from 'next/link'
+import { Path } from '../../navigation/Path'
 
-const LogoWrapper = styled(Link)`
+const LogoWrapper = styled(TranslatedPageLink)`
   ${interactive};
   font-size: 20px;
 `
@@ -61,17 +63,20 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
           <div />
           <HStack gap={4} alignItems="center">
             {ticketCategories.map((category) => (
-              <Link key={category} href={getTicketCategoryPath(category)}>
-                <Button size="s" kind="ghost">
+              <TranslatedPageLink
+                key={category}
+                href={getTicketCategoryPath(category)}
+              >
+                <Button as="div" size="s" kind="ghost">
                   {copy[category]}
                 </Button>
-              </Link>
+              </TranslatedPageLink>
             ))}
-            <Link key="interview" href={curatedQuestionsPagePath}>
-              <Button size="s" kind="ghost">
+            <TranslatedPageLink key="interview" href={curatedQuestionsPagePath}>
+              <Button as="div" size="s" kind="ghost">
                 {copy.interview}
               </Button>
-            </Link>
+            </TranslatedPageLink>
             <LanguageSelector
               renderOpener={({ props }) => (
                 <div {...props}>
@@ -88,6 +93,11 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
                 </div>
               )}
             />
+            <Link href={Path.SignIn}>
+              <Button as="div" kind="primary">
+                {copy.signIn}
+              </Button>
+            </Link>
           </HStack>
         </>
       )}
@@ -140,10 +150,10 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
             <ExternalLink to={`mailto:${supportEmail}`}>
               <InteractiveText>{copy.getInTouch}</InteractiveText>
             </ExternalLink>
-            <Link isTranslated={false} href={privacyPolicyPagePath}>
+            <Link href={privacyPolicyPagePath}>
               <InteractiveText>Privacy</InteractiveText>
             </Link>
-            <Link isTranslated={false} href={termsOfServicePagePath}>
+            <Link href={termsOfServicePagePath}>
               <InteractiveText>Terms</InteractiveText>
             </Link>
           </HStack>

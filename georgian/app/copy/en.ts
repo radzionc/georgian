@@ -7,6 +7,8 @@ const enCopy: Copy = {
   introduction: `Introduction`,
   education: `Education`,
   origin: `Origin`,
+  signIn: `Sign in`,
+  account: `Account`,
   work: `Work`,
   residence: `Residence`,
   citizenship: `Citizenship`,

@@ -3,6 +3,8 @@ export type Copy = {
   introduction: string
   education: string
   origin: string
+  signIn: string
+  account: string
   work: string
   residence: string
   citizenship: string

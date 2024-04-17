@@ -7,6 +7,8 @@ const kaCopy: Copy = {
   introduction: `შესავალი`,
   education: `Განათლება`,
   origin: `წარმოშობა`,
+  signIn: `Შებრძანდით`,
+  account: `ანგარიში`,
   work: `მუშაობა`,
   residence: `რეზიდენცია`,
   citizenship: `მოქალაქეობა`,

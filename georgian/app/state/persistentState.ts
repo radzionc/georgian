@@ -9,6 +9,7 @@ export enum PersistentStateKey {
   TestPreferences = 'testPreferences',
   PathAttemptedWhileUnauthenticated = 'pathAttemptedWhileUnauthenticated',
   AuthSession = 'authSession',
+  ReactQueryState = 'reactQueryState',
 }
 
 const persistentStorage =

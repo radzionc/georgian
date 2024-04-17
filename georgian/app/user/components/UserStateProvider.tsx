@@ -1,12 +1,11 @@
-import { getCurrentTimezoneOffset } from '@lib/utils/time/getCurrentTimezoneOffset'
 import { useCallback, useEffect } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useStartOfDay } from '@lib/ui/hooks/useStartOfDay'
-import { UserStateContext } from '@increaser/ui/user/UserStateContext'
-import { useAuthSession } from '@increaser/app/auth/hooks/useAuthSession'
-import { User } from '@increaser/entities/User'
-import { useApi } from '@increaser/api-ui/hooks/useApi'
+import { useAuthSession } from '@georgian/app/auth/hooks/useAuthSession'
+import { User } from '@georgian/entities/User'
+import { useApi } from '@georgian/api-ui/hooks/useApi'
 import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { UserStateContext } from '../state/UserStateContext'
 
 const userStateQueryKey = ['userState']
 
@@ -26,10 +25,7 @@ export const UserStateProvider = ({ children }: ComponentWithChildrenProps) => {
     dataUpdatedAt,
   } = useQuery({
     queryKey: userStateQueryKey,
-    queryFn: () =>
-      api.call('user', {
-        timeZone: getCurrentTimezoneOffset(),
-      }),
+    queryFn: () => api.call('user', undefined),
     enabled: Boolean(authSession),
     refetchOnWindowFocus: false,
   })

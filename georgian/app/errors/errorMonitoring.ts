@@ -1,8 +1,7 @@
 import * as Sentry from '@sentry/nextjs'
-import { isProduction } from '@increaser/app/shared'
 
 export const setUserIdForErrorMonitoring = (userId: string) => {
-  if (!isProduction) return
+  if (process.env.NODE_ENV !== 'production') return
 
   Sentry.configureScope((scope) => {
     scope.setUser({ id: userId })

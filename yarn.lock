@@ -1852,7 +1852,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@georgian/api-ui@workspace:georgian/api-ui"
   dependencies:
-    "@tanstack/react-query": "npm:^5.17.19"
+    "@tanstack/react-query": "npm:^5.29.2"
     "@types/react": "npm:^18.2.45"
     react: "npm:^18.2.0"
   languageName: unknown
@@ -1885,7 +1885,10 @@ __metadata:
   resolution: "@georgian/app@workspace:georgian/app"
   dependencies:
     "@next/eslint-plugin-next": "npm:^13.4.11"
-    "@sentry/nextjs": "npm:^7.110.1"
+    "@sentry/nextjs": "npm:^7.105.0"
+    "@tanstack/query-sync-storage-persister": "npm:^5.29.0"
+    "@tanstack/react-query": "npm:^5.29.2"
+    "@tanstack/react-query-persist-client": "npm:^5.29.2"
     "@types/node": "npm:^20.10.5"
     "@types/react": "npm:^18.2.45"
     "@types/react-dom": "npm:^18.2.18"
@@ -2163,7 +2166,7 @@ __metadata:
     "@aws-sdk/client-dynamodb": "npm:^3.478.0"
     "@aws-sdk/lib-dynamodb": "npm:^3.478.0"
     "@aws-sdk/util-dynamodb": "npm:^3.478.0"
-    "@types/uuid": "npm:^9"
+    "@types/uuid": "npm:^9.0.2"
     uuid: "npm:^9.0.1"
   languageName: unknown
   linkType: soft
@@ -2187,7 +2190,7 @@ __metadata:
     "@react-spring/web": "npm:^9.7.3"
     "@svgr/core": "npm:^8.1.0"
     "@svgr/plugin-jsx": "npm:^8.1.0"
-    "@tanstack/react-query": "npm:^5.17.19"
+    "@tanstack/react-query": "npm:^5.29.2"
     "@types/node": "npm:^20.10.5"
     "@types/react": "npm:^18.2.45"
     "@types/react-dom": "npm:^18.2.18"
@@ -3091,7 +3094,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/nextjs@npm:^7.110.1":
+"@sentry/nextjs@npm:^7.105.0":
   version: 7.110.1
   resolution: "@sentry/nextjs@npm:7.110.1"
   dependencies:
@@ -4259,21 +4262,52 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.20.2":
-  version: 5.20.2
-  resolution: "@tanstack/query-core@npm:5.20.2"
-  checksum: affe86f45e661e19e3de3e03c94f9409c6aadc8bcf9a6b59c1ce766b13248d079904f3a00fa9eb34ceb4bd227d3ec9dd0299d20062a34553d465d56c11d798a4
+"@tanstack/query-core@npm:5.29.0":
+  version: 5.29.0
+  resolution: "@tanstack/query-core@npm:5.29.0"
+  checksum: a58f1f899292daea66bf8341a4e6b8f96064c0a45bbcb350d68b004b871c6d2894dcecb268389695b093167b0a0acb6bcf5d01f52a335ffb128348b6705450b1
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^5.17.19":
-  version: 5.20.2
-  resolution: "@tanstack/react-query@npm:5.20.2"
+"@tanstack/query-persist-client-core@npm:5.29.0":
+  version: 5.29.0
+  resolution: "@tanstack/query-persist-client-core@npm:5.29.0"
   dependencies:
-    "@tanstack/query-core": "npm:5.20.2"
+    "@tanstack/query-core": "npm:5.29.0"
+  checksum: d529059abd9839f698d5e5be6464cb82c44e82bfb0effd335c0d4b8027e60adba35f114483352f9fe437f3652bd2ceb9ccfccd4778e8fd1c40ea7d73c5f25cee
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-sync-storage-persister@npm:^5.29.0":
+  version: 5.29.0
+  resolution: "@tanstack/query-sync-storage-persister@npm:5.29.0"
+  dependencies:
+    "@tanstack/query-core": "npm:5.29.0"
+    "@tanstack/query-persist-client-core": "npm:5.29.0"
+  checksum: 7d732be37be1f5828d2d1e4c795f48f908392054d2da6f3fa52c925ee54ac16d7458e3ea00eb7f306a218e0084e12cc7df110393928d2c71360beb2372ce66fd
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-persist-client@npm:^5.29.2":
+  version: 5.29.2
+  resolution: "@tanstack/react-query-persist-client@npm:5.29.2"
+  dependencies:
+    "@tanstack/query-persist-client-core": "npm:5.29.0"
+  peerDependencies:
+    "@tanstack/react-query": ^5.29.2
+    react: ^18.0.0
+  checksum: 61901ac13b621763dd10af5409eb4d5fa9b3e1335f9dd31525730a0ea34ea6cf2138c4e95441f01677fcc3ed9b613a919bbfea94c4b646405bf8baaa1cec7514
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.29.2":
+  version: 5.29.2
+  resolution: "@tanstack/react-query@npm:5.29.2"
+  dependencies:
+    "@tanstack/query-core": "npm:5.29.0"
   peerDependencies:
     react: ^18.0.0
-  checksum: f769f6b18c06aa362c3b6a786c17801d0977e4fedb30ac6b548db977401d802cadfb3cd0052456b5f271c3a28eeaa3a6cf7056530e2cf0aaca9a7ddc009e948b
+  checksum: fff25a36d764b0bec7d4ec3f499a74881abf043e81a8f97c71ffffd52fb6b1cfd60f0199ac4150902beccc95e80b7c32ec3a56ae2ee07bdd388e14bb4546123b
   languageName: node
   linkType: hard
 
@@ -4552,7 +4586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:^9, @types/uuid@npm:^9.0.2":
+"@types/uuid@npm:^9.0.2":
   version: 9.0.8
   resolution: "@types/uuid@npm:9.0.8"
   checksum: b8c60b7ba8250356b5088302583d1704a4e1a13558d143c549c408bf8920535602ffc12394ede77f8a8083511b023704bc66d1345792714002bfa261b17c5275

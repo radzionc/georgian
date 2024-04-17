@@ -7,6 +7,8 @@ const ruCopy: Copy = {
   introduction: `Введение`,
   education: `Образование`,
   origin: `Источник`,
+  signIn: `Войти`,
+  account: `Счет`,
   work: `Работа`,
   residence: `Резиденция`,
   citizenship: `Гражданство`,

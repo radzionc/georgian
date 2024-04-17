@@ -1,10 +1,10 @@
-import { createContext } from 'react'
+import { Dispatch, SetStateAction, createContext } from 'react'
 import { createContextHook } from '@lib/ui/state/createContextHook'
 import { User } from '@georgian/entities/User'
 
 interface UserStateContextValue {
   state: User | null
-  updateState: (state: Partial<User>) => void
+  updateState: Dispatch<SetStateAction<User>>
   pullRemoteState: () => void
   isLoading: boolean
   lastUpdatedAt: number

@@ -5,7 +5,6 @@ import { createPersistentStateManager } from '@lib/ui/state/createPersistentStat
 
 export enum PersistentStateKey {
   ThemePreference = 'themePreference',
-  CompleteTickets = 'completeTickets',
   TestPreferences = 'testPreferences',
   PathAttemptedWhileUnauthenticated = 'pathAttemptedWhileUnauthenticated',
   AuthSession = 'authSession',

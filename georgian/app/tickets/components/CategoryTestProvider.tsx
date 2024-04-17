@@ -8,8 +8,8 @@ import { useEffectOnDependencyChange } from '@lib/ui/hooks/useEffectOnDependency
 import { EnhancedTicket } from '@georgian/entities/EnhancedTicket'
 import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
-import { useCompletedTickets } from '../hooks/useCompletedTickets'
 import { TestPreference, useTestPreferences } from '../hooks/useTestPreferences'
+import { useUserState } from '../../user/state/UserStateContext'
 
 interface CategoryTestProviderState {
   testPreference: TestPreference
@@ -48,17 +48,14 @@ export const CategoryTestProvider = ({
   tickets,
   children,
 }: CategoryTestProviderProps) => {
-  const [allCompletedTickets] = useCompletedTickets()
-  const completedTickets = useMemo(
-    () =>
-      allCompletedTickets
-        .filter((ticket) => ticket.category === category)
-        .map((ticket) =>
-          tickets.find((t) => t.ticketNumber === ticket.ticketNumber),
-        )
-        .map((ticket) => shouldBePresent(ticket)),
-    [allCompletedTickets, category, tickets],
-  )
+  const { state } = useUserState()
+  const completedTickets = useMemo(() => {
+    if (!state) return []
+
+    return state.completedTickets[category].map((ticketNumber) =>
+      shouldBePresent(tickets.find((t) => t.ticketNumber === ticketNumber)),
+    )
+  }, [category, state, tickets])
 
   const hasEnoughCompletedTickets = completedTickets.length > testSize
   const [testPreferences, setTestPreferences] = useTestPreferences()

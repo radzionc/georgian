@@ -37,11 +37,12 @@ export const UserStateProvider = ({ children }: ComponentWithChildrenProps) => {
   }, [dataUpdatedAt, dayStartedAt, refetch])
 
   const updateState = useCallback(
-    (pieceOfState: Partial<User>) => {
-      queryClient.setQueryData<User>(userStateQueryKey, (state) => ({
-        ...(state || ({} as User)),
-        ...pieceOfState,
-      }))
+    (newValue: User | ((prevValue: User) => User)) => {
+      queryClient.setQueryData<User>(userStateQueryKey, (prevValue) => {
+        return typeof newValue === 'function'
+          ? newValue(prevValue as User)
+          : newValue
+      })
     },
     [queryClient],
   )

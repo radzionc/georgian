@@ -15,7 +15,7 @@ export default ({
   language,
   ...rest
 }: LocalizedPageProps & CuratedQuestionsPageProps) => (
-  <PageContainer language={language}>
+  <PageContainer isTranslated={true} language={language}>
     <CuratedQuestionsPage {...rest} />
   </PageContainer>
 )

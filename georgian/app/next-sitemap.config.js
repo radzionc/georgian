@@ -4,4 +4,5 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   outDir: './out',
+  exclude: ['/oauth/*', '/account', '/email-auth', '/email-confirm'],
 }

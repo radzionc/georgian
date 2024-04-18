@@ -7,7 +7,7 @@ import { LocalizedPageProps } from '../../copy/LocalizedPageProps'
 import { LandingPage } from '../../landing/LandingPage'
 
 export default ({ language }: LocalizedPageProps) => (
-  <PageContainer language={language}>
+  <PageContainer isTranslated={true} language={language}>
     <Head>
       <link
         rel="canonical"

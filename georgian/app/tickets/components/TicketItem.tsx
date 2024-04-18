@@ -1,27 +1,17 @@
 import { HStack, VStack } from '@lib/ui/layout/Stack'
 import { Text, TextColor } from '@lib/ui/text'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { EnhancedTicket } from '@georgian/entities/EnhancedTicket'
 
-import { CheckCircleIcon } from '@lib/ui/icons/CheckCircleIcon'
-import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
-import { transition } from '@lib/ui/css/transition'
-import { interactive } from '@lib/ui/css/interactive'
 import { getColor } from '@lib/ui/theme/getters'
 import { ticketAnswerLetters } from '@georgian/entities/Ticket'
-import { ClientOnly } from '@lib/ui/base/ClientOnly'
 import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
 import { TicketBreakdown } from './TicketBreakdown'
 import { UniformColumnGrid } from '@lib/ui/layout/UniformColumnGrid'
-import { useCopy } from '../../copy/CopyProvider'
-import {
-  useCompletedTickets,
-  isTicketCompleted,
-  withoutTicket,
-} from '../hooks/useCompletedTickets'
 import { SafeImage } from '@lib/ui/images/SafeImage'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { panelDefaultPadding } from '@lib/ui/panel/Panel'
+import { TicketCompletionStatus } from './TicketCompletionStatus'
 
 interface TicketItemProps {
   ticket: EnhancedTicket
@@ -59,29 +49,8 @@ const TicketImage = styled.img`
   padding: 0;
 `
 
-const CompletionButton = styled(UnstyledButton)<{ isCompleted: boolean }>`
-  font-weight: 500;
-  ${transition};
-  ${interactive};
-  ${({ isCompleted }) =>
-    isCompleted
-      ? css`
-          color: ${getColor('success')};
-        `
-      : css`
-          color: ${getColor('textSupporting')};
-          :hover {
-            color: ${getColor('contrast')};
-          }
-        `};
-`
-
 export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
-  const copy = useCopy()
   const { ticketNumber, question, prompt } = ticket
-
-  const [completedTickets, setCompletedTickets] = useCompletedTickets()
-  const isCompleted = isTicketCompleted(completedTickets, ticket)
 
   return (
     <VStack gap={8}>
@@ -89,23 +58,7 @@ export const TicketItem = ({ ticket, falseAnswer }: TicketItemProps) => {
         <Text size={20} weight="bold" color="shy" as="h3">
           #{ticketNumber}
         </Text>
-        <ClientOnly>
-          <CompletionButton
-            onClick={() => {
-              setCompletedTickets(
-                isCompleted
-                  ? withoutTicket(completedTickets, ticket)
-                  : [...completedTickets, ticket],
-              )
-            }}
-            isCompleted={isCompleted}
-          >
-            <HStack alignItems="center" gap={8}>
-              <CheckCircleIcon />
-              <div>{isCompleted ? copy.learned : copy.markAsLearned}</div>
-            </HStack>
-          </CompletionButton>
-        </ClientOnly>
+        <TicketCompletionStatus value={ticket} />
       </Header>
       <Container gap={2} minChildrenWidth={320}>
         <SeparatedByLine gap={16}>

@@ -8,10 +8,21 @@ import { WebsiteLayout } from '../layout/components/WebsiteLayout'
 
 interface PageContainerProps
   extends LocalizedPageProps,
-    ComponentWithChildrenProps {}
+    ComponentWithChildrenProps {
+  isTranslated: boolean
+}
 
-export const PageContainer = ({ children, language }: PageContainerProps) => (
-  <LanguageProvider value={language}>
+export const PageContainer = ({
+  children,
+  language,
+  isTranslated,
+}: PageContainerProps) => (
+  <LanguageProvider
+    value={{
+      language,
+      isTranslated,
+    }}
+  >
     <PageMetaTags language={language} />
     <CopyProvider value={getCopy(language)}>
       <WebsiteLayout>{children}</WebsiteLayout>

@@ -1,126 +1,135 @@
-import { InterviewQuestion } from '@georgian/entities/InterviewQuestion'
+import {
+  InterviewQuestion,
+  InterviewQuestionCategory,
+} from '@georgian/entities/InterviewQuestion'
 
-export const interviewQuestions: InterviewQuestion[] = [
-  {
-    question: 'რა გქვიათ?',
-    tags: ['introduction'],
-  },
-  {
-    question: 'თქვენი სახელი?',
-    tags: ['introduction'],
-  },
-  {
-    question: 'წარმოგვიდგინეთ თავი თუ შეიძლება.',
-    tags: ['introduction'],
-  },
-  {
-    question: 'რამდენი წლის ხართ?',
-    tags: ['introduction'],
-  },
-  {
-    question: 'ქართულად საუბრობთ?',
-    tags: ['language'],
-  },
-  {
-    question: 'შეგიძლიათ ქართულად საუბარი?',
-    tags: ['language'],
-  },
-  {
-    question: 'სად დაიბადეთ?',
-    tags: ['origin'],
-  },
-  {
-    question: 'საიდან ხართ წარმოშობით და სად ცხოვრობდით?',
-    tags: ['origin'],
-  },
-  {
-    question: 'სად გაიზარდეთ?',
-    tags: ['origin'],
-  },
-  {
-    question: 'სად სწავლობდით?',
-    tags: ['education'],
-  },
-  {
-    question: 'უმაღლესი განათლება სად მიიღეთ?',
-    tags: ['education'],
-  },
-  {
-    question: 'რომელ უნივერსიტეტში სწავლობდით?',
-    tags: ['education'],
-  },
-  {
-    question: 'რა განხრით სწავლობდით უნივერსიტეტში?',
-    tags: ['education'],
-  },
-  {
-    question: 'მოგწონდათ უნივერსიტეტში სწავლა?',
-    tags: ['education'],
-  },
-  {
-    question: 'რა პროფესიის ხართ?',
-    tags: ['work'],
-  },
-  {
-    question: 'სად მუშაობთ?',
-    tags: ['work'],
-  },
-  {
-    question: 'რა სამუშაოს ასრულებთ?',
-    tags: ['work'],
-  },
-  {
-    question: 'ახლა დასაქმებული ხართ? კონკრეტულად სად მუშაობთ?',
-    tags: ['work'],
-  },
-  {
-    question: 'რა სამუშაო გაქვთ?',
-    tags: ['work'],
-  },
-  {
-    question: 'რომელ კომპანიაში მუშაობთ?',
-    tags: ['work'],
-  },
-  {
-    question: 'რა თანამდებობაზე?',
-    tags: ['work'],
-  },
-  {
-    question: 'გყავთ თუ არა ნათესავები საქართველოში?',
-    tags: ['work'],
-  },
-  {
-    question: 'სად ცხოვრობთ?',
-    tags: ['work'],
-  },
-  {
-    question: 'გაქვთ თუ არა უძრავი ქონება საქართველოში?',
-    tags: ['residence'],
-  },
-  {
-    question: 'წერა-კითხვა იცით?',
-    tags: ['language'],
-  },
-  {
-    question: 'ქართული რატომ არ იცით კარგად?',
-    tags: ['language'],
-  },
-  {
-    question: 'რატომ გინდათ საქართველოს მოქალაქეობის მიღება?',
-    tags: ['citizenship'],
-  },
-  {
-    question:
-      'მაინც და მაინც ახლა რატომ გადაწყვიტედ მოქალაქეობის მიღება? აქამდე ხომ მშვენივრად ცხოვრობდით.',
-    tags: ['citizenship'],
-  },
-  {
-    question: 'თუ მოქალაქეობას  ახლა არ მოგანიჭებენ, მაშინ რას გააკეთებთ? ',
-    tags: ['citizenship'],
-  },
-  {
-    question:
-      'თუ მოქალაქეობის შესახებ უარყოფით პასუხს მიიღებთ, მაშინ რა მოხდება?',
-    tags: ['citizenship'],
-  },
-]
+/* Questions to add:
+- How long have you been living in Georgia?
+- How do you see your future in Georgia?
+- What are your views on Georgian history and current affairs?
+- What do you appreciate most about Georgian culture?
+- Why you decided to move to Georgia?
+- გიმსახურიათ თუ არ ჯარში?
+
+Questions to answer
+- რატომ გინდათ საქართველოს მოქალაქეობის მიღება?
+- მაინც და მაინც ახლა რატომ გადაწყვიტედ მოქალაქეობის მიღება? აქამდე ხომ მშვენივრად ცხოვრობდით.
+- თუ მოქალაქეობას ახლა არ მოგანიჭებენ, მაშინ რას გააკეთებთ? 
+- თუ მოქალაქეობის შესახებ უარყოფით პასუხს მიიღებთ, მაშინ რა მოხდება?
+*/
+
+const job =
+  'მე ვარ ინდივიდუალური მეწარმე, ვმუშაობ დისტანციურად პროგრამისტად უცხოურ ტექ კომპანიებში, და ჩემს აპლიკაციებზე'
+
+const answers = {
+  name: 'თქვენი სახელი',
+  nameAndAge: 'მე ვარ {თქვენი სახელი}, {თქვენი ასაკი} წლის',
+  age: 'ოცდაექვსის',
+  language:
+    'ქართულს ვსწავლობ. ჩემი ცოლი {სახელი} დამეხმარება თარგმანში როცა დამჭირდება',
+  placeOfBirth: 'ბელარუსიაში, ქალაქ სვეტლაგორსკში',
+  hometown: 'დავიბადე და გავიზარდე სვეტლაგორსკში',
+  originAndResidence:
+    'სვეტლაგორსკიდან, ვცხოვრობდი ბელორუსიაში და თითქმის ოთხი წელია ვცხოვრობ საქართველოში',
+  university:
+    'დავამთავრე ბელორუსიის ინფორმატიკისა და რადიოელექტრონიკის სახელმწიფო უნივერსიტეტი',
+  universitySubject: 'პროგრამირების განხრით',
+  universitySatisfaction: 'დიახ, საინტერესო იყო',
+  profession: 'მე ვარ სოფთვეარ დეველოპერი',
+  job,
+  jobPosition: 'სოფტვეარ დეველოპერის თანამდებობაზე',
+  employment: `დიახ, ${job}`,
+  relatives: 'დიახ, ჩემი ცოლი და მისი მშობლები',
+  currentResidence: 'ამჟამად, ვცხოვრობ თბილისში',
+  realEstateOwnership: 'დიახ, მაქვს ბინა თბილისში',
+  readAndWrite: 'დიახ, ვიცი',
+  languageStatus:
+    'ქართულის სერიოზულად სწავლა დავიწყე მხოლოდ რვა თვის წინ. რაც საკმარისი არაა ქართული ენის კარგად შესასწავლად.',
+  citizenshipMotivation:
+    'თითქმის ოთხი წელია ვცხოვრობ საქართველოში. მიყვარს საქართველო და მსურს გავაგრძელო აქ ცხოვრება ჩემს მზარდ ოჯახთან ერთად, ინვესტიციების კეთება და გავხდე საქართველოს სრულფასოვანი წევრი.',
+  citizenshipRejection: 'თავიდან ვცდი მოქალაქეობის მიღებას',
+  military:
+    'არა, რადგან საცხოვრებლად გადმოვედი საქართველოში უნივერსიტეტის დამთავრებისთანავე.',
+  residenceDuration: 'თითქმის ოთხი წელია ვცხოვრობ საქართველოში',
+  migration:
+    'საქართველოზე ბევრი კარგი მესმოდა ჩემი ქართველი მეგობრისგან, და არა მხოლოდ მისგან, რის გამოც გადავწყვიტე სტუმრობა. ვიზიტის შემდეგ კი დავისახე მიზნად, რომ უნივერსიტეტის დამთავრებისთანავე გადმოვსულიყავი საქართველოში საცხოვრებლად, რადგან ვიგრძენი რომ საქართველო არის მეგობრული, თავისუფალი და უსაფრთხო ქვეყანა შესაძლებლობნებით.',
+} as const
+
+type AnswerEssence = keyof typeof answers
+
+const answerCategoryRecord: Record<AnswerEssence, InterviewQuestionCategory> = {
+  name: 'introduction',
+  nameAndAge: 'introduction',
+  age: 'introduction',
+  language: 'language',
+  placeOfBirth: 'origin',
+  hometown: 'origin',
+  originAndResidence: 'origin',
+  university: 'education',
+  universitySubject: 'education',
+  universitySatisfaction: 'education',
+  profession: 'work',
+  job: 'work',
+  jobPosition: 'work',
+  employment: 'work',
+  relatives: 'family',
+  currentResidence: 'residence',
+  realEstateOwnership: 'investment',
+  readAndWrite: 'language',
+  languageStatus: 'language',
+  citizenshipMotivation: 'citizenship',
+  citizenshipRejection: 'citizenship',
+  military: 'other',
+  residenceDuration: 'residence',
+  migration: 'residence',
+}
+
+const questionAnswerRecord: Record<string, AnswerEssence> = {
+  'რა გქვიათ?': 'name',
+  'თქვენი სახელი?': 'name',
+  'წარმოგვიდგინეთ თავი თუ შეიძლება.': 'nameAndAge',
+  'რამდენი წლის ხართ?': 'age',
+  'ქართულად საუბრობთ?': 'language',
+  'შეგიძლიათ ქართულად საუბარი?': 'language',
+  'სად დაიბადეთ?': 'placeOfBirth',
+  'სად გაიზარდეთ?': 'hometown',
+  'საიდან ხართ წარმოშობით და სად ცხოვრობდით?': 'originAndResidence',
+  'სად სწავლობდით?': 'university',
+  'უმაღლესი განათლება სად მიიღეთ?': 'university',
+  'რომელ უნივერსიტეტში სწავლობდით?': 'university',
+  'რა განხრით სწავლობდით უნივერსიტეტში?': 'universitySubject',
+  'მოგწონდათ უნივერსიტეტში სწავლა?': 'universitySatisfaction',
+  'რა პროფესიის ხართ?': 'profession',
+  'სად მუშაობთ?': 'job',
+  'რა სამუშაოს ასრულებთ?': 'job',
+  'რა სამუშაო გაქვთ?': 'job',
+  'რომელ კომპანიაში მუშაობთ?': 'job',
+  'ახლა დასაქმებული ხართ? კონკრეტულად სად მუშაობთ?': 'employment',
+  'რა თანამდებობაზე?': 'jobPosition',
+  'გყავთ თუ არა ნათესავები საქართველოში?': 'relatives',
+  'სად ცხოვრობთ?': 'currentResidence',
+  'გაქვთ თუ არა უძრავი ქონება საქართველოში?': 'realEstateOwnership',
+  'წერა-კითხვა იცით?': 'readAndWrite',
+  'ქართული რატომ არ იცით კარგად?': 'languageStatus',
+  'რატომ გინდათ საქართველოს მოქალაქეობის მიღება?': 'citizenshipMotivation',
+  'მაინც და მაინც ახლა რატომ გადაწყვიტედ მოქალაქეობის მიღება? აქამდე ხომ მშვენივრად ცხოვრობდით.':
+    'citizenshipMotivation',
+  'თუ მოქალაქეობას ახლა არ მოგანიჭებენ, მაშინ რას გააკეთებთ?':
+    'citizenshipRejection',
+  'თუ მოქალაქეობის შესახებ უარყოფით პასუხს მიიღებთ, მაშინ რა მოხდება?':
+    'citizenshipRejection',
+  'გიმსახურიათ თუ არა ჯარში?': 'military',
+  'რამდენი ძანია საქართველოში სხოვლობთ?': 'residenceDuration',
+  'დიდი ხანია საქართველოში სხავლობთ?': 'residenceDuration',
+  'რამდენი წელია საქართველოში სხავლობთ?': 'residenceDuration',
+  'რატომ გადაწყვიტეთ საქართველოში საცხოვრებლად გადმოსვლა?': 'migration',
+  'რატომ გადმოხვედით საქართველოში?': 'migration',
+}
+
+export const interviewQuestions: InterviewQuestion[] = Object.entries(
+  questionAnswerRecord,
+).map(([question, answerEssence]) => ({
+  question,
+  answer: answers[answerEssence],
+  category: answerCategoryRecord[answerEssence],
+}))

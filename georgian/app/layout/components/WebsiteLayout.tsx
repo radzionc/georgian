@@ -1,14 +1,16 @@
 import { ComponentWithChildrenProps } from '@lib/ui/props'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/layout/Stack'
 import styled from 'styled-components'
 import { WebsiteNavigation } from '@lib/ui/website/navigation/WebsiteNavigation'
-import { Link } from '@georgian/languages-ui/components/Link'
+import { TranslatedPageLink } from '@georgian/languages-ui/components/TranslatedPageLink'
 import { interactive } from '@lib/ui/css/interactive'
 import { ProductLogo } from '../../product/ProductLogo'
 import { ticketCategories } from '@georgian/entities/Ticket'
 import {
   curatedQuestionsPagePath,
   getTicketCategoryPath,
+  privacyPolicyPagePath,
+  termsOfServicePagePath,
 } from '../../navigation/utils'
 import { Button } from '@lib/ui/buttons/Button'
 import { LanguageSelector } from '@georgian/languages-ui/components/LanguageSelector'
@@ -26,8 +28,12 @@ import {
   languageNativeName,
   languagePrimaryCountry,
 } from '@georgian/languages/Language'
+import Link from 'next/link'
+import { SignInButton } from './SignInButton'
+import { MatchAuthStatus } from '../../auth/components/MatchAuthStatus'
+import { Path } from '../../navigation/Path'
 
-const LogoWrapper = styled(Link)`
+const LogoWrapper = styled(TranslatedPageLink)`
   ${interactive};
   font-size: 20px;
 `
@@ -45,7 +51,7 @@ const FlagWrapper = styled(IconWrapper)`
 
 export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
   const copy = useCopy()
-  const [language] = useLanguage()
+  const { language } = useLanguage()
 
   return (
     <WebsiteNavigation
@@ -59,17 +65,20 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
           <div />
           <HStack gap={4} alignItems="center">
             {ticketCategories.map((category) => (
-              <Link key={category} href={getTicketCategoryPath(category)}>
-                <Button size="s" kind="ghost">
+              <TranslatedPageLink
+                key={category}
+                href={getTicketCategoryPath(category)}
+              >
+                <Button as="div" size="s" kind="ghost">
                   {copy[category]}
                 </Button>
-              </Link>
+              </TranslatedPageLink>
             ))}
-            <Link key="interview" href={curatedQuestionsPagePath}>
-              <Button size="s" kind="ghost">
+            <TranslatedPageLink key="interview" href={curatedQuestionsPagePath}>
+              <Button as="div" size="s" kind="ghost">
                 {copy.interview}
               </Button>
-            </Link>
+            </TranslatedPageLink>
             <LanguageSelector
               renderOpener={({ props }) => (
                 <div {...props}>
@@ -86,6 +95,18 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
                 </div>
               )}
             />
+            <VStack style={{ minWidth: 98 }} alignItems="end">
+              <MatchAuthStatus
+                authenticated={() => (
+                  <Link href={Path.Account}>
+                    <Button as="div" size="s" kind="ghost">
+                      {copy.account}
+                    </Button>
+                  </Link>
+                )}
+                unauthenticated={() => <SignInButton />}
+              />
+            </VStack>
           </HStack>
         </>
       )}
@@ -121,6 +142,13 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
               </div>
             )}
           />
+
+          <OverlayNavigationItem as="div">
+            <MatchAuthStatus
+              authenticated={() => copy.account}
+              unauthenticated={() => <SignInButton />}
+            />
+          </OverlayNavigationItem>
         </>
       )}
       footer={
@@ -138,6 +166,12 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
             <ExternalLink to={`mailto:${supportEmail}`}>
               <InteractiveText>{copy.getInTouch}</InteractiveText>
             </ExternalLink>
+            <Link href={privacyPolicyPagePath}>
+              <InteractiveText>Privacy</InteractiveText>
+            </Link>
+            <Link href={termsOfServicePagePath}>
+              <InteractiveText>Terms</InteractiveText>
+            </Link>
           </HStack>
         </Footer>
       }

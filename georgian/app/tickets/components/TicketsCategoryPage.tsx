@@ -6,7 +6,6 @@ import { toBatches } from '@lib/utils/array/toBatches'
 import { useRef } from 'react'
 import { useEffectOnDependencyChange } from '@lib/ui/hooks/useEffectOnDependencyChange'
 import { Button } from '@lib/ui/buttons/Button'
-import { Link } from '@georgian/languages-ui/components/Link'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 import { useCopy } from '../../copy/CopyProvider'
 import { WebsitePageContent } from '../../layout/components/WebsitePageContent'
@@ -17,6 +16,7 @@ import { useQueryParamState } from '../../navigation/hooks/useQueryParamState'
 import { getCategoryTestPagePath } from '../../navigation/utils'
 import { Page } from '@lib/next-ui/Page'
 import { match } from '@lib/utils/match'
+import { TranslatedPageLink } from '@georgian/languages-ui/components/TranslatedPageLink'
 
 export interface TicketsCategoryPageProps {
   category: TicketCategory
@@ -70,9 +70,9 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
           </>
         }
       >
-        <Link href={getCategoryTestPagePath(category)}>
+        <TranslatedPageLink href={getCategoryTestPagePath(category)}>
           <Button as="div">{copy.startTest}</Button>
-        </Link>
+        </TranslatedPageLink>
       </WebsitePageHeader>
       <div ref={navigationRef}>
         <ExhaustiveNavigation

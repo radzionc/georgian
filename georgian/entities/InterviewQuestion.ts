@@ -1,17 +1,20 @@
-export const interviewQuestionTags = [
+export const interviewQuestionCategories = [
   'introduction',
   'language',
-  'education',
   'origin',
+  'family',
+  'education',
   'work',
   'residence',
+  'investment',
   'citizenship',
-  'family',
+  'other',
 ] as const
-type InterviewQuestionTag = (typeof interviewQuestionTags)[number]
+export type InterviewQuestionCategory =
+  (typeof interviewQuestionCategories)[number]
 
 export type InterviewQuestion = {
   question: string
   answer?: string
-  tags: InterviewQuestionTag[]
+  category: InterviewQuestionCategory
 }

@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import { ReactNode, useEffect } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { ThemeProvider } from '@lib/ui/theme/ThemeProvider'
 import { Page } from '@lib/next-ui/Page'
 
@@ -7,6 +7,11 @@ import { Inter } from 'next/font/google'
 import { useRouter } from 'next/router'
 import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
 import { analytics } from '../analytics'
+import { getQueryClient } from '../query/queryClient'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { ErrorBoundary } from '../errors/components/ErrorBoundary'
+import { FullSizeErrorFallback } from '../errors/components/FullSizeErrorFallback'
+import { UserStateProvider } from '../user/components/UserStateProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,6 +23,8 @@ interface MyAppProps extends AppProps {
 }
 
 function MyApp({ Component, pageProps }: MyAppProps) {
+  const [queryClient] = useState(getQueryClient)
+
   const router = useRouter()
 
   const { pathname } = router
@@ -31,7 +38,11 @@ function MyApp({ Component, pageProps }: MyAppProps) {
   return (
     <ThemeProvider value="dark">
       <GlobalStyle fontFamily={inter.style.fontFamily} />
-      {component}
+      <QueryClientProvider client={queryClient}>
+        <ErrorBoundary fallback={<FullSizeErrorFallback />}>
+          <UserStateProvider>{component}</UserStateProvider>
+        </ErrorBoundary>
+      </QueryClientProvider>
     </ThemeProvider>
   )
 }

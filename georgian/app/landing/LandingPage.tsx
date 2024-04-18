@@ -4,7 +4,7 @@ import { useCopy } from '../copy/CopyProvider'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 import { WebsiteSliceContent } from '@lib/ui/website/WebsiteSliceContent'
 import { WebsiteSectionHeader } from '@lib/ui/website/WebsiteSectionHeader'
-import { Link } from '@georgian/languages-ui/components/Link'
+import { TranslatedPageLink } from '@georgian/languages-ui/components/TranslatedPageLink'
 import { getTicketCategoryPath } from '../navigation/utils'
 
 export const LandingPage = () => {
@@ -22,11 +22,11 @@ export const LandingPage = () => {
           title={copy.homePageTitle}
           subtitle={copy.homePageSubTitle}
         />
-        <Link href={getTicketCategoryPath('language')}>
+        <TranslatedPageLink href={getTicketCategoryPath('language')}>
           <Button kind="reversed" size="l">
             {copy.getStarted}
           </Button>
-        </Link>
+        </TranslatedPageLink>
       </WebsiteSliceContent>
     </Center>
   )

@@ -25,6 +25,10 @@ export const enhanceInterviewQuestion = ({
   const audioPath = path.join(process.cwd(), `public/${questionAudioUrl}`)
   if (fs.existsSync(audioPath)) {
     result.questionAudioUrl = questionAudioUrl
+  } else {
+    console.log(
+      `Missing audio file for a question:\n ${value.question}\n Hash: ${hash}`,
+    )
   }
 
   return result

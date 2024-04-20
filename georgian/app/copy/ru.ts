@@ -20,7 +20,7 @@ const ruCopy: Copy = {
   continueWithGoogle: `Продолжить с Google`,
   continueWithFacebook: `Продолжить c Facebook`,
   emailAddress: `Адрес электронной почты`,
-  continue: `Продолжать`,
+  continue: `Продолжить`,
   terms: `Условия`,
   yourAccount: `Ваш аккаунт`,
   signOut: `Выйти`,

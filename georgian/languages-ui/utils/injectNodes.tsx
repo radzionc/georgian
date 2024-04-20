@@ -12,11 +12,14 @@ export const injectNodes: Injector<ReactNode> = (
       {parts.map((part, index) => {
         // Every odd index is a variable name according to the split logic
         if (index % 2 === 1) {
-          // Check if part (variable name) exists in variables and return the ReactNode
-          return variables[part] ?? `{{${part}}}`
+          const node = variables[part]
+          if (!node) {
+            throw new Error(`Variable ${part} is not provided`)
+          }
+          return <Fragment key={index}>{node}</Fragment>
         }
         // Even index parts are plain strings
-        return part
+        return <Fragment key={index}>{part}</Fragment>
       })}
     </Fragment>
   )

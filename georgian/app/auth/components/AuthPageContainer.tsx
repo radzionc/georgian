@@ -25,6 +25,7 @@ const Content = styled(Panel)`
 
   @media (max-width: 600px) {
     border: none;
+    padding: 0;
   }
 `
 

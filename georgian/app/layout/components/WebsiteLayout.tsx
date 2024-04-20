@@ -118,13 +118,13 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
               onClick={onClose}
               href={getTicketCategoryPath(category)}
             >
-              <OverlayNavigationItem as="div">
+              <OverlayNavigationItem onClick={onClose} as="div">
                 {copy[category]}
               </OverlayNavigationItem>
             </TranslatedPageLink>
           ))}
           <TranslatedPageLink key="interview" href={curatedQuestionsPagePath}>
-            <OverlayNavigationItem as="div">
+            <OverlayNavigationItem onClick={onClose} as="div">
               {copy.interview}
             </OverlayNavigationItem>
           </TranslatedPageLink>
@@ -143,7 +143,7 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
             )}
           />
 
-          <OverlayNavigationItem as="div">
+          <OverlayNavigationItem onClick={onClose} as="div">
             <MatchAuthStatus
               authenticated={() => (
                 <TranslatedPageLink href={Path.Account}>

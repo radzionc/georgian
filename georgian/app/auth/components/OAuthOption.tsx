@@ -26,6 +26,7 @@ export const OAuthOption = ({ provider }: OAuthOptionProps) => {
       }}
     >
       <IconCentricButton
+        style={{ fontSize: 16 }}
         as="div"
         text={match(provider, {
           google: () => copy.continueWithGoogle,

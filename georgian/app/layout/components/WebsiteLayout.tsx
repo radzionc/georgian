@@ -113,7 +113,7 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
       renderOverlayItems={({ onClose }) => (
         <>
           {ticketCategories.map((category) => (
-            <Link
+            <TranslatedPageLink
               key={category}
               onClick={onClose}
               href={getTicketCategoryPath(category)}
@@ -121,13 +121,13 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
               <OverlayNavigationItem as="div">
                 {copy[category]}
               </OverlayNavigationItem>
-            </Link>
+            </TranslatedPageLink>
           ))}
-          <Link key="interview" href={curatedQuestionsPagePath}>
+          <TranslatedPageLink key="interview" href={curatedQuestionsPagePath}>
             <OverlayNavigationItem as="div">
               {copy.interview}
             </OverlayNavigationItem>
-          </Link>
+          </TranslatedPageLink>
           <LanguageSelector
             renderOpener={({ props }) => (
               <div {...props}>

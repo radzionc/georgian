@@ -1957,6 +1957,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@georgian/history@workspace:georgian/history":
+  version: 0.0.0-use.local
+  resolution: "@georgian/history@workspace:georgian/history"
+  languageName: unknown
+  linkType: soft
+
 "@georgian/interview-translation@workspace:georgian/interview-translation":
   version: 0.0.0-use.local
   resolution: "@georgian/interview-translation@workspace:georgian/interview-translation"

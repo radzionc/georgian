@@ -98,11 +98,11 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
             <VStack style={{ minWidth: 98 }} alignItems="end">
               <MatchAuthStatus
                 authenticated={() => (
-                  <Link href={Path.Account}>
+                  <TranslatedPageLink href={Path.Account}>
                     <Button as="div" size="s" kind="ghost">
                       {copy.account}
                     </Button>
-                  </Link>
+                  </TranslatedPageLink>
                 )}
                 unauthenticated={() => <SignInButton />}
               />
@@ -145,7 +145,11 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
 
           <OverlayNavigationItem as="div">
             <MatchAuthStatus
-              authenticated={() => copy.account}
+              authenticated={() => (
+                <TranslatedPageLink href={Path.Account}>
+                  {copy.account}
+                </TranslatedPageLink>
+              )}
               unauthenticated={() => <SignInButton />}
             />
           </OverlayNavigationItem>
@@ -167,10 +171,10 @@ export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
               <InteractiveText>{copy.getInTouch}</InteractiveText>
             </ExternalLink>
             <Link href={privacyPolicyPagePath}>
-              <InteractiveText>Privacy</InteractiveText>
+              <InteractiveText>{copy.privacy}</InteractiveText>
             </Link>
             <Link href={termsOfServicePagePath}>
-              <InteractiveText>Terms</InteractiveText>
+              <InteractiveText>{copy.terms}</InteractiveText>
             </Link>
           </HStack>
         </Footer>

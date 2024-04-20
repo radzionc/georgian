@@ -5,6 +5,8 @@ import { getOAuthUrl } from '@georgian/app/auth/utils/oauth'
 import { AuthProviderIcon } from './AuthProviderIcon'
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { OAuthProvider, oAuthProviderName } from '@lib/auth/OAuthProvider'
+import { useCopy } from '../../copy/CopyProvider'
+import { match } from '@lib/utils/match'
 
 interface OAuthOptionProps {
   provider: OAuthProvider
@@ -12,6 +14,7 @@ interface OAuthOptionProps {
 
 export const OAuthOption = ({ provider }: OAuthOptionProps) => {
   const providerName = oAuthProviderName[provider]
+  const copy = useCopy()
 
   return (
     <ExternalLink
@@ -24,7 +27,10 @@ export const OAuthOption = ({ provider }: OAuthOptionProps) => {
     >
       <IconCentricButton
         as="div"
-        text={`Continue with ${providerName}`}
+        text={match(provider, {
+          google: () => copy.continueWithGoogle,
+          facebook: () => copy.continueWithFacebook,
+        })}
         icon={<AuthProviderIcon provider={provider} />}
       />
     </ExternalLink>

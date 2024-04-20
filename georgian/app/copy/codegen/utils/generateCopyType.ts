@@ -13,12 +13,15 @@ export const generateCopyType = async (copy: Record<string, string>) => {
         return 'string'
       }
 
-      return `(variables: {${variables
-        .map((variable) => `${variable}: string`)
-        .join(', ')}}) => string`
+      return `<R>(variables: {${variables
+        .map((variable) => `${variable}: any`)
+        .join(', ')}}, inject: Injector<R>) => R`
     }),
   )
-  const content = `export type Copy = ${type}`
+  const content = [
+    `import { Injector } from '@lib/utils/template/Injector'`,
+    `export type Copy = ${type}`,
+  ].join('\n\n')
 
   return createTsFile({
     fileName: 'Copy',

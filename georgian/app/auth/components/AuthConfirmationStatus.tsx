@@ -4,9 +4,9 @@ import { VStack } from '@lib/ui/layout/Stack'
 import { Text } from '@lib/ui/text'
 import { Button } from '@lib/ui/buttons/Button'
 import { InfoIcon } from '@lib/ui/icons/InfoIcon'
-import Link from 'next/link'
 import { supportEmail } from '@georgian/config'
 import { Path } from '../../navigation/Path'
+import { TranslatedPageLink } from '@georgian/languages-ui/components/TranslatedPageLink'
 
 interface AuthConfirmationStatusProps {
   error?: Error
@@ -29,11 +29,11 @@ export const AuthConfirmationStatus = ({
           <Text style={{ wordBreak: 'break-word' }} centered height="large">
             {error.message}
           </Text>
-          <Link style={{ width: '100%' }} href={Path.SignIn}>
+          <TranslatedPageLink style={{ width: '100%' }} href={Path.SignIn}>
             <Button kind="secondary" style={{ width: '100%' }} size="l">
               Go back
             </Button>
-          </Link>
+          </TranslatedPageLink>
           <Text centered color="supporting" size={14}>
             Nothing helps? Email us at <br />
             <CopyText color="regular" as="span" content={supportEmail}>

@@ -3,6 +3,7 @@ import { testSize, useCategoryTest } from './CategoryTestProvider'
 import { useCopy } from '@georgian/app/copy/CopyProvider'
 import { match } from '@lib/utils/match'
 import { TestPreference, testPreferences } from '../hooks/useTestPreferences'
+import { injectVariables } from '@lib/utils/template/injectVariables'
 
 export const CategoryTestTicketsFilter = () => {
   const { testPreference, setTestPreference, completedTickets } =
@@ -26,7 +27,10 @@ export const CategoryTestTicketsFilter = () => {
 
         if (completedTickets.length >= testSize) return false
 
-        return copy.completedTicketsTestMin({ count: testSize.toString() })
+        return copy.completedTicketsTestMin(
+          { count: testSize.toString() },
+          injectVariables,
+        )
       }}
     />
   )

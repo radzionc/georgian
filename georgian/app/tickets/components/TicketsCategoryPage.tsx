@@ -17,6 +17,7 @@ import { getCategoryTestPagePath } from '../../navigation/utils'
 import { Page } from '@lib/next-ui/Page'
 import { match } from '@lib/utils/match'
 import { TranslatedPageLink } from '@georgian/languages-ui/components/TranslatedPageLink'
+import { injectVariables } from '@lib/utils/template/injectVariables'
 
 export interface TicketsCategoryPageProps {
   category: TicketCategory
@@ -48,12 +49,18 @@ export const TicketsCategoryPage: Page<TicketsCategoryPageProps> = ({
   return (
     <WebsitePageContent maxWidth={800}>
       <PageMetaTags
-        title={copy.categoryTestPageMetaTagTitle({
-          category: copy[category],
-        })}
-        description={copy.categoryTestPageMetaTagDescription({
-          category: copy[category],
-        })}
+        title={copy.categoryTestPageMetaTagTitle(
+          {
+            category: copy[category],
+          },
+          injectVariables,
+        )}
+        description={copy.categoryTestPageMetaTagDescription(
+          {
+            category: copy[category],
+          },
+          injectVariables,
+        )}
         image={`/images/${category}.png`}
       />
       <WebsitePageHeader

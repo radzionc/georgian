@@ -1,16 +1,16 @@
 import { Button } from '@lib/ui/buttons/Button'
-import Link from 'next/link'
 import { Path } from '../../navigation/Path'
 import { useCopy } from '../../copy/CopyProvider'
+import { TranslatedPageLink } from '@georgian/languages-ui/components/TranslatedPageLink'
 
 export const SignInButton = () => {
   const copy = useCopy()
 
   return (
-    <Link href={Path.SignIn}>
+    <TranslatedPageLink href={Path.SignIn}>
       <Button as="div" kind="reversed">
         {copy.signIn}
       </Button>
-    </Link>
+    </TranslatedPageLink>
   )
 }

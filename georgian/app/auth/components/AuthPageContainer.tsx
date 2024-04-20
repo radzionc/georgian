@@ -1,6 +1,4 @@
 import { ComponentWithChildrenProps } from '@lib/ui/props'
-import { PageContainer } from '../../components/PageContainer'
-import { primaryLanguage } from '@georgian/languages/Language'
 import { UnauthenticatedOnly } from './UnauthenticatedOnly'
 import { borderRadius } from '@lib/ui/css/borderRadius'
 import { takeWholeSpace } from '@lib/ui/css/takeWholeSpace'
@@ -32,12 +30,10 @@ const Content = styled(Panel)`
 
 export const AuthPageContainer = ({ children }: ComponentWithChildrenProps) => {
   return (
-    <PageContainer isTranslated={false} language={primaryLanguage}>
-      <UnauthenticatedOnly>
-        <Container>
-          <Content kind="secondary">{children}</Content>
-        </Container>
-      </UnauthenticatedOnly>
-    </PageContainer>
+    <UnauthenticatedOnly>
+      <Container>
+        <Content kind="secondary">{children}</Content>
+      </Container>
+    </UnauthenticatedOnly>
   )
 }

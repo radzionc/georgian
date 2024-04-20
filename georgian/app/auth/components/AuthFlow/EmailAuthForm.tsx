@@ -10,6 +10,7 @@ import { addQueryParams } from '@lib/utils/query/addQueryParams'
 import { Field } from '@lib/ui/inputs/Field'
 import { useApiMutation } from '@georgian/api-ui/hooks/useApiMutation'
 import { Path } from '../../../navigation/Path'
+import { useCopy } from '../../../copy/CopyProvider'
 
 interface EmailFormState {
   email: string
@@ -17,6 +18,8 @@ interface EmailFormState {
 
 export const EmailAuthForm = () => {
   const { push } = useRouter()
+
+  const copy = useCopy()
 
   const {
     register,
@@ -45,7 +48,7 @@ export const EmailAuthForm = () => {
       content={
         <Field error={errors.email?.message}>
           <TextInput
-            label="Email address"
+            label={copy.emailAddress}
             type="email"
             autoFocus
             placeholder="john@gmail.com"
@@ -58,7 +61,7 @@ export const EmailAuthForm = () => {
       }
       actions={
         <Button size="l" isLoading={isPending}>
-          Continue
+          {copy.continue}
         </Button>
       }
     />

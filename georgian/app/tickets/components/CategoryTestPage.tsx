@@ -7,6 +7,7 @@ import { ClientOnly } from '@lib/ui/base/ClientOnly'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 import { useCopy } from '../../copy/CopyProvider'
 import { WebsitePageContent } from '../../layout/components/WebsitePageContent'
+import { injectVariables } from '@lib/utils/template/injectVariables'
 
 export interface CategoryTestPageProps {
   category: TicketCategory
@@ -21,12 +22,18 @@ export const CategoryTestPage = ({
   return (
     <WebsitePageContent maxWidth={800}>
       <PageMetaTags
-        title={copy.categoryTestPageMetaTagTitle({
-          category: copy[category],
-        })}
-        description={copy.categoryTestPageMetaTagDescription({
-          category: copy[category],
-        })}
+        title={copy.categoryTestPageMetaTagTitle(
+          {
+            category: copy[category],
+          },
+          injectVariables,
+        )}
+        description={copy.categoryTestPageMetaTagDescription(
+          {
+            category: copy[category],
+          },
+          injectVariables,
+        )}
         image={`/images/${category}.png`}
       />
       <CategoryTestProvider category={category} tickets={tickets}>

@@ -4,7 +4,6 @@ export enum Path {
   Home = '/',
   Account = '/account',
   SignIn = '/sign-in',
-  SignUp = '/sign-up',
   EmailConfirm = '/email-confirm',
   PrivacyPolicy = '/privacy-policy',
   TermsOfService = '/terms-of-service',

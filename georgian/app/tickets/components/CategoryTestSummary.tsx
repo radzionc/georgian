@@ -5,6 +5,7 @@ import { toPercents } from '@lib/utils/toPercents'
 import { TicketItem } from './TicketItem'
 import { useCopy } from '@georgian/app/copy/CopyProvider'
 import { range } from '@lib/utils/array/range'
+import { injectVariables } from '@lib/utils/template/injectVariables'
 
 const minCompletionRate = 0.7
 
@@ -36,12 +37,18 @@ export const CategoryTestSummary = () => {
         <Text centered style={{ maxWidth: 360 }} color="supporting">
           You've scored {toPercents(passedTestsCount / tests.length, 'round')}.{' '}
           {hasPassed
-            ? copy.testCongratulation({
-                percentage: minPercentage,
-              })
-            : copy.scoreToPass({
-                percentage: minPercentage,
-              })}
+            ? copy.testCongratulation(
+                {
+                  percentage: minPercentage,
+                },
+                injectVariables,
+              )
+            : copy.scoreToPass(
+                {
+                  percentage: minPercentage,
+                },
+                injectVariables,
+              )}
         </Text>
       </VStack>
       <VStack gap={20}>

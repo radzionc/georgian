@@ -17,15 +17,15 @@ export const generateCopy = (language: Language) => {
         return `\`${value}\``
       }
 
-      return `(variables: {${variables
-        .map((variable) => `${variable}: string`)
-        .join(', ')}}) => injectVariables(\`${value}\`, variables)`
+      return `<R>(variables: {${variables
+        .map((variable) => `${variable}: any`)
+        .join(', ')}}, inject: Injector<R>) => inject(\`${value}\`, variables)`
     }),
   )
 
   const content = [
     `import { Copy } from './Copy'`,
-    `import { injectVariables } from '@lib/utils/template/injectVariables'`,
+    `import { Injector } from '@lib/utils/template/Injector'`,
 
     `const ${language}Copy: Copy = ${copyCode}`,
     `export default ${language}Copy`,

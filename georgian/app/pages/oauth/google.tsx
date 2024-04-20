@@ -1,8 +1,12 @@
 import { OAuthContent } from '../../auth/components/OAuthContent'
 import { AuthPageContainer } from '../../auth/components/AuthPageContainer'
+import { PageContainer } from '../../components/PageContainer'
+import { primaryLanguage } from '@georgian/languages/Language'
 
 export default () => (
-  <AuthPageContainer>
-    <OAuthContent provider={'google'} />
-  </AuthPageContainer>
+  <PageContainer language={primaryLanguage} isTranslated={false}>
+    <AuthPageContainer>
+      <OAuthContent provider={'google'} />
+    </AuthPageContainer>
+  </PageContainer>
 )

@@ -52,6 +52,7 @@ export const LanguageSelector = ({ renderOpener }: LanguageSelectorProps) => {
           ),
           text: languageNativeName[option],
           onSelect: () => {
+            console.log({ language, option })
             if (language !== option) {
               setLanguage(option)
             }

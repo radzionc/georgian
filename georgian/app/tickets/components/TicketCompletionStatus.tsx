@@ -5,8 +5,6 @@ import { TicketKey } from '@georgian/entities/Ticket'
 import { ClientOnly } from '@lib/ui/base/ClientOnly'
 import { CheckCircleIcon } from '@lib/ui/icons/CheckCircleIcon'
 import { HStack } from '@lib/ui/layout/Stack'
-import { useAuthRedirect } from '../../auth/hooks/useAuthRedirect'
-import { useAuthSession } from '../../auth/hooks/useAuthSession'
 import { useApiMutation } from '@georgian/api-ui/hooks/useApiMutation'
 import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
 import { interactive } from '@lib/ui/css/interactive'
@@ -15,6 +13,7 @@ import { getColor } from '@lib/ui/theme/getters'
 import styled, { css } from 'styled-components'
 import { useCopy } from '../../copy/CopyProvider'
 import { without } from '@lib/utils/array/without'
+import { AuthorizedOnlyAction } from '../../auth/components/AuthorizedOnlyAction'
 
 const CompletionButton = styled(UnstyledButton)<{ isCompleted: boolean }>`
   font-weight: 500;
@@ -45,54 +44,43 @@ export const TicketCompletionStatus = ({
     return state.completedTickets[category].includes(ticketNumber)
   }, [state, category, ticketNumber])
 
-  const { toAuthenticationPage } = useAuthRedirect()
-
-  const [authSession] = useAuthSession()
-
   const { mutate } = useApiMutation('setTicketCompletion')
 
   const handleClick = useCallback(() => {
-    if (!authSession) {
-      toAuthenticationPage()
-    } else {
-      const value = !isCompleted
-      updateState((prev) => {
-        const { completedTickets } = prev
+    const value = !isCompleted
+    updateState((prev) => {
+      const { completedTickets } = prev
 
-        return {
-          ...prev,
-          completedTickets: {
-            ...completedTickets,
-            [category]: value
-              ? [...completedTickets[category], ticketNumber]
-              : without(completedTickets[category], ticketNumber),
-          },
-        }
-      })
-      mutate({
-        category: category,
-        ticketNumber: ticketNumber,
-        value,
-      })
-    }
-  }, [
-    authSession,
-    category,
-    isCompleted,
-    mutate,
-    ticketNumber,
-    toAuthenticationPage,
-    updateState,
-  ])
+      return {
+        ...prev,
+        completedTickets: {
+          ...completedTickets,
+          [category]: value
+            ? [...completedTickets[category], ticketNumber]
+            : without(completedTickets[category], ticketNumber),
+        },
+      }
+    })
+    mutate({
+      category: category,
+      ticketNumber: ticketNumber,
+      value,
+    })
+  }, [category, isCompleted, mutate, ticketNumber, updateState])
 
   return (
     <ClientOnly>
-      <CompletionButton onClick={handleClick} isCompleted={isCompleted}>
-        <HStack alignItems="center" gap={8}>
-          <CheckCircleIcon />
-          <div>{isCompleted ? copy.learned : copy.markAsLearned}</div>
-        </HStack>
-      </CompletionButton>
+      <AuthorizedOnlyAction
+        action={handleClick}
+        render={({ action }) => (
+          <CompletionButton onClick={action} isCompleted={isCompleted}>
+            <HStack alignItems="center" gap={8}>
+              <CheckCircleIcon />
+              <div>{isCompleted ? copy.learned : copy.markAsLearned}</div>
+            </HStack>
+          </CompletionButton>
+        )}
+      />
     </ClientOnly>
   )
 }

@@ -12,6 +12,7 @@ export type Copy = {
   citizenship: string
   investment: string
   other: string
+  signInToContinue: string
   wipPage: string
   family: string
   privacy: string

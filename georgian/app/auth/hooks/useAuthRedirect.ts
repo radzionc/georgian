@@ -8,7 +8,7 @@ import { Path } from '../../navigation/Path'
 import { useLanguage } from '@georgian/languages-ui/components/LanguageProvider'
 import { makeTranslatedPagePath } from '@georgian/languages-ui/utils/makeTranslatedPagePath'
 
-const persistentPath = managePersistentState<string>(
+export const pathAttemptedWhileUnauthenticated = managePersistentState<string>(
   PersistentStateKey.PathAttemptedWhileUnauthenticated,
 )
 
@@ -17,14 +17,14 @@ export const useAuthRedirect = () => {
   const { language } = useLanguage()
 
   const toAuthenticationPage = useCallback(() => {
-    persistentPath.set(asPath)
+    pathAttemptedWhileUnauthenticated.set(asPath)
     replace(makeTranslatedPagePath(language, Path.SignIn))
   }, [asPath, language, replace])
 
   const toAuthenticatedPage = useCallback(() => {
-    const destination = persistentPath.get() ?? Path.Home
+    const destination = pathAttemptedWhileUnauthenticated.get() ?? Path.Home
     replace(destination)
-    persistentPath.set(undefined)
+    pathAttemptedWhileUnauthenticated.set(undefined)
   }, [replace])
 
   return {

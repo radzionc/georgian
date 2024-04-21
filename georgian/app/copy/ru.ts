@@ -14,6 +14,7 @@ const ruCopy: Copy = {
   citizenship: `Гражданство`,
   investment: `Инвестиции`,
   other: `Другое`,
+  signInToContinue: `Войдите, чтобы продолжить`,
   wipPage: `Эта страница находится в стадии разработки.`,
   family: `Семья`,
   privacy: `Конфиденциальность`,

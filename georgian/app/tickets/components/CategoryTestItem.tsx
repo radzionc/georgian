@@ -10,6 +10,7 @@ import { ticketAnswerLetters } from '@georgian/entities/Ticket'
 import { borderRadius } from '@lib/ui/css/borderRadius'
 import { Panel } from '@lib/ui/panel/Panel'
 import { TestHeader } from './TestHeader'
+import { AuthorizedOnlyAction } from '../../auth/components/AuthorizedOnlyAction'
 
 interface CategoryTestItemProps {
   testNumber: number
@@ -48,12 +49,19 @@ export const CategoryTestItem = ({ testNumber }: CategoryTestItemProps) => {
           </VStack>
           <VStack gap={20}>
             {answers.map((answer, index) => (
-              <Option onClick={() => answerCurrentTest(index)} key={index}>
-                <HStack fullWidth gap={8}>
-                  <Text>{ticketAnswerLetters[index]}.</Text>
-                  <Text style={{ textAlign: 'start' }}>{answer.content}</Text>
-                </HStack>
-              </Option>
+              <AuthorizedOnlyAction
+                action={() => answerCurrentTest(index)}
+                render={({ action }) => (
+                  <Option onClick={action} key={index}>
+                    <HStack fullWidth gap={8}>
+                      <Text>{ticketAnswerLetters[index]}.</Text>
+                      <Text style={{ textAlign: 'start' }}>
+                        {answer.content}
+                      </Text>
+                    </HStack>
+                  </Option>
+                )}
+              />
             ))}
           </VStack>
         </Container>

@@ -14,6 +14,7 @@ const kaCopy: Copy = {
   citizenship: `მოქალაქეობა`,
   investment: `ინვესტიცია`,
   other: `სხვა`,
+  signInToContinue: `გასაგრძელებლად შედით სისტემაში`,
   wipPage: `ეს გვერდი მიმდინარე სამუშაოა.`,
   family: `ოჯახი`,
   privacy: `კონფიდენციალურობა`,

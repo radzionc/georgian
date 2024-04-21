@@ -14,6 +14,7 @@ const enCopy: Copy = {
   citizenship: `Citizenship`,
   investment: `Investment`,
   other: `Other`,
+  signInToContinue: `Sign in to continue`,
   wipPage: `This page is a work in progress.`,
   family: `Family`,
   privacy: `Privacy`,

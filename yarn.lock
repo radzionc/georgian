@@ -1988,6 +1988,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@georgian/paddle-webhooks@workspace:georgian/paddle-webhooks":
+  version: 0.0.0-use.local
+  resolution: "@georgian/paddle-webhooks@workspace:georgian/paddle-webhooks"
+  dependencies:
+    "@paddle/paddle-node-sdk": "npm:^1.3.0"
+    "@types/aws-lambda": "npm:^8.10.124"
+  languageName: unknown
+  linkType: soft
+
 "@georgian/tickets-translation@workspace:georgian/tickets-translation":
   version: 0.0.0-use.local
   resolution: "@georgian/tickets-translation@workspace:georgian/tickets-translation"
@@ -2538,6 +2547,16 @@ __metadata:
   version: 1.0.3
   resolution: "@paddle/paddle-js@npm:1.0.3"
   checksum: d1c36b07671526e8f06a3ba0aaed988ccf31362149cf46e1f0b877cd775d51a06a6472b3fa68849ddc1f45c1c06b729b04f7b24b67aa4c7e6f3b1bc54f7750fa
+  languageName: node
+  linkType: hard
+
+"@paddle/paddle-node-sdk@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@paddle/paddle-node-sdk@npm:1.3.0"
+  dependencies:
+    lodash: "npm:^4.17.21"
+    node-fetch: "npm:^2.7.0"
+  checksum: 7b3e103a661f01b77dc6276bfd1e914196daa7a6d5a014080b189ba5ac6f41666b6b62904cf60f693c722033b5b621221ac275cac46b825ee34598ace840e29a
   languageName: node
   linkType: hard
 
@@ -4332,7 +4351,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/aws-lambda@npm:^8.10.106, @types/aws-lambda@npm:^8.10.62":
+"@types/aws-lambda@npm:^8.10.106, @types/aws-lambda@npm:^8.10.124, @types/aws-lambda@npm:^8.10.62":
   version: 8.10.137
   resolution: "@types/aws-lambda@npm:8.10.137"
   checksum: 43dc2a9939cd8a73fcae55172c78c48894b5e67eccade037686749ed293f064880bc52b6fa9c3bc5e879c2229c26072bba11147c074b69b6fd8f0e7f4dd1e942
@@ -9267,6 +9286,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash@npm:^4.17.21":
+  version: 4.17.21
+  resolution: "lodash@npm:4.17.21"
+  checksum: c08619c038846ea6ac754abd6dd29d2568aa705feb69339e836dfa8d8b09abbb2f859371e86863eda41848221f9af43714491467b5b0299122431e202bb0c532
+  languageName: node
+  linkType: hard
+
 "log-symbols@npm:4.1.0, log-symbols@npm:^4.1.0":
   version: 4.1.0
   resolution: "log-symbols@npm:4.1.0"
@@ -9860,7 +9886,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.7, node-fetch@npm:^2.6.9":
+"node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.7, node-fetch@npm:^2.6.9, node-fetch@npm:^2.7.0":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
   dependencies:
@@ -10222,6 +10248,12 @@ __metadata:
   checksum: f8a8e9a7693659383f06aec604ad5ead237c7a261c18048a6e1b5b85a5f8a067e469aa24f5bc009b991ea3b058a87f5065ef4176793a200d4917349881216cae
   languageName: node
   linkType: hard
+
+"paddle-webhooks@workspace:georgian/infra/paddle-webhooks":
+  version: 0.0.0-use.local
+  resolution: "paddle-webhooks@workspace:georgian/infra/paddle-webhooks"
+  languageName: unknown
+  linkType: soft
 
 "parent-module@npm:^1.0.0":
   version: 1.0.1

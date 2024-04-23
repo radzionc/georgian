@@ -48,6 +48,22 @@ const content = {
       Georgia and foreign countries.
     </>
   ),
+  'Refund Policy': (
+    <>
+      <p>
+        We offer a 14-day money-back guarantee for {productName}. If you are not
+        satisfied with our Service, you can request a full refund within 14 days
+        of your purchase. To initiate a refund, please contact us at{' '}
+        {supportEmail}.
+      </p>
+      <p>
+        Please note that we may require proof of purchase or account
+        verification before processing a refund. Refunds will be processed to
+        the original method of payment, and it may take up to 10 business days
+        for the funds to appear in your account.
+      </p>
+    </>
+  ),
   Termination: (
     <>
       We may terminate or suspend your access to our Service immediately,

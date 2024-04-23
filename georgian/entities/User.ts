@@ -4,6 +4,12 @@ import { makeRecord } from '@lib/utils/record/makeRecord'
 
 export type UserCompletedTickets = Record<TicketCategory, number[]>
 
+type LifeTimeDealProvider = 'paddle'
+
+export type LifeTimeDeal = {
+  provider: LifeTimeDealProvider
+}
+
 export type User = {
   id: string
   email: string
@@ -16,6 +22,8 @@ export type User = {
   completedTickets: UserCompletedTickets
 
   firstTestCompletedAt?: number
+
+  lifeTimeDeal?: LifeTimeDeal
 }
 
 export const userReadonlyFields = [
@@ -23,6 +31,7 @@ export const userReadonlyFields = [
   'email',
   'createdAt',
   'updatedAt',
+  'lifeTimeDeal',
 ] as const
 
 export type UserReadonlyFields = (typeof userReadonlyFields)[number]

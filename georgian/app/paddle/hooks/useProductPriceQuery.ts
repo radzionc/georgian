@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { usePaddleSdkQuery } from './usePaddleSdkQuery'
 import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
+import { usePaddleSdkQuery } from './usePaddleSdkQuery'
 
 export const productPriceQuery = ['productPriceQuery']
 

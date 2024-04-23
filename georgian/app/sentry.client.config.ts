@@ -9,24 +9,16 @@ if (process.env.NODE_ENV === 'production') {
     dsn: 'https://239eb75b18a65d836b6caf7972c166b6@o218807.ingest.us.sentry.io/4507095192829952',
 
     // Adjust this value in production, or use tracesSampler for greater control
-    tracesSampleRate: 1,
+    tracesSampleRate: 0,
 
-    // Setting this option to true will print useful information to the console while you're setting up Sentry.
+    // Disable debug mode in production for cleaner logs
     debug: false,
 
-    replaysOnErrorSampleRate: 1.0,
+    // Disable Sentry's replays to save resources
+    replaysOnErrorSampleRate: 0.0, // No replays on error
+    replaysSessionSampleRate: 0.0, // No session replays
 
-    // This sets the sample rate to be 10%. You may want this to be 100% while
-    // in development and sample at a lower rate in production
-    replaysSessionSampleRate: 0.1,
-
-    // You can remove this option if you're not planning to use the Sentry Session Replay feature:
-    integrations: [
-      Sentry.replayIntegration({
-        // Additional Replay configuration goes in here, for example:
-        maskAllText: true,
-        blockAllMedia: true,
-      }),
-    ],
+    // If you're not using Sentry's session replay feature, you can remove the replay integration
+    integrations: [],
   })
 }

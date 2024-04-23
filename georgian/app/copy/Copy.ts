@@ -15,6 +15,9 @@ export type Copy = {
   youHaveScored: string
   signInToContinue: string
   wipPage: string
+  purchase: string
+  synchingCheckout: string
+  synchingOrder: string
   family: string
   privacy: string
   purchasePromptTitle: string

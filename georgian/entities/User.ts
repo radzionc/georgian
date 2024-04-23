@@ -14,7 +14,20 @@ export type User = {
   updatedAt: number
 
   completedTickets: UserCompletedTickets
+
+  firstTestCompletedAt?: number
 }
+
+export const userReadonlyFields = [
+  'id',
+  'email',
+  'createdAt',
+  'updatedAt',
+] as const
+
+export type UserReadonlyFields = (typeof userReadonlyFields)[number]
+
+export type UserEditableFields = Exclude<keyof User, UserReadonlyFields>
 
 export const userDefaultFields: Pick<User, 'completedTickets'> = {
   completedTickets: makeRecord(ticketCategories, () => []),

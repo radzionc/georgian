@@ -1,6 +1,6 @@
 import { OAuthProvider } from '@lib/auth/OAuthProvider'
 import { AuthSession } from '@lib/auth/AuthSession'
-import { User } from '@georgian/entities/User'
+import { User, UserEditableFields } from '@georgian/entities/User'
 import { ApiMethod } from './ApiMethod'
 import { TicketKey } from '@georgian/entities/Ticket'
 
@@ -24,6 +24,7 @@ export interface ApiInterface {
   >
 
   user: ApiMethod<undefined, User>
+  updateUser: ApiMethod<Partial<Pick<User, UserEditableFields>>, undefined>
 
   sendAuthLinkByEmail: ApiMethod<{ email: string }, undefined>
 

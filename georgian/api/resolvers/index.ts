@@ -5,6 +5,7 @@ import { user } from '../users/resolvers/user'
 
 import { sendAuthLinkByEmail } from '../auth/resolvers/sendAuthLinkByEmail'
 import { setTicketCompletion } from '../exam/resolvers/setTicketCompletion'
+import { updateUser } from '../users/resolvers/updateUser'
 
 export const implementation: ApiImplementation = {
   authSessionWithEmail,
@@ -12,4 +13,5 @@ export const implementation: ApiImplementation = {
   sendAuthLinkByEmail,
   user,
   setTicketCompletion,
+  updateUser,
 }

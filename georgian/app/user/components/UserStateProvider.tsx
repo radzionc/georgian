@@ -39,9 +39,12 @@ export const UserStateProvider = ({ children }: ComponentWithChildrenProps) => {
   const updateState = useCallback(
     (newValue: User | ((prevValue: User) => User)) => {
       queryClient.setQueryData<User>(userStateQueryKey, (prevValue) => {
-        return typeof newValue === 'function'
-          ? newValue(prevValue as User)
-          : newValue
+        const newState =
+          typeof newValue === 'function'
+            ? newValue(prevValue as User)
+            : newValue
+
+        return newState
       })
     },
     [queryClient],

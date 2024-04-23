@@ -1885,6 +1885,7 @@ __metadata:
   resolution: "@georgian/app@workspace:georgian/app"
   dependencies:
     "@next/eslint-plugin-next": "npm:^13.4.11"
+    "@paddle/paddle-js": "npm:^1.0.3"
     "@sentry/nextjs": "npm:^7.105.0"
     "@tanstack/query-sync-storage-persister": "npm:^5.29.0"
     "@tanstack/react-query": "npm:^5.29.2"
@@ -2530,6 +2531,13 @@ __metadata:
   version: 0.1.1
   resolution: "@one-ini/wasm@npm:0.1.1"
   checksum: 673c11518dba2e582e42415cbefe928513616f3af25e12f6e4e6b1b98b52b3e6c14bc251a361654af63cd64f208f22a1f7556fa49da2bf7efcf28cb14f16f807
+  languageName: node
+  linkType: hard
+
+"@paddle/paddle-js@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@paddle/paddle-js@npm:1.0.3"
+  checksum: d1c36b07671526e8f06a3ba0aaed988ccf31362149cf46e1f0b877cd775d51a06a6472b3fa68849ddc1f45c1c06b729b04f7b24b67aa4c7e6f3b1bc54f7750fa
   languageName: node
   linkType: hard
 

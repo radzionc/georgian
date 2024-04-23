@@ -1,4 +1,4 @@
-import { ReactNode, useCallback } from 'react'
+import { useCallback } from 'react'
 import { useAuthSession } from '../hooks/useAuthSession'
 import { useBoolean } from '@lib/ui/hooks/useBoolean'
 import { Modal } from '@lib/ui/modal'
@@ -9,18 +9,9 @@ import { pathAttemptedWhileUnauthenticated } from '../hooks/useAuthRedirect'
 import { useRouter } from 'next/router'
 import { useCopy } from '../../copy/CopyProvider'
 import { analytics } from '../../analytics'
+import { ActionGuardProps } from '@lib/ui/props'
 
-type ActionType = () => void | Promise<void>
-
-type AuthorizedOnlyActionProps = {
-  action: ActionType
-  render: (params: { action: ActionType }) => ReactNode
-}
-
-export const AuthorizedOnlyAction = ({
-  action,
-  render,
-}: AuthorizedOnlyActionProps) => {
+export const AuthorizedOnlyAction = ({ action, render }: ActionGuardProps) => {
   const [authSession] = useAuthSession()
   const { asPath } = useRouter()
 

@@ -11,6 +11,7 @@ import { borderRadius } from '@lib/ui/css/borderRadius'
 import { Panel } from '@lib/ui/panel/Panel'
 import { TestHeader } from './TestHeader'
 import { AuthorizedOnlyAction } from '../../auth/components/AuthorizedOnlyAction'
+import { TestPaymentGuard } from './TestPaymentGuard'
 
 interface CategoryTestItemProps {
   testNumber: number
@@ -50,16 +51,22 @@ export const CategoryTestItem = ({ testNumber }: CategoryTestItemProps) => {
           <VStack gap={20}>
             {answers.map((answer, index) => (
               <AuthorizedOnlyAction
+                key={index}
                 action={() => answerCurrentTest(index)}
                 render={({ action }) => (
-                  <Option onClick={action} key={index}>
-                    <HStack fullWidth gap={8}>
-                      <Text>{ticketAnswerLetters[index]}.</Text>
-                      <Text style={{ textAlign: 'start' }}>
-                        {answer.content}
-                      </Text>
-                    </HStack>
-                  </Option>
+                  <TestPaymentGuard
+                    action={action}
+                    render={({ action }) => (
+                      <Option onClick={action}>
+                        <HStack fullWidth gap={8}>
+                          <Text>{ticketAnswerLetters[index]}.</Text>
+                          <Text style={{ textAlign: 'start' }}>
+                            {answer.content}
+                          </Text>
+                        </HStack>
+                      </Option>
+                    )}
+                  />
                 )}
               />
             ))}

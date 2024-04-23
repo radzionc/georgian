@@ -10,6 +10,7 @@ import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
 import { TestPreference, useTestPreferences } from '../hooks/useTestPreferences'
 import { useUserState } from '../../user/state/UserStateContext'
+import { useUpdateUserMutation } from '../../user/mutations/useUpdateUserMutation'
 
 interface CategoryTestProviderState {
   testPreference: TestPreference
@@ -86,17 +87,31 @@ export const CategoryTestProvider = ({
     )
   }, [currentTestNumber])
 
-  const answerCurrentTest = useCallback((answer: number) => {
-    setAnswers((prev) => [...prev, answer])
-    setCurrentTestNumber((prev) => {
-      if (prev === null) return null
+  const { mutate: updateUser } = useUpdateUserMutation()
+  const { state: userState } = useUserState()
+  const firstTestCompletedAt = userState?.firstTestCompletedAt
 
-      const next = prev + 1
-      if (next < testSize) return next
+  const answerCurrentTest = useCallback(
+    (answer: number) => {
+      if (
+        shouldBePresent(currentTestNumber) + 1 === testSize &&
+        !firstTestCompletedAt
+      ) {
+        updateUser({
+          firstTestCompletedAt: Date.now(),
+        })
+      }
 
-      return null
-    })
-  }, [])
+      setAnswers((prev) => [...prev, answer])
+      setCurrentTestNumber((prev) => {
+        const next = shouldBePresent(prev) + 1
+        if (next < testSize) return next
+
+        return null
+      })
+    },
+    [currentTestNumber, updateUser, firstTestCompletedAt],
+  )
 
   const testsOptions = useMemo(
     () => (testPreference === 'all' ? tickets : completedTickets),

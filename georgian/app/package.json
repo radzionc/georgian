@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@paddle/paddle-js": "^1.0.3",
     "@sentry/nextjs": "^7.105.0",
     "@tanstack/query-sync-storage-persister": "^5.29.0",
     "@tanstack/react-query": "^5.29.2",

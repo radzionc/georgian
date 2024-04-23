@@ -35,7 +35,8 @@ export const CategoryTestSummary = () => {
           {passedTestsCount} / {tests.length}
         </Text>
         <Text centered style={{ maxWidth: 360 }} color="supporting">
-          You've scored {toPercents(passedTestsCount / tests.length, 'round')}.{' '}
+          {copy.youHaveScored}{' '}
+          {toPercents(passedTestsCount / tests.length, 'round')}.{' '}
           {hasPassed
             ? copy.testCongratulation(
                 {

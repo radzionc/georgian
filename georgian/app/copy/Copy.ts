@@ -12,10 +12,17 @@ export type Copy = {
   citizenship: string
   investment: string
   other: string
+  youHaveScored: string
   signInToContinue: string
   wipPage: string
   family: string
   privacy: string
+  purchasePromptTitle: string
+  purchasePromptWithPrice: <R>(
+    variables: { price: any },
+    inject: Injector<R>,
+  ) => R
+  purchasePromptContent: string
   continueWithGoogle: string
   continueWithFacebook: string
   emailAddress: string

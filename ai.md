@@ -12,3 +12,4 @@ Additionally, to assist users in preparing for the interview, GeorgianCitizen pr
 
 To use the app on different devices, users need to register in the app so that data such as completed tickets and interview data will be stored on the server. The user can authorize access either via Google, Facebook, or email (magic link).
 
+To mark tickets as completed and to conduct test simulations, users must sign in. Also, only one test run is available for free; users must purchase a $24.99 lifetime product version for unlimited access to all app features.

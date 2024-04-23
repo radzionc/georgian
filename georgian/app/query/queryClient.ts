@@ -4,6 +4,7 @@ import { PersistentStateKey } from '@georgian/app/state/persistentState'
 import { convertDuration } from '@lib/utils/time/convertDuration'
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
 import { persistQueryClient } from '@tanstack/react-query-persist-client'
+import { paddleQueryKey } from '../paddle/hooks/usePaddleSdkQuery'
 
 const maxAge = convertDuration(1, 'd', 'ms')
 
@@ -21,7 +22,7 @@ export const getQueryClient = () => {
     key: PersistentStateKey.ReactQueryState,
   })
 
-  const doNotPersistQueries: QueryKey[] = []
+  const doNotPersistQueries: QueryKey[] = [paddleQueryKey]
 
   persistQueryClient({
     queryClient,

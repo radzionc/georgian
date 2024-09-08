@@ -1,0 +1,12 @@
+{
+  "name": "@georgian/interview-translation",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "sync": "npx tsx commands/sync.ts"
+  },
+  "dependencies": {
+    "@google-cloud/translate": "^8.0.2"
+  }
+}

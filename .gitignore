@@ -10,3 +10,5 @@
 node_modules
 
 set_env_vars.sh
+.env
+*.tsbuildinfo

@@ -1,0 +1,12 @@
+{
+  "name": "@georgian/data",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "openai": "^4.10.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "import": "npx tsx importTickets"
+  }
+}
